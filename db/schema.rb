@@ -10,7 +10,86 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_050317) do
+ActiveRecord::Schema.define(version: 2020_12_01_053338) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.boolean "is_correct"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "collage_items", force: :cascade do |t|
+    t.integer "collage_id", null: false
+    t.string "prompt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collage_id"], name: "index_collage_items_on_collage_id"
+  end
+
+  create_table "collages", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "curated_list_items", force: :cascade do |t|
+    t.string "prompt"
+    t.string "url"
+    t.integer "curated_list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["curated_list_id"], name: "index_curated_list_items_on_curated_list_id"
+  end
+
+  create_table "curated_lists", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "giftapes", force: :cascade do |t|
+    t.string "giftable_type"
+    t.integer "giftable_id"
+    t.integer "user_id", null: false
+    t.string "url_token"
+    t.datetime "finished_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["giftable_type", "giftable_id"], name: "index_giftapes_on_giftable_type_and_giftable_id"
+    t.index ["user_id"], name: "index_giftapes_on_user_id"
+  end
+
+  create_table "mixtapes", force: :cascade do |t|
+    t.string "name"
+    t.string "theme_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "content"
+    t.integer "quiz_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.integer "mixtape_id", null: false
+    t.string "youtube_url"
+    t.integer "start_time"
+    t.integer "end_time"
+    t.integer "order"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mixtape_id"], name: "index_tracks_on_mixtape_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +99,15 @@ ActiveRecord::Schema.define(version: 2020_12_01_050317) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "collage_items", "collages"
+  add_foreign_key "curated_list_items", "curated_lists"
+  add_foreign_key "giftapes", "users"
+  add_foreign_key "questions", "quizzes"
+  add_foreign_key "tracks", "mixtapes"
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mixtape: one
+  youtube_url: MyString
+  start_time: 1
+  end_time: 1
+  order: 1
+
+two:
+  mixtape: two
+  youtube_url: MyString
+  start_time: 1
+  end_time: 1
+  order: 1
