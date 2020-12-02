@@ -11,4 +11,9 @@ class CollagesController < ApplicationController
 
     # end
   end
+
+  def show
+    @collage = Collage.find(params[:id])
+  end
+
 end
