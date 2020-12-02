@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+@mixtape = Mixtape.new(name: 'My First Mixtape', theme_type: 'Retro')
+@mixtape.save!
