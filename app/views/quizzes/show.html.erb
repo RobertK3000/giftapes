@@ -1,0 +1,12 @@
+<h1>Quiz Show Pge</h1>
+<div class = "container mt-5">
+  <div class = "justify-content-center row">
+    <div class = "col-6">
+       <%= simple_form_for [@quiz, @question] do |q| %>
+       <%= q.input :content %>
+
+       <%= q.submit "Now let's add some answers"%>
+       <% end %>
+    </div>
+  </div>
+</div>
