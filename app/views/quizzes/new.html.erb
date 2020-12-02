@@ -1,0 +1,12 @@
+<div class = "container mt-5">
+  <div class = "justify-content-center row">
+    <div class = "col-6">
+      <h1>Let's create a quiz</h1>
+       <%= simple_form_for(@quiz) do |f| %>
+       <%= f.input :name, label: "What should we call it?" %>
+
+       <%= f.submit "Now let's add some questions"%>
+       <% end %>
+    </div>
+  </div>
+</div>
