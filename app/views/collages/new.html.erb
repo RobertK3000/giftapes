@@ -1,3 +1,17 @@
 <h2>Create new Collage</h2>
 
-<h3>Add collage Item</h3>
+<%= simple_form_for @collage do |f| %>
+  <%= f.simple_fields_for :collage_items do |c| %>
+    <%= c.input :prompt, placeholder: "Write something embarassing" %>
+    <%= c.input :photo, as: :file %>
+  <% end %>
+  <%= f.simple_fields_for :collage_items do |c| %>
+    <%= c.input :prompt, placeholder: "Write something embarassing" %>
+    <%= c.input :photo, as: :file %>
+  <% end %>
+  <%= f.simple_fields_for :collage_items do |c| %>
+    <%= c.input :prompt, placeholder: "Write something embarassing" %>
+    <%= c.input :photo, as: :file %>
+  <% end %>
+  <%= f.submit "Create Collage!" %>
+<% end %>

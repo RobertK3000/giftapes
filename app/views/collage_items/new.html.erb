@@ -1,1 +1,6 @@
 <h2>Create new collage item</h2>
+
+<%= simple_form_for [@collage, @collage_item] do |f| %>
+<%= f.input :prompt %>
+<%= f.input :photo, as: :file %>
+<% end %>

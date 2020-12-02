@@ -1,1 +1,5 @@
 <h2>Show page for specific collage</h2>
+
+<% @collage.collage_items.each do |item| %>
+  <p><%= item.prompt %></p>
+<% end %>
