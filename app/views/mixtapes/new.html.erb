@@ -1,23 +1,3 @@
-<h1>New mixtape</h2>
+<h1>New Mixtape</h1>
 
-<!-- Display total price -->
-<%= simple_form_for @mixtape do |f| %>
-  <%= f.input :name %>
-  <%= f.input :theme_type %>
-  <%= f.simple_fields_for :tracks do |ta| %>
-    <%= ta.input :youtube_url %>
-    <%= ta.input :start_time %>
-    <%= ta.input :end_time %>
-  <% end %>
-  <%= f.simple_fields_for :tracks do |tb| %>
-    <%= tb.input :youtube_url %>
-    <%= tb.input :start_time %>
-    <%= tb.input :end_time %>
-  <% end %>
-  <%= f.simple_fields_for :tracks do |tb| %>
-    <%= render 'track_fields', f: track %>
-  <% end %>
-
-
-  <%= f.submit "DONE!!!"%>
-<% end %>
+<%= render 'form' %>
