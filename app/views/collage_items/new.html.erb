@@ -1,6 +1,6 @@
 <h2>Create new collage item</h2>
 
-<%= simple_form_for [@collage, @collage_item] do |f| %>
+<%= simple_form_for [@collage, @collage_item], remote: true do |f| %>
 <%= f.input :prompt %>
 <%= f.file_field :photo %>
 <%= f.submit 'New item' %>
