@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'cloudinary'
 gem 'bootstrap'
+gem 'cocoon'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
