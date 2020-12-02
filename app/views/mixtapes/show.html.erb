@@ -1,4 +1,9 @@
 <h1>I am the show page for a mixtape</h1>
 
-<p><%= @mixtape.name %></p>
-<p><%= @mixtape.theme_type %></p>
+<p> The name of this mixtape is <%= @mixtape.name %></p>
+<p>The theme of this mixtape is <%= @mixtape.theme_type %></p>
+<% @mixtape.tracks.each do |track| %>
+<p><%= track.youtube_url %></p>
+<p>Start time: <%= track.start_time %>, End time: <%= track.end_time %></p>
+<% end %>
+

@@ -1,0 +1,20 @@
+<%= simple_form_for @mixtape do |f| %>
+  <%= f.input :name %>
+  <%= f.input :theme_type %>
+
+  <%= f.simple_fields_for :tracks do |ta| %>
+    <%= ta.input :youtube_url %>
+    <%= ta.input :start_time %>
+    <%= ta.input :end_time %>
+  <% end %>
+
+  <%= f.simple_fields_for :tracks do |track| %>
+    <%= render 'tracks/track_fields', f: track %>
+  <% end %>
+
+  <div class="links">
+    <%#= link_to_add_association "Add Track", f, :tracks %>
+  </div>
+
+  <%= f.submit "DONE!!!"%>
+<% end %>
