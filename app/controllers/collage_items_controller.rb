@@ -1,0 +1,3 @@
+class CollageItemsController < ApplicationController
+
+end
