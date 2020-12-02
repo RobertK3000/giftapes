@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2020_12_01_053338) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.boolean "is_correct"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_053338) do
   end
 
   create_table "collage_items", force: :cascade do |t|
-    t.integer "collage_id", null: false
+    t.bigint "collage_id", null: false
     t.string "prompt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_053338) do
   create_table "curated_list_items", force: :cascade do |t|
     t.string "prompt"
     t.string "url"
-    t.integer "curated_list_id", null: false
+    t.bigint "curated_list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["curated_list_id"], name: "index_curated_list_items_on_curated_list_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_12_01_053338) do
 
   create_table "giftapes", force: :cascade do |t|
     t.string "giftable_type"
-    t.integer "giftable_id"
-    t.integer "user_id", null: false
+    t.bigint "giftable_id"
+    t.bigint "user_id", null: false
     t.string "url_token"
     t.datetime "finished_at"
     t.datetime "created_at", precision: 6, null: false
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_053338) do
 
   create_table "questions", force: :cascade do |t|
     t.string "content"
-    t.integer "quiz_id", null: false
+    t.bigint "quiz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
@@ -81,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_053338) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.integer "mixtape_id", null: false
+    t.bigint "mixtape_id", null: false
     t.string "youtube_url"
     t.integer "start_time"
     t.integer "end_time"
