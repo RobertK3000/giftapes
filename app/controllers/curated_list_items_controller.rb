@@ -1,0 +1,2 @@
+class CuratedListItemsController < ApplicationController
+end
