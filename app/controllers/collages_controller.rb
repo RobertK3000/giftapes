@@ -7,6 +7,7 @@ class CollagesController < ApplicationController
   def create
     @collage = Collage.new
     if @collage.save
+      Giftape.create(giftable: @collage, user: current_user)
       redirect_to collage_path(@collage)
     else
       render :new
