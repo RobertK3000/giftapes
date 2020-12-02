@@ -17,7 +17,6 @@ Devise.setup do |config|
 
   # config.secret_key = '91feccb7a0dd922faebd43a5735c61c20d5ee9825981db59c41a52ca3e462f5c83f7c9dcc33cb57baaf666cad8bf9181fae837c411fdccae28637d4cb798a07c'
 
-
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
