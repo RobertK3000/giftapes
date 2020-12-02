@@ -1,0 +1,18 @@
+<h1><%= @curated_list.name %></h1>
+
+
+
+<% @curated_list.curated_list_items.each do |cli| %>
+  <ul>
+    <li> <%= cli.prompt %> <a href="<%= cli.url %>" target="_blank"> linky linky </a></li>
+  </ul>
+<% end %>
+
+ <h3>Let's add some more stuff!</h3>
+
+ <%= simple_form_for [@curated_list, @curated_list_item], remote: true do |f| %>
+   <%= f.input :prompt %>
+ <!-- add in form fields here -->
+   <%= f.input :url %>
+   <%= f.submit "Let's add another!!" %>
+ <% end %>

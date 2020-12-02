@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
+  resources :curated_lists, only: [:new, :create, :show] do
+    resources :curated_list_items, only: [:create]
+  end
 
   resources :collages, only: [:new, :create, :show] do
     resources :collage_items, only: [:new, :create, :show]
@@ -18,5 +23,6 @@ Rails.application.routes.draw do
   # post 'mixtapes/new', to: 'mixtapes#create'
 
   resources :mixtapes, only: [:show, :new, :create]
+
 
 end
