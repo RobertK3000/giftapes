@@ -15,10 +15,11 @@ class CollagesController < ApplicationController
 
   def show
     @collage = Collage.find(params[:id])
+    @collage_item = CollageItem.new
   end
 
   private
   def collage_params
-    params.require(:collage).permit(collage_items_attributes:[:prompt, :photo])
+    params.require(:collage).permit(collage_items_attributes:[:prompt, :photo, :collage])
   end
 end

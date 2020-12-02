@@ -7,11 +7,12 @@ class CollageItemsController < ApplicationController
   def create
     @collage_item = CollageItem.new(collage_item_params)
     @collage_item.collage = @collage
-    # if @collage.save
 
-    # else
-
-    # end
+    if @collage_item.save
+      redirect_to collage_path(@collage)
+    else
+      render :new
+    end
   end
 
   def show
