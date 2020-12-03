@@ -27,7 +27,7 @@ class CollagesController < ApplicationController
   def update
     @collage.update(collage_params)
     if @collage.save
-      redirect_to collage_path(@collage)
+      redirect_to edit_collage_path(@collage)
     else
       redirect_to edit_collage_path(@collage)
     end

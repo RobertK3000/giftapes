@@ -9,7 +9,7 @@
   <%= item.prompt %>
   <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
   <%= link_to "Delete",
-      collage_item_path(item),
+      collage_collage_item_path(@collage, item),
       method: :delete %>
 
 <% end %>
