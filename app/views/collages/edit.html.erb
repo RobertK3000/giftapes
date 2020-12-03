@@ -1,9 +1,17 @@
 <p>LINK BACK TO INDEX PAGE</p>
-<h2>Edit Collage</h2>
+<h2>Collages#Edit</h2>
+
+<%= link_to "Delete Collage",
+    collage_path(@collage),
+    method: :delete %>
 
 <% @collage.collage_items.each do |item| %>
   <%= item.prompt %>
   <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
+  <%= link_to "Delete",
+  collage_collage_item_path(@collage, item),
+  method: :delete %>
+
 <% end %>
 
 <%= simple_form_for @collage do |f| %>
@@ -14,4 +22,4 @@
   <%= f.submit "save" %>
 <% end %>
 
-<%= render 'new_item' %>
+<button onclick=""> render 'new_item' </button>
