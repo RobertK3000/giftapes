@@ -1,9 +1,9 @@
 <p>LINK BACK TO INDEX PAGE</p>
 <h2>Collages#Edit</h2>
 
-<%= link_to "Delete Collage",
+<p><%= link_to "Delete Collage",
     collage_path(@collage),
-    method: :delete %>
+    method: :delete %></p>
 
 <% @collage.collage_items.each do |item| %>
   <%= item.prompt %>
