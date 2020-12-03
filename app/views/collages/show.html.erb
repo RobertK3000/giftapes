@@ -1,6 +1,10 @@
 <p>LINK BACK TO INDEX PAGE</p>
 <h2>Collages#show</h2>
 
+<% if @collage.giftape.user == current_user %>
+  <%= link_to "Edit Page", edit_collage_path(@collage) %>
+<% end %>
+
 <% @collage.collage_items.each do |item| %>
   <h4><%= item.prompt %></h4>
   <%= cl_image_tag(item.photo.key, transformation: [
