@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resources :curated_list_items, only: [:create]
   end
 
-  resources :collages, only: [:new, :create, :show] do
-    resources :collage_items, only: [:new, :create, :show]
+  resources :collages, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :collage_items, only: [:new, :create, :show, :destroy]
   end
 
   resources :quizzes, only: [:new, :create, :show] do
