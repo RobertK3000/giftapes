@@ -2,9 +2,14 @@
 <h2>Show page for specific collage</h2>
 
 <%= link_to "Delete Collage",
+    collage_path(@collage),
     method: :delete %>
 
 <% @collage.collage_items.each do |item| %>
   <p><%= item.prompt %></p>
   <%= cl_image_tag(item.photo.key) %>
+  <%= link_to "Delete",
+    collage_collage_item_path(@collage, item),
+    method: :delete %>
+
 <% end %>

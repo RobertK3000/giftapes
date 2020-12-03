@@ -36,8 +36,7 @@ class CollagesController < ApplicationController
   def destroy
     @collage = Collage.find(params[:id])
     @collage.destroy
-    raise
-    # redirect_to new_collage_path
+    redirect_to new_collage_path
   end
 
   private
