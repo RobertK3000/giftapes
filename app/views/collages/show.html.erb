@@ -3,14 +3,5 @@
 
 <% @collage.collage_items.each do |item| %>
   <p><%= item.prompt %></p>
-  <button><%#= link_to "Delete Item",
-          collage_collage_item_path(@collage, item),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %></button>
-<% end %>
-
-<%= simple_form_for [@collage, @collage_item] do |c| %>
-  <%= c.input :prompt %>
-  <%= c.input :photo, as: :file %>
-  <%= c.submit "New item" %>
+  <img src= <%= url_for(item.photo) %> >
 <% end %>

@@ -20,11 +20,20 @@ class CollagesController < ApplicationController
   end
 
   def edit
-
+    @collage = Collage.find(params[:id])
+    @collage_item = CollageItem.new
   end
 
-  def patch
-
+  def update
+    @collage = Collage.find(params[:id])
+    @collage.update(collage_params)
+    raise
+    @collage.save!
+    if @collage.save
+      redirect_to collage_path(@collage)
+    else
+      redirect_to edit_collage_path(@collage)
+    end
   end
 
   private
