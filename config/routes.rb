@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # get 'mixtapes/new', to: "mixtapes#new"
   # post 'mixtapes/new', to: 'mixtapes#create'
 
-  resources :mixtapes, only: [:show, :new, :create]
+  resources :mixtapes, only: [:show, :new, :create, :edit, :update]
 
 
 end
