@@ -13,11 +13,12 @@ Rails.application.routes.draw do
   end
 
   resources :quizzes, only: [:new, :create, :show] do
-    resources :questions, only: [:create]
+    resources :questions, only: [:create, :destroy]
     end
-    resources :questions, only: :show do
+    resources :questions, only: [:show] do
       resources :answers, only: [:create]
     end
+    resources :answers, only: [:show]
 
   # get 'mixtapes/:id', to: "mixtapes#show"
   # get 'mixtapes/new', to: "mixtapes#new"

@@ -1,1 +1,17 @@
-<h1>Hello</h1>
+<h1>Quiz Name: <%= @question.quiz.name %></h1>
+<p>Question: <%=  @question.content%></p>
+<div class = "justify-content-center row">
+    <div class = "col-6">
+       <%= simple_form_for [@question, @answer] do |q| %>
+       <%= simple_fields_for :other do |o| %> 
+       <%= o.input :a, label: "A"%>
+       <%= o.input :b, label: "B"%>
+       <%= o.input :c, label: "C"%>
+       <%= o.input :d, label: "D"%>
+       <% end %>
+       <%= q.input :letter, collection: Answer::ANSWERS %>
+       <%= q.submit "Save the question!"%>
+       <% end %>
+    </div>
+  </div>
+</div>

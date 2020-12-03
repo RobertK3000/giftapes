@@ -20,6 +20,12 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to quiz_url(@question.quiz)
+  end
+
 private
 
   def question_params
