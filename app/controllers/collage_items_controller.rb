@@ -1,6 +1,6 @@
 class CollageItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_collage, only: [:new, :create, :show, :destroy]
+  before_action :set_collage, only: [:new, :create, :destroy]
 
   def new
     @collage_item = CollageItem.new
