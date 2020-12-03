@@ -16,7 +16,6 @@ class CollagesController < ApplicationController
 
   def show
     @collage = Collage.find(params[:id])
-    @collage_item = CollageItem.new
   end
 
   def edit

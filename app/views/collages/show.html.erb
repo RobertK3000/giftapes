@@ -3,7 +3,5 @@
 
 <% @collage.collage_items.each do |item| %>
   <p><%= item.prompt %></p>
-  <img src= <%= url_for(item.photo) %> >
+  <%= cl_image_tag(item.photo.key) %>
 <% end %>
-
-<%= cl_image_tag("b8oarmqsdkieko1gcyug", crop: :fill) %>
