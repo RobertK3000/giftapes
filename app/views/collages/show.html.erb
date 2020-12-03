@@ -1,6 +1,9 @@
 <p>LINK BACK TO INDEX PAGE</p>
 <h2>Show page for specific collage</h2>
 
+<%= link_to "Delete Collage",
+    method: :delete %>
+
 <% @collage.collage_items.each do |item| %>
   <p><%= item.prompt %></p>
   <%= cl_image_tag(item.photo.key) %>

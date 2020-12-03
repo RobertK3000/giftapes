@@ -6,12 +6,12 @@
   <%= image_tag(item.photo) %>
 <% end %>
 
-<%#= simple_form_for @collage do |f| %>
-  <%#= f.simple_fields_for :collage_items do |c| %>
-    <%#= c.input :prompt%>
-    <%#= c.file_field :photo %>
-  <%# end %>
-  <%#= f.submit "save" %>
-<%# end %>
+<%= simple_form_for @collage do |f| %>
+  <%= f.simple_fields_for :collage_items do |c| %>
+    <%= c.input :prompt%>
+    <%= c.input :photo, as: :file %>
+  <% end %>
+  <%= f.submit "save" %>
+<% end %>
 
-<%#= render 'new_item' %>
+<%= render 'new_item' %>

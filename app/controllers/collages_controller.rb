@@ -35,6 +35,13 @@ class CollagesController < ApplicationController
     end
   end
 
+  def destroy
+    @collage = Collage.find(params[:id])
+    @collage.destroy
+    raise
+    # redirect_to new_collage_path
+  end
+
   private
   def collage_params
     params.require(:collage).permit(collage_items_attributes:[:prompt, :photo, :collage])
