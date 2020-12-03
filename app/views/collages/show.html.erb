@@ -6,13 +6,14 @@
 <% end %>
 
 <% @collage.collage_items.each do |item| %>
-  <h4><%= item.prompt %></h4>
-  <%= cl_image_tag(item.photo.key, transformation: [
-      # Adds text on the image hahaha
-      { width: 400, height: 450, crop:'fill' },
-      { overlay: { font_family: "Cookie", font_size: 40, font_weight: "bold", text: "Love"},
-        effect: "colorize",
-        color: "#f08" },
-      { angle: 20, flags: "layer_apply", x: -45, y: 44 }]) %>
-
+  <a href=<%= collage_item_path(item)%>>
+    <h4><%= item.prompt %></h4>
+    <%= cl_image_tag(item.photo.key, transformation: [
+        # Adds text on the image hahaha
+        { width: 400, height: 450, crop:'fill' },
+        { overlay: { font_family: "Cookie", font_size: 40, font_weight: "bold", text: "Love"},
+          effect: "colorize",
+          color: "#f08" },
+        { angle: 20, flags: "layer_apply", x: -45, y: 44 }]) %>
+  </a>
 <% end %>

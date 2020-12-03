@@ -11,7 +11,7 @@ class CollagesController < ApplicationController
 
     if @collage.save
       Giftape.create(giftable: @collage, user: current_user)
-      redirect_to edit_collage_path(@collage)
+      redirect_to edit_collage_path(@collage,  anchor: "collage-item-#{@collage_item.id}")
     else
       render :new
     end

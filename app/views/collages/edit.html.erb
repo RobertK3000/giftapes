@@ -5,13 +5,16 @@
     collage_path(@collage),
     method: :delete %></p>
 
-<% @collage.collage_items.each do |item| %>
-  <%= item.prompt %>
-  <%= link_to "Delete",
-      collage_collage_item_path(@collage, item),
-      method: :delete %>
-  <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
-<% end %>
+<ul>
+  <% @collage.collage_items.each do |item| %>
+    <li id="collage-item-<%= item.id %>">
+    <%= item.prompt %>
+    <%= link_to "Delete",
+        collage_collage_item_path(@collage, item),
+        method: :delete %>
+    <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
+  <% end %></li>
+</ul>
 
 <%= simple_form_for @collage, remote: true do |c| %>
   <%#= c.input :name %>
