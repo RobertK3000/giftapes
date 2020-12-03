@@ -8,8 +8,8 @@
   </ul>
 <% end %>
 
-<%= link_to "delete this list? :(",
-            new_curated_list_path,
+<%= link_to 'delete this list?',
+            curated_list_path(@curated_list),
             method: :delete,
             data: { confirm: "Are you really really sure?!" } %>
 
@@ -22,6 +22,9 @@
    <%= f.submit "Let's add another!!" %>
  <% end %>
 
+
+<%= link_to "Return to Giftape home/my giftapes", curated_lists_path %>
+  <!-- or dashboard/my giftapes path -->
 
 
  <!-- if the URL does not have "https://www" at the beginning,

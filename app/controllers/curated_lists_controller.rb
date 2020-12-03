@@ -21,8 +21,17 @@ class CuratedListsController < ApplicationController
   end
 
   def destroy
+
+    @curated_list = CuratedList.find(params[:id])
     @curated_list.destroy
-    # redirect_to curated_lists_path
+    redirect_to new_curated_list_path
+
+    # respond_to do |format|
+    #   format.html { redirect_to curated_lists_path, notice: 'Item was removed.' }
+    # end
+
+
+
   end
 
   private
