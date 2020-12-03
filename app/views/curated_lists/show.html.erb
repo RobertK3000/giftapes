@@ -4,7 +4,7 @@
 
 <% @curated_list.curated_list_items.each do |cli| %>
   <ul>
-    <li> <%= cli.prompt %> <a href="<%= cli.url %>" target="_blank"> linky linky </a></li>
+    <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
   </ul>
 <% end %>
 

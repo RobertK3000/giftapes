@@ -9,6 +9,7 @@ class CuratedListsController < ApplicationController
     @curated_list = CuratedList.new(curated_list_params)
     if @curated_list.save
       redirect_to curated_list_path(@curated_list)
+      Giftape.create(giftable: @curated_list, user: current_user)
     else
       render :new
     end
