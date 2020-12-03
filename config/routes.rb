@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :collages, only: [:new, :create, :show] do
-    resources :collage_items, only: [:new, :create, :show]
+    resources :collage_items, only: [:new, :create, :show, :destroy]
   end
 
   resources :quizzes, only: [:new, :create, :show] do

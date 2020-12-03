@@ -19,6 +19,14 @@ class CollagesController < ApplicationController
     @collage_item = CollageItem.new
   end
 
+  def edit
+
+  end
+
+  def patch
+
+  end
+
   private
   def collage_params
     params.require(:collage).permit(collage_items_attributes:[:prompt, :photo, :collage])

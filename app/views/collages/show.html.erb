@@ -1,7 +1,12 @@
+<p>LINK BACK TO INDEX PAGE</p>
 <h2>Show page for specific collage</h2>
 
 <% @collage.collage_items.each do |item| %>
   <p><%= item.prompt %></p>
+  <button><%#= link_to "Delete Item",
+          collage_collage_item_path(@collage, item),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %></button>
 <% end %>
 
 <%= simple_form_for [@collage, @collage_item] do |c| %>

@@ -21,6 +21,11 @@ class CollageItemsController < ApplicationController
     @collage_item = CollageItem.find(params[:id])
   end
 
+  def destroy
+    @collage_item = CollageItem.find(params[:id])
+    @collage_item.destroy
+  end
+
   private
 
   def set_collage
