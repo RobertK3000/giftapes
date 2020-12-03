@@ -26,8 +26,6 @@ class CollagesController < ApplicationController
   def update
     @collage = Collage.find(params[:id])
     @collage.update(collage_params)
-    raise
-    @collage.save!
     if @collage.save
       redirect_to collage_path(@collage)
     else
