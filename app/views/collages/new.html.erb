@@ -1,3 +1,5 @@
+<p>LINK BACK TO INDEX PAGE </p>
+
 <h2>Create new Collage</h2>
 
 <%= simple_form_for @collage do |f| %>
@@ -7,11 +9,11 @@
   <% end %>
   <%= f.simple_fields_for :collage_items do |c| %>
     <%= c.input :prompt, placeholder: "Write something embarassing" %>
-    <%= c.input :photo, as: :file %>
+    <%= c.file_field :photo %>
   <% end %>
   <%= f.simple_fields_for :collage_items do |c| %>
     <%= c.input :prompt, placeholder: "Write something embarassing" %>
-    <%= c.input :photo, as: :file %>
+    <%= c.file_field :photo %>
   <% end %>
   <%= f.submit "Create Collage!" %>
 <% end %>

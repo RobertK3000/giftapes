@@ -1,11 +1,17 @@
+<p>LIHNK BACK TO INDEX PAGE</p>
 <h2>Edit Collage</h2>
 
-<%= simple_form_for @collage do |f| %>
-  <%= f.simple_fields_for :collage_items do |c| %>
-    <%= c.input :prompt%>
-    <%= c.input :photo%>
-  <% end %>
-  <%= f.submit "save" %>
+<% @collage.collage_items.each do |item| %>
+  <%= item.prompt %>
+  <%= image_tag(item.photo) %>
 <% end %>
 
-<%= render 'new_item' %>
+<%#= simple_form_for @collage do |f| %>
+  <%#= f.simple_fields_for :collage_items do |c| %>
+    <%#= c.input :prompt%>
+    <%#= c.file_field :photo %>
+  <%# end %>
+  <%#= f.submit "save" %>
+<%# end %>
+
+<%#= render 'new_item' %>
