@@ -1,9 +1,11 @@
 <p>LINK BACK TO INDEX PAGE</p>
 <h2>Show page for specific collage</h2>
 
-<%= link_to "Delete Collage",
-    collage_path(@collage),
-    method: :delete %>
+<% if @collage.giftape.user == current_user %>
+  <%= link_to "Delete Collage",
+      collage_path(@collage),
+      method: :delete %>
+<% end %>
 
 <% @collage.collage_items.each do |item| %>
   <p><%= item.prompt %></p>
