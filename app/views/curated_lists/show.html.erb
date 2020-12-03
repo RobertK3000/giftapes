@@ -1,18 +1,44 @@
-q<h1><%= @curated_list.name %></h1>
+<h1><%= @curated_list.name %></h1>
 
+<div class = "container mt-5">
+  <div class = "justify-content-center row">
+    <div class = "col-6">
+      <h1><%= @curated_list.name %></h1>
+      <% @curated_list.curated_list_items.each do |cli| %>
+        <ul>
+          <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
+        </ul>
+      <% end %>
 
+      <%= link_to 'delete this list? :(',
+                  curated_list_path(@curated_list),
+                  method: :delete,
+                  data: { confirm: "Are you really really sure?!" },
+                  class:"btn btn-info", id:"delete-btn" %>
 
-<% @curated_list.curated_list_items.each do |cli| %>
-  <ul>
-    <li> <%= cli.prompt %> <a href="<%= cli.url %>" target="_blank"> linky linky </a></li>
-  </ul>
-<% end %>
+      <br>
 
- <h3>Let's add some more stuff!</h3>
+      <h3>~Let's add some content!!~~</h3>
 
- <%= simple_form_for [@curated_list, @curated_list_item], remote: true do |f| %>
-   <%= f.input :prompt %>
- <!-- add in form fields here -->
-   <%= f.input :url %>
-   <%= f.submit "Let's add another!!" %>
- <% end %>
+      <%= simple_form_for [@curated_list, @curated_list_item], remote: true do |f| %>
+       <%= f.input :prompt, label: "Write something about the link..", placeholder: "..in here!" %>
+       <%= f.input :url, label: "The URL...", placeholder: "..goes here :)" %>
+    <!-- throw an error message if the user does not  put in the whole link/ or put this within the list loop -->
+       <%= f.submit "Let's add another!!" %>
+      <% end %>
+
+      <br>
+      <%= link_to "Return to Giftape home/my giftapes", curated_lists_path,
+          class:"btn btn-info", id:"home-btn" %>
+        <!-- NEED TO LINK TO DASHBOARD/HOME path -->
+    </div>
+  </div>
+</div>
+
+ <!-- if the URL does not have "https://www" at the beginning,
+      insert that string at the start,
+      otherwise/else,
+      keep it the same-->
+
+<!-- if a URL is not added,
+      display an error message -->

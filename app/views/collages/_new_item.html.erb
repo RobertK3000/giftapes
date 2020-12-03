@@ -1,0 +1,5 @@
+<%= simple_form_for [@collage, @collage_item] do |c| %>
+  <%= c.input :prompt %>
+  <%= c.input :photo, as: :file %>
+  <%= c.submit "New item" %>
+<% end %>
