@@ -1,5 +1,5 @@
 class CuratedListItemsController < ApplicationController
-
+skip_before_action :verify_authenticity_token
 
   def create
   @curated_list = CuratedList.find(params[:curated_list_id])
