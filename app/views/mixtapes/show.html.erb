@@ -11,6 +11,15 @@
 
 <br>
 
-<div id='player'>
-  <script src="src.index.js"></script>
+<div
+  class="js-mixtape-youtube-player"
+  data-playlist-videos='[{"url": "https://www.youtube.com/watch?v=3lWjhgJ-aVI", "start": 100, "end": 110}, {"url": "https://www.youtube.com/watch?v=s732BigTxZk", "start": 50, "end": 55 }, {"url": "https://www.youtube.com/watch?v=4Z0TeaTzo_U", "start": 80, "end": 100}]'
+>
+  <div class="js-video-controls">
+    <button class="js-play-pause" type="button">Play</button>
+  </div>
+
+  <div id="player"></div>
 </div>
+
+<script src="src/index.js"></script>
