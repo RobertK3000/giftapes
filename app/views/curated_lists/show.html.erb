@@ -8,6 +8,11 @@
   </ul>
 <% end %>
 
+<%= link_to "delete this list? :(",
+            new_curated_list_path,
+            method: :delete,
+            data: { confirm: "Are you really really sure?!" } %>
+
  <h3>~Let's add some content!!~~</h3>
 
  <%= simple_form_for [@curated_list, @curated_list_item], remote: true do |f| %>

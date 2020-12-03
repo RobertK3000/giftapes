@@ -20,6 +20,11 @@ class CuratedListsController < ApplicationController
     @curated_list_item = CuratedListItem.new
   end
 
+  def destroy
+    @curated_list.destroy
+    # redirect_to curated_lists_path
+  end
+
   private
 
   def curated_list_params
