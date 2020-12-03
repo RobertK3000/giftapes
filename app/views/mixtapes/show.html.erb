@@ -7,3 +7,10 @@
 <p>Start time: <%= track.start_time %>, End time: <%= track.end_time %></p>
 <% end %>
 
+<%= link_to "Edit tracks", edit_mixtape_path, class:"btn btn-info btn-txt" %>
+
+<br>
+
+<div id='player'>
+  <script src="src.index.js"></script>
+</div>

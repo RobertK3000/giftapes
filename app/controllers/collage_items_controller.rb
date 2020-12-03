@@ -1,5 +1,7 @@
 class CollageItemsController < ApplicationController
-  before_action :set_collage, only: [:new, :create, :show]
+  skip_before_action :verify_authenticity_token
+  before_action :set_collage, only: [:new, :create, :show, :destroy]
+
   def new
     @collage_item = CollageItem.new
   end
@@ -17,6 +19,13 @@ class CollageItemsController < ApplicationController
 
   def show
     @collage_item = CollageItem.find(params[:id])
+  end
+
+  def destroy
+    @collage_item = CollageItem.find(params[:id])
+    @collage_item.destroy
+
+    redirect_to collage_path(@collage)
   end
 
   private

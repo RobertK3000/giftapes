@@ -1,0 +1,15 @@
+<h2>My Giftapes Dashboard</h2>
+
+<ul>
+  <li>
+  <% @giftapes.each do |giftape| %>
+    <% if giftape.giftable_type != 'Collage' %>
+      <%= giftape.giftable.name %>
+    <% end %>
+    <p><%= giftape.giftable_type %></p>
+    <p><%= giftape.updated_at %></p>
+  <% end %>
+  </li>
+</ul>
+
+<%# name of giftape, links to show page of giftable %>

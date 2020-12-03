@@ -7,14 +7,14 @@
       <%= render 'track_fields', f: track %>
     <% end %>
 
-  <% @mixtape.errors.each do |attr, msg|  %>
-   <%= msg %>
-  <% end %>
+    <% @mixtape.errors.each do |attr, msg|  %>
+     <%= msg %>
+    <% end %>
 
     <div class="links">
-      <%= link_to_add_association "Add another track", f, :tracks, class:"btn btn-info btn-txt" %>
+      <%= link_to_add_association "Add Track", f, :tracks, class:"btn btn-info btn-txt" %>
     </div>
 
   </div>
-  <%= f.submit "Record it!!!"%>
+  <%= f.submit "Rerecord it!!!"%>
 <% end %>
