@@ -1,9 +1,21 @@
-<h1>Quiz Show Pge</h1>
 <div class = "container mt-5">
+  <h1>Quiz Show Page</h1>
+    <%= @quiz.name %>
+    <% @quiz.questions.each do |question| %>
+      <p><%= question.content %></p>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li>
+            <%= answer.letter %> ) <%= answer.content %>
+          </li>
+        <% end %>
+        <%= link_to "Delete Question", quiz_question_path(@quiz, question), method: :delete %>
+      </ul>
+    <% end%>
   <div class = "justify-content-center row">
     <div class = "col-6">
        <%= simple_form_for [@quiz, @question] do |q| %>
-       <%= q.input :content %>
+       <%= q.input :content, label: "Add a Question"%>
 
        <%= q.submit "Now let's add some answers"%>
        <% end %>
