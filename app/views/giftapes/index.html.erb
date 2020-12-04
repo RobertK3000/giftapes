@@ -4,7 +4,7 @@
   <li>
   <% @giftapes.each do |giftape| %>
     <% if giftape.giftable_type != 'Collage' %>
-      <%= giftape.giftable.name %>
+      <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
     <% end %>
     <p><%= giftape.giftable_type %></p>
     <p><%= giftape.updated_at %></p>
