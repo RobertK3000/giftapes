@@ -16,6 +16,12 @@ class QuizzesController < ApplicationController
     @question = Question.new
   end
 
+  def destroy
+    @quiz = Quiz.find(params[:id])
+    @quiz.destroy
+    redirect_to my_giftapes_path
+  end
+
 private
 
   def quiz_params
