@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :collage_items, only: [:show]
 
   # QUIZZES
-  resources :quizzes, only: [:new, :create, :show] do
+  resources :quizzes, only: [:new, :create, :show, :destroy] do
     resources :questions, only: [:create, :destroy]
     end
     resources :questions, only: [:show] do
