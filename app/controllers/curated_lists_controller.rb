@@ -24,7 +24,7 @@ class CuratedListsController < ApplicationController
 
     @curated_list = CuratedList.find(params[:id])
     @curated_list.destroy
-    redirect_to new_curated_list_path
+    redirect_to my_giftapes_path
 
     # respond_to do |format|
     #   format.html { redirect_to curated_lists_path, notice: 'Item was removed.' }

@@ -24,7 +24,8 @@ skip_before_action :verify_authenticity_token
 
     @curated_list_item = CuratedListItem.find(params[:id])
     @curated_list_item.destroy
-    redirect_to curated_lists_path(@curated_list_item.curated_list)
+    # redirect_to quiz_url(@question.quiz)
+    redirect_to curated_list_url(@curated_list_item.curated_list)
   end
 
   private
