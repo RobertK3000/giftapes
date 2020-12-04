@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # LISTS
   resources :curated_lists, only: [:new, :create, :show, :destroy] do
-    resources :curated_list_items, only: [:create]
+    resources :curated_list_items, only: [:create, :new, :destroy]
   end
 
   # COLLAGES

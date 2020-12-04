@@ -8,7 +8,9 @@
         <ul>
           <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
         </ul>
+        <%= link_to "delete this list item", curated_list_curated_list_items_path(@curated_list, @curated_list_item), method: :delete %>
       <% end %>
+
 
       <%= link_to 'delete this list? :(',
                   curated_list_path(@curated_list),
@@ -28,7 +30,7 @@
       <% end %>
 
       <br>
-      <%= link_to "Return to Giftape home/my giftapes", my_giftapes_path,
+      <%= link_to "Return to my giftapes", my_giftapes_path,
           class:"btn btn-info", id:"home-btn" %>
         <!-- NEED TO LINK TO DASHBOARD/HOME path -->
     </div>
