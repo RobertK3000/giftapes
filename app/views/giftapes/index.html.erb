@@ -12,9 +12,11 @@
 <ul>
   <li>
   <% @giftapes.each do |giftape| %>
-    <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
-    <p><%= link_to giftape.giftable_type%></p>
-    <p><%= giftape.updated_at %></p>
+    <% unless giftape.giftable.nil? %>
+      <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
+      <p><%= giftape.giftable.class %></p>
+      <p>Last Editied: <%= giftape.giftable.updated_at.inspect %></p>
+    <% end %>
   <% end %>
   </li>
 </ul>
