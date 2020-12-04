@@ -1,15 +1,20 @@
 <h2>My Giftapes Dashboard</h2>
 
+<h3>Create New Giftape</h3>
+<div>
+<%# Made this for demo, we can refactor it later! %>
+  <%= link_to "+ MIXTAPE", new_mixtape_path %>
+  <%= link_to "+ QUIZ", new_quiz_path %>
+  <%= link_to "+ LIST", new_curated_list_path %>
+  <%= link_to "+ COLLAGE", new_collage_path %>
+</div>
+
 <ul>
   <li>
   <% @giftapes.each do |giftape| %>
-    <% if giftape.giftable_type != 'Collage' %>
-      <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
-    <% end %>
+    <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
     <p><%= link_to giftape.giftable_type%></p>
     <p><%= giftape.updated_at %></p>
   <% end %>
   </li>
 </ul>
-
-<%# name of giftape, links to show page of giftable %>

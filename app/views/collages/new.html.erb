@@ -1,5 +1,7 @@
 <%= link_to "Back to Dashboard", my_giftapes_path %>
 
 <h2>Create new Collage</h2>
-
-<%= render 'form' %>
+<%= simple_form_for @collage do |c| %>
+  <%= c.input :name %>
+  <%= c.submit %>
+<% end %>

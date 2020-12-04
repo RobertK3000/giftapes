@@ -3,7 +3,7 @@ class CollagesController < ApplicationController
 
   def new
     @collage = Collage.new
-    @collage.collage_items.build
+    # @collage.collage_items.build
   end
 
   def create
@@ -11,7 +11,7 @@ class CollagesController < ApplicationController
 
     if @collage.save
       Giftape.create(giftable: @collage, user: current_user)
-      redirect_to edit_collage_path(@collage,  anchor: "collage-item-#{@collage_item.id}")
+      redirect_to edit_collage_path(@collage)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class CollagesController < ApplicationController
   def update
     @collage.update(collage_params)
     if @collage.save
-      redirect_to edit_collage_path(@collage)
+      redirect_to collage_path(@collage)
     else
       redirect_to edit_collage_path(@collage)
     end
@@ -35,7 +35,7 @@ class CollagesController < ApplicationController
 
   def destroy
     @collage.destroy
-    redirect_to new_collage_path
+    redirect_to my_giftapes_path
   end
 
   private
@@ -45,6 +45,6 @@ class CollagesController < ApplicationController
   end
 
   def collage_params
-    params.require(:collage).permit(collage_items_attributes:[:prompt, :id, :photo, :collage, :_destroy])
+    params.require(:collage).permit(:name, collage_items_attributes:[:prompt, :id, :photo, :collage, :_destroy])
   end
 end
