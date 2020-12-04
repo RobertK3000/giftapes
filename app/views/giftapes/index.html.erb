@@ -3,11 +3,16 @@
 <ul>
   <li>
   <% @giftapes.each do |giftape| %>
-    <% if giftape.giftable_type != 'Collage' %>
+      <% unless giftape.giftable.nil? %>
       <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
-    <% end %>
-    <p><%= giftape.giftable_type %></p>
+    <p><%= giftape.giftable.class %></p>
     <p><%= giftape.updated_at %></p>
+    <%= link_to 'delete? :(',
+                polymorphic_path(giftape.giftable),
+                method: :delete,
+                data: { confirm: "Are you really really sure?!" },
+                class:"btn btn-info", id:"delete-btn" %>
+    <% end %>
   <% end %>
   </li>
 </ul>

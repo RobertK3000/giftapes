@@ -30,6 +30,14 @@ class MixtapesController < ApplicationController
     redirect_to mixtape_path(@mixtape)
   end
 
+  def destroy
+    @mixtape = Mixtape.find(params[:id])
+    @mixtape.destroy
+    redirect_to my_giftapes_path
+  end
+
+  private
+
 
   def mixtape_params
     params.require(:mixtape).permit(:name, :theme_type, tracks_attributes: [:id, :youtube_url, :start_time, :end_time, :_destroy])
