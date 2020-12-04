@@ -28,6 +28,13 @@
   <%= c.submit 'Save' %>
 <% end %>
 
+<form id="giphy-search-form">
+  <input type="text" name="giphy-search" id="giphy-search-query" placeholder="Search for GIFs">
+  <input type="submit" value="Get GIFs">
+</form>
+
+<div id="giphy-results">
+</div>
 <%#= simple_form_for @collage do |f| %>
   <%#= f.simple_fields_for :collage_items do |c| %>
     <%#= c.input :prompt%>
