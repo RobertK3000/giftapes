@@ -12,10 +12,15 @@
 <ul>
   <li>
   <% @giftapes.each do |giftape| %>
-    <% unless giftape.giftable.nil? %>
+      <% unless giftape.giftable.nil? %>
       <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
-      <p><%= giftape.giftable.class %></p>
-      <p>Last Editied: <%= giftape.giftable.updated_at.inspect %></p>
+    <p><%= giftape.giftable.class %></p>
+    <p>Last Editied: <%= giftape.giftable.updated_at.inspect %></p>
+    <%= link_to 'delete? :(',
+                polymorphic_path(giftape.giftable),
+                method: :delete,
+                data: { confirm: "Are you really really sure?!" },
+                class:"btn btn-info", id:"delete-btn" %>
     <% end %>
   <% end %>
   </li>

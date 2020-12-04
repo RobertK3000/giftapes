@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :answers, only: [:show]
 
   # MIXTAPES
-  resources :mixtapes, only: [:show, :new, :create, :edit, :update]
+  resources :mixtapes, only: [:show, :new, :create, :edit, :update, :destroy]
   # get 'mixtapes/:id', to: "mixtapes#show"
   # get 'mixtapes/new', to: "mixtapes#new"
   # post 'mixtapes/new', to: 'mixtapes#create'
