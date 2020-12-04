@@ -6,7 +6,7 @@
     <% if giftape.giftable_type != 'Collage' %>
       <%= giftape.giftable.name %>
     <% end %>
-    <p><%= giftape.giftable_type %></p>
+    <p><%= link_to giftape.giftable_type%></p>
     <p><%= giftape.updated_at %></p>
   <% end %>
   </li>
