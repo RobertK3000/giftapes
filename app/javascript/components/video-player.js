@@ -11,6 +11,8 @@ const initMixtape = () => {
     );
     const playPauseBtnEl = videoControlsEl.querySelector(".js-play-pause");
 
+    const pauseBtnEl = videoControlsEl.querySelector(".js-pause");
+
     const videos = JSON.parse(mixtapeYoutubePlayerEl.dataset.playlistVideos);
 
     const getVideoIdFromYoutubeUrl = (youtubeUrl) =>
@@ -57,7 +59,11 @@ const initMixtape = () => {
           currentVideoState === YT.PlayerState.UNSTARTED
         ) {
           youtubePlayer.playVideo();
-        } else if (currentVideoState === YT.PlayerState.PLAYING) {
+        }
+      });
+
+      pauseBtnEl.addEventListener("click", function () {
+        if (currentVideoState === YT.PlayerState.PLAYING) {
           youtubePlayer.pauseVideo();
         }
       });
@@ -81,11 +87,11 @@ const initMixtape = () => {
         }
       } else {
         currentVideoState = event.data;
-        playPauseBtnEl.innerHTML =
-          event.data === YT.PlayerState.UNSTARTED ||
-          event.data === YT.PlayerState.PAUSED
-            ? "Play"
-            : "Pause";
+        // playPauseBtnEl.innerHTML =
+        //   event.data === YT.PlayerState.UNSTARTED ||
+        //   event.data === YT.PlayerState.PAUSED
+        //     ? "Play ▶️"
+        //     : "Pause ⏸";
       }
     }
 
