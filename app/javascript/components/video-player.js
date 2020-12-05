@@ -11,6 +11,8 @@ const initMixtape = () => {
     );
     const playPauseBtnEl = videoControlsEl.querySelector(".js-play-pause");
 
+    const pauseBtnEl = videoControlsEl.querySelector(".js-pause");
+
     const videos = JSON.parse(mixtapeYoutubePlayerEl.dataset.playlistVideos);
 
     const getVideoIdFromYoutubeUrl = (youtubeUrl) =>
@@ -31,8 +33,9 @@ const initMixtape = () => {
 
     window.onYouTubeIframeAPIReady = function () {
       player = new window.YT.Player("player", {
-        height: "500",
-        width: "400",
+        // height + width = 0 to hide video
+        height: "0",
+        width: "0",
         videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
         playerVars: {
           start: videos[currentTrack].start,
@@ -57,7 +60,11 @@ const initMixtape = () => {
           currentVideoState === YT.PlayerState.UNSTARTED
         ) {
           youtubePlayer.playVideo();
-        } else if (currentVideoState === YT.PlayerState.PLAYING) {
+        }
+      });
+
+      pauseBtnEl.addEventListener("click", function () {
+        if (currentVideoState === YT.PlayerState.PLAYING) {
           youtubePlayer.pauseVideo();
         }
       });
@@ -81,11 +88,11 @@ const initMixtape = () => {
         }
       } else {
         currentVideoState = event.data;
-        playPauseBtnEl.innerHTML =
-          event.data === YT.PlayerState.UNSTARTED ||
-          event.data === YT.PlayerState.PAUSED
-            ? "Play"
-            : "Pause";
+        // playPauseBtnEl.innerHTML =
+        //   event.data === YT.PlayerState.UNSTARTED ||
+        //   event.data === YT.PlayerState.PAUSED
+        //     ? "Play ▶️"
+        //     : "Pause ⏸";
       }
     }
 
