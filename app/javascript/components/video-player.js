@@ -33,8 +33,9 @@ const initMixtape = () => {
 
     window.onYouTubeIframeAPIReady = function () {
       player = new window.YT.Player("player", {
-        height: "500",
-        width: "400",
+        // height + width = 0 to hide video
+        height: "0",
+        width: "0",
         videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
         playerVars: {
           start: videos[currentTrack].start,
