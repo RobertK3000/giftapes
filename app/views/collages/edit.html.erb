@@ -19,11 +19,11 @@
 
 <%# EXTRA FORM TO ADD MORE CARDS %>
 <%= simple_form_for @collage, remote: true do |c| %>
-  <%# <div id="collage_items"> %>
-    <%# <div class='links'> %>
+  <div id="collage_items">
+    <div class='links'>
       <h3> + card </h3>
       <%= link_to_add_association 'add card', c, :collage_items %>
-    <%# </div> %>
-  <%# </div> %>
+    </div>
+  </div>
   <%= c.submit 'Save' %>
 <% end %>

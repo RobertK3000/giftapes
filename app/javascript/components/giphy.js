@@ -1,5 +1,6 @@
 // Only execute script on collage#edit page
-if (window.location.pathname == edit_collage_path) {
+const regexp = /\/collages\/\d*\/edit/;
+if (regexp.test(window.location.pathname)) {
   // Declare form, results div, API key
   const apiKey = 'ukEUx9VYjh53bWi5SU4EVbS8vJbbL5qJ';
   const limitResults = 30;
