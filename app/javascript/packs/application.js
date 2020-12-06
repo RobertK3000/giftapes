@@ -23,7 +23,7 @@ require("@nathanvda/cocoon")
 
 
 import 'bootstrap';
-import 'cocoon';
+// import 'cocoon';
 import { initMixtape } from '../components/video-player';
 
 initMixtape();
