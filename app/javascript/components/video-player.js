@@ -16,7 +16,7 @@ const initMixtape = () => {
     const videos = JSON.parse(mixtapeYoutubePlayerEl.dataset.playlistVideos);
 
     const getVideoIdFromYoutubeUrl = (youtubeUrl) =>
-      youtubeUrl.replace("https://www.youtube.com/watch?v=", "");
+      youtubeUrl.replace("https://youtu.be/", "");
 
     const init = () => {
       // 2. This code loads the IFrame Player API code asynchronously.

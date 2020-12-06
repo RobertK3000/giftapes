@@ -1,6 +1,15 @@
 class MixtapesController < ApplicationController
   def show
     @mixtape = Mixtape.find(params[:id])
+
+    @tracks_array = []
+
+    @mixtape.tracks.each do |track|
+      # create key called t: and append t.url, t.url
+      @tracks_hash = { url: track.youtube_url, start: track.start_time, end: track.end_time }
+      @tracks_array << @tracks_hash
+    end
+    @tracks_json = JSON.generate(@tracks_array)
   end
 
   def new
