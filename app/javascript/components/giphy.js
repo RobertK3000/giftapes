@@ -1,3 +1,4 @@
+// Only execute script on collage#edit page
 if (window.location.pathname == '../../views/collages/edit') {
   // Declare form, results div, API key
   const apiKey = 'ukEUx9VYjh53bWi5SU4EVbS8vJbbL5qJ';

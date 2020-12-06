@@ -1,3 +1,4 @@
+// Only execute script on collages#edit page
 if (window.location.pathname == '../../views/collages/edit') {
   // Select image uploader and image preview div
   const imgPreview = document.querySelector('.collage-card-img');
