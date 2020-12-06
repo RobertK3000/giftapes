@@ -3,8 +3,9 @@
 
 <p><%= link_to "Delete Collage",
     collage_path(@collage),
-    method: :delete %></p>
-
+    method: :delete,
+    data: { confirm: "Are you really really sure?!" } %></p>
+<%# DISPLAYING EACH COLLAGE CARD %>
 <ul>
   <% @collage.collage_items.each do |item| %>
     <li id="collage-item-<%= item.id %>">
@@ -16,22 +17,13 @@
   <% end %></li>
 </ul>
 
+<%# EXTRA FORM TO ADD MORE CARDS %>
 <%= simple_form_for @collage, remote: true do |c| %>
-  <%#= c.input :name %>
-
-  <h3> + card </h3>
-  <div id="collage_items">
-    <div class='links'>
+  <%# <div id="collage_items"> %>
+    <%# <div class='links'> %>
+      <h3> + card </h3>
       <%= link_to_add_association 'add card', c, :collage_items %>
-    </div>
-  </div>
+    <%# </div> %>
+  <%# </div> %>
   <%= c.submit 'Save' %>
 <% end %>
-
-<%#= simple_form_for @collage do |f| %>
-  <%#= f.simple_fields_for :collage_items do |c| %>
-    <%#= c.input :prompt%>
-    <%#= c.input :photo, as: :file %>
-  <%# end %>
-  <%#= f.submit "save" %>
-<%# end %>

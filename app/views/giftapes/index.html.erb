@@ -10,13 +10,13 @@
 </div>
 
 <ul>
-  <li>
   <% @giftapes.each do |giftape| %>
-    <% unless giftape.giftable.nil? %>
-      <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
-      <p><%= giftape.giftable.class %></p>
-      <p>Last Editied: <%= giftape.giftable.updated_at.inspect %></p>
-    <% end %>
+    <li>
+      <% unless giftape.giftable.nil? %>
+        <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
+        <p><%= giftape.giftable.class %></p>
+        <p>Last Editied: <%= giftape.giftable.updated_at.inspect %></p>
+      <% end %>
+    </li>
   <% end %>
-  </li>
 </ul>

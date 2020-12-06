@@ -1,5 +1,20 @@
 <div class='nested-fields'>
-    <%= f.input :prompt, placeholder: 'Write something embarassing' %>
-    <%= f.input :photo, as: :file %>
-    <%= link_to_remove_association "Remove this card", f %>
+  <div class="collage-card-img">
+  </div>
+
+  <%= f.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+  <button class="btn-random" id="collage-prompt-random">Random Prompt</button>
+  <%= f.input :photo, as: :file, id: 'image-upload', value: 'Upload Image' %>
+  <%= f.submit "Save" %>
+  <%= link_to_remove_association "Remove this card", f %>
+
+  <form id="giphy-search">
+    <input type="text" id="giphy-query" name="giphy-query" placeholder="Search for GIFs">
+    <input type="submit" id="giphy-submit" value="Search GIPHY!">
+    <button id="giphy-trending">Trending</button>
+    <button id="giphy-random">Random GIF</button>
+  </form>
+
+  <div id="giphy-results">
+  </div>
 </div>
