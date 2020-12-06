@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # LISTS
   resources :curated_lists, only: [:new, :create, :show, :destroy] do
-    resources :curated_list_items, only: [:create]
+    resources :curated_list_items, only: [:create, :new, :destroy]
   end
 
   # COLLAGES
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :collage_items, only: [:show]
 
   # QUIZZES
-  resources :quizzes, only: [:new, :create, :show] do
+  resources :quizzes, only: [:new, :create, :show, :destroy] do
     resources :questions, only: [:create, :destroy]
     end
     resources :questions, only: [:show] do
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :answers, only: [:show]
 
   # MIXTAPES
-  resources :mixtapes, only: [:show, :new, :create, :edit, :update]
+  resources :mixtapes, only: [:show, :new, :create, :edit, :update, :destroy]
   # get 'mixtapes/:id', to: "mixtapes#show"
   # get 'mixtapes/new', to: "mixtapes#new"
   # post 'mixtapes/new', to: 'mixtapes#create'

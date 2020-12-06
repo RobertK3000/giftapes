@@ -1,87 +1,104 @@
-const mixtapeYoutubePlayerEl = document.querySelector(
-  ".js-mixtape-youtube-player"
-);
-const videoControlsEl = mixtapeYoutubePlayerEl.querySelector(
-  ".js-video-controls"
-);
-const playPauseBtnEl = videoControlsEl.querySelector(".js-play-pause");
+const initMixtape = () => {
 
-const videos = JSON.parse(mixtapeYoutubePlayerEl.dataset.playlistVideos);
+  const mixtapeYoutubePlayerEl = document.querySelector(
+    ".js-mixtape-youtube-player"
+  );
+  console.log("hello");
 
-const getVideoIdFromYoutubeUrl = (youtubeUrl) =>
-  youtubeUrl.replace("https://www.youtube.com/watch?v=", "");
+  if (mixtapeYoutubePlayerEl) {
+    const videoControlsEl = mixtapeYoutubePlayerEl.querySelector(
+      ".js-video-controls"
+    );
+    const playPauseBtnEl = videoControlsEl.querySelector(".js-play-pause");
 
-const init = () => {
-  // 2. This code loads the IFrame Player API code asynchronously.
-  const tag = document.createElement("script");
+    const pauseBtnEl = videoControlsEl.querySelector(".js-pause");
 
-  tag.src = "https://www.youtube.com/iframe_api";
-  const firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-};
+    const videos = JSON.parse(mixtapeYoutubePlayerEl.dataset.playlistVideos);
 
-let player;
+    const getVideoIdFromYoutubeUrl = (youtubeUrl) =>
+      youtubeUrl.replace("https://www.youtube.com/watch?v=", "");
 
-let currentTrack = 0;
+    const init = () => {
+      // 2. This code loads the IFrame Player API code asynchronously.
+      const tag = document.createElement("script");
 
-window.onYouTubeIframeAPIReady = function () {
-  player = new window.YT.Player("player", {
-    height: "500",
-    width: "400",
-    videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
-    playerVars: {
-      start: videos[currentTrack].start,
-      end: videos[currentTrack].end
-    },
-    events: {
-      onReady: onPlayerReady,
-      onStateChange: onPlayerStateChange
-    }
-  });
-};
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    };
 
-let currentVideoState = -1;
+    let player;
 
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  const youtubePlayer = event.target;
+    let currentTrack = 0;
 
-  playPauseBtnEl.addEventListener("click", function () {
-    if (
-      currentVideoState === YT.PlayerState.PAUSED ||
-      currentVideoState === YT.PlayerState.UNSTARTED
-    ) {
-      youtubePlayer.playVideo();
-    } else if (currentVideoState === YT.PlayerState.PLAYING) {
-      youtubePlayer.pauseVideo();
-    }
-  });
-}
-
-let preventDuplicateSkip = false;
-
-function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.ENDED && !preventDuplicateSkip) {
-    currentTrack++;
-    if (videos[currentTrack]) {
-      player.loadVideoById({
+    window.onYouTubeIframeAPIReady = function () {
+      player = new window.YT.Player("player", {
+        // height + width = 0 to hide video
+        height: "0",
+        width: "0",
         videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
-        startSeconds: videos[currentTrack].start,
-        endSeconds: videos[currentTrack].end
+        playerVars: {
+          start: videos[currentTrack].start,
+          end: videos[currentTrack].end
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange
+        }
       });
-      preventDuplicateSkip = true;
-      setTimeout(function () {
-        preventDuplicateSkip = false;
-      }, 500);
+    };
+
+    let currentVideoState = -1;
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      const youtubePlayer = event.target;
+
+      playPauseBtnEl.addEventListener("click", function () {
+        if (
+          currentVideoState === YT.PlayerState.PAUSED ||
+          currentVideoState === YT.PlayerState.UNSTARTED
+        ) {
+          youtubePlayer.playVideo();
+        }
+      });
+
+      pauseBtnEl.addEventListener("click", function () {
+        if (currentVideoState === YT.PlayerState.PLAYING) {
+          youtubePlayer.pauseVideo();
+        }
+      });
     }
-  } else {
-    currentVideoState = event.data;
-    playPauseBtnEl.innerHTML =
-      event.data === YT.PlayerState.UNSTARTED ||
-      event.data === YT.PlayerState.PAUSED
-        ? "Play"
-        : "Pause";
+
+    let preventDuplicateSkip = false;
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED && !preventDuplicateSkip) {
+        currentTrack++;
+        if (videos[currentTrack]) {
+          player.loadVideoById({
+            videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
+            startSeconds: videos[currentTrack].start,
+            endSeconds: videos[currentTrack].end
+          });
+          preventDuplicateSkip = true;
+          setTimeout(function () {
+            preventDuplicateSkip = false;
+          }, 500);
+        }
+      } else {
+        currentVideoState = event.data;
+        // playPauseBtnEl.innerHTML =
+        //   event.data === YT.PlayerState.UNSTARTED ||
+        //   event.data === YT.PlayerState.PAUSED
+        //     ? "Play ▶️"
+        //     : "Pause ⏸";
+      }
+    }
+
+    init();
   }
 }
 
-init();
+
+export { initMixtape };

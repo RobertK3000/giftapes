@@ -3,7 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+
+
 //require("components/video-player")
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -23,3 +26,8 @@ import 'cocoon';
 
 import '../components/giphy';
 import '../components/preview-img';
+
+import { initMixtape } from '../components/video-player';
+
+initMixtape();
+

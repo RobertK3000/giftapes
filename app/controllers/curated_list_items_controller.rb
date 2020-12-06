@@ -15,6 +15,19 @@ skip_before_action :verify_authenticity_token
 
   end
 
+  def new
+    @curated_list_item = CuratedListItem.new
+  end
+
+  def destroy
+    @curated_list = CuratedList.new
+
+    @curated_list_item = CuratedListItem.find(params[:id])
+    @curated_list_item.destroy
+    # redirect_to quiz_url(@question.quiz)
+    redirect_to curated_list_url(@curated_list_item.curated_list)
+  end
+
   private
 
   def curated_list_item_params
