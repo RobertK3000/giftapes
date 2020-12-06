@@ -45,6 +45,6 @@ class CollagesController < ApplicationController
   end
 
   def collage_params
-    params.require(:collage).permit(:name, collage_items_attributes:[:prompt, :id, :photo, :collage, :_destroy])
+    params.require(:collage).permit(:name, collage_items_attributes:[:prompt, :id, :photo, :_destroy])
   end
 end

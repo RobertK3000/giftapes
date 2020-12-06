@@ -3,8 +3,6 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-
-
 //require("components/video-player")
 
 require("@rails/ujs").start()
@@ -21,9 +19,13 @@ require("@nathanvda/cocoon")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-
 import 'bootstrap';
-// import 'cocoon';
+import 'cocoon';
+
+import '../components/giphy';
+import '../components/preview-img';
+
 import { initMixtape } from '../components/video-player';
 
 initMixtape();
+

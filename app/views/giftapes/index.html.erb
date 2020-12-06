@@ -10,7 +10,6 @@
 </div>
 
 <ul>
-  <li>
   <% @giftapes.each do |giftape| %>
       <% unless giftape.giftable.nil? %>
       <%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %>
@@ -23,5 +22,4 @@
                 class:"btn btn-info", id:"delete-btn" %>
     <% end %>
   <% end %>
-  </li>
 </ul>
