@@ -3,7 +3,7 @@ class CollagesController < ApplicationController
 
   def new
     @collage = Collage.new
-    # @collage.collage_items.build
+    @collage.collage_items.build
   end
 
   def create
@@ -25,12 +25,13 @@ class CollagesController < ApplicationController
   end
 
   def update
+    @collage.collage_items.build
     @collage.update(collage_params)
-    if @collage.save
-      redirect_to collage_path(@collage)
-    else
+    # if @collage.save
       redirect_to edit_collage_path(@collage)
-    end
+    # else
+      # redirect_to collage_path(@collage)
+    # end
   end
 
   def destroy
@@ -45,6 +46,6 @@ class CollagesController < ApplicationController
   end
 
   def collage_params
-    params.require(:collage).permit(:name, collage_items_attributes:[:prompt, :id, :photo, :_destroy])
+    params.require(:collage).permit(:name, collage_items_attributes: [ :prompt, :photo, :_destroy])
   end
 end

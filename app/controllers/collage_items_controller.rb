@@ -25,7 +25,7 @@ class CollageItemsController < ApplicationController
     @collage_item = CollageItem.find(params[:id])
     @collage_item.destroy
 
-    redirect_to collage_path(@collage)
+    redirect_to edit_collage_path(@collage)
   end
 
   private
@@ -35,6 +35,6 @@ class CollageItemsController < ApplicationController
   end
 
   def collage_item_params
-    params.require(:collage_item).permit(:prompt, :photo)
+    params.require(:collage_item).permit(:prompt, :photo, :collage)
   end
 end
