@@ -15,7 +15,7 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @quiz_session = QuizSession.new(quiz: @quiz)
-    @quiz_session.answerings.build
+    @quiz_session.build_answerings
   end
 
   def destroy
