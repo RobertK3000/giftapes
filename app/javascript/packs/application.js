@@ -20,7 +20,6 @@ require("@nathanvda/cocoon")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
-import 'cocoon';
 
 import '../components/giphy';
 import '../components/preview-img';

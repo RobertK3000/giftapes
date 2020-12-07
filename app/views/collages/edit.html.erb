@@ -4,8 +4,9 @@
     method: :delete,
     class: "butt butt-dkgreen",
     data: { confirm: "Are you really really sure?!" } %>
-<h2> <%= @collage.name %> <i class="fas fa-pencil-alt fa-md"></i> </h2>
-
+<%= simple_form_for @collage do |f| %>
+  <h2><%= f.input :name, label:false %></h2><i class="fas fa-pencil-alt fa-md"></i>
+<% end %>
 <div class="collage-card-container">
   <% @collage.collage_items.each do |item| %>
     <div class="collage-card" id="collage-item-<%= item.id %>">
@@ -18,13 +19,15 @@
   <% end %>
 </div>
 
-<%# EXTRA FORM TO ADD MORE CARDS %>
 <%= simple_form_for @collage, remote: true do |c| %>
-  <div id="collage_items">
+  <div class="collage_items">
     <div class='links'>
-      <h3> + card </h3>
-      <%= link_to_add_association 'add card', c, :collage_items %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#collage-card-modal">
+        <%= link_to_add_association 'add card', c, :collage_items %>
+      </button>
     </div>
   </div>
   <%= c.submit 'Save' %>
 <% end %>
+
