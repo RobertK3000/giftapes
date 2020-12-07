@@ -8,11 +8,12 @@
         <ul>
           <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
         </ul>
+
         <%= link_to "delete this list item",
         curated_list_curated_list_item_path(@curated_list, cli), method: :delete %>
       <% end %>
 
-
+      <%= if giftapes.user == %>
       <%= link_to 'delete this list? :(',
                   curated_list_path(@curated_list),
                   method: :delete,
