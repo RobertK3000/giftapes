@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_042649) do
     t.datetime "finished_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "custom_url"
     t.index ["giftable_type", "giftable_id"], name: "index_giftapes_on_giftable_type_and_giftable_id"
     t.index ["user_id"], name: "index_giftapes_on_user_id"
   end
