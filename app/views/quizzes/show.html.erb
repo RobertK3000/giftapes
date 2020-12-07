@@ -2,7 +2,7 @@
   <div>
      <%= link_to "Return to Giftape home/my giftapes", my_giftapes_path,
           class:"btn btn-info", id:"home-btn center" %>
-    </div>
+  </div>
   <h1>Quiz Show Page</h1>
     <%= @quiz.name %>
     <% if user_signed_in? %>
@@ -14,8 +14,9 @@
         <ul>
           <% question.answers.each do |answer| %>
             <li>
+              <!-- <input type="radio" name=`<%= question.content %>`><%= answer.letter %> ) <%= answer.content %> -->
               <% if answer.is_correct == true %>
-              <%= answer.letter %> ) <%= answer.content %> (correct answer)
+              <%= answer.letter %> )<%= answer.content %> (correct answer)
               <% else %>
               <%= answer.letter %> ) <%= answer.content %>
               <% end %>
@@ -24,29 +25,18 @@
           <%= link_to "Delete Question", quiz_question_path(@quiz, question), method: :delete %>
         </ul>
       <% end%>
-    <div class = "justify-content-center row">
-      <div class = "col-6">
-         <%= simple_form_for [@quiz, @question] do |q| %>
-         <%= q.input :content, label: "Add a Question"%>
+      <div class = "justify-content-center row">
+        <div class = "col-6">
+          <%= simple_form_for [@quiz, @question] do |q| %>
+            <%= q.input :content, label: "Add a Question"%>
 
-         <%= q.submit "Now let's add some answers"%>
-         <% end %>
+            <%= q.submit "Now let's add some answers"%>
+          <% end %>
+        </div>
       </div>
     <% else %>
-      <% @quiz.questions.each do |question| %>
-        <p><%= question.content %></p>
-        <ul>
-          <% question.answers.each do |answer| %>
-            <li>
-              <% if answer.is_correct == true %>
-              <%= answer.letter %> ) <%= answer.content %>
-              <% else %>
-              <%= answer.letter %> ) <%= answer.content %>
-              <% end %>
-            </li>
-          <% end %>
-        <% end %>
-        <%= link_to "submit results", answer_path %>
+      <%= render "quiz_sessions/form", quiz: @quiz, quiz_session: @quiz_session%>
+
         <!-- link to 'see my results page' (answers show page) -->
     <% end %>
   </div>

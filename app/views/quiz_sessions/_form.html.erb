@@ -1,0 +1,8 @@
+<%= simple_form_for [quiz, quiz_session] do |f| %>
+  <%= f.simple_fields_for :answerings do |fa| %>
+    <h3><%= fa.object.question.content %></h3>
+    <%= fa.association :answer, collection: fa.object.question.answers, as: :radio_buttons %>
+    <%= fa.input :question_id, value: fa.object.question.id, as: :hidden %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

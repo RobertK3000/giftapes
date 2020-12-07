@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/my_giftapes/', to: 'giftapes#index'
 
-  resources :giftapes, param: :custom_url, only: [:show]
+  resources :giftapes, only: [:show, :update]
 
   # LISTS
   resources :curated_lists, only: [:new, :create, :show, :destroy] do
@@ -19,12 +19,14 @@ Rails.application.routes.draw do
 
   # QUIZZES
   resources :quizzes, only: [:new, :create, :show, :destroy] do
+    resources :quiz_sessions, only: [:create, :show]
     resources :questions, only: [:create, :destroy]
-    end
-    resources :questions, only: [:show] do
-      resources :answers, only: [:create]
-    end
-    resources :answers, only: [:show]
+  end
+  resources :questions, only: [:show] do
+    resources :answers, only: [:create]
+  end
+
+
 
   # MIXTAPES
   resources :mixtapes, only: [:show, :new, :create, :edit, :update, :destroy]

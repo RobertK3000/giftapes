@@ -4,7 +4,7 @@ class GiftapesController < ApplicationController
   end
 
   def show
-    @giftape = Giftape.find_by(custom_url: params[:custom_url])
+    @giftape = Giftape.find_by(custom_url: params[:id])
     @curated_list_item = CuratedListItem.new
 
     if @giftape.giftable_type == 'Mixtape'
@@ -17,5 +17,11 @@ class GiftapesController < ApplicationController
       end
       @tracks_json = JSON.generate(@tracks_array)
     end
+  end
+
+  def update
+    @giftape = Giftape.find(params[:id])
+    @giftape.update(custom_url: params[:giftape][:custom_url])
+    redirect_to my_giftapes_path
   end
 end

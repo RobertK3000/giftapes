@@ -131,9 +131,38 @@ quiz = Quiz.new(
 quiz.save!
 quiz2 = Quiz.new(
   name: "I really don't know",
-  questions: [ Question.new(
-    content: "Why are we friends again...?"
-  ) ]
+  questions: [
+    Question.new(
+      content: "Why are we friends again...?",
+      answers: [
+        Answer.new(
+          is_correct: true,
+          content: "Yes",
+          letter: 0
+        ),
+        Answer.new(
+          is_correct: false,
+          content: "No",
+          letter: 1
+        ),
+      ]
+    ),
+    Question.new(
+      content: "Hello...?",
+      answers: [
+        Answer.new(
+          is_correct: true,
+          content: "Hi",
+          letter: 0
+        ),
+        Answer.new(
+          is_correct: false,
+          content: "Obrigado",
+          letter: 1
+        ),
+      ]
+    )
+  ]
 )
 quiz2.save!
 Giftape.create(giftable: quiz, user: ondine)
