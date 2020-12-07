@@ -6,20 +6,26 @@
 .collage-card {
   width: 400px;
   margin: 8px;
+  position: relative;
   a {
     color: black;
   }
   a:hover {
     text-decoration: none;
-
   }
   img {
     width: 100%;
+    height: auto;
     object-fit: contain;
   }
   h4 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+  }
+  i {
+    position: absolute;
+    top: 12px;
+    right: 10px;
   }
 }
