@@ -1,5 +1,9 @@
 const initMixtape = () => {
 
+  $('.modal').on('shown.bs.modal', function () {
+    $('input:text:visible:first', this).focus();
+  });
+
   const mixtapeYoutubePlayerEl = document.querySelector(
     ".js-mixtape-youtube-player"
   );

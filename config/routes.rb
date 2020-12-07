@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/my_giftapes/', to: 'giftapes#index'
 
-  resources :giftapes, param: :custom_url, only: [:show]
+  resources :giftapes, only: [:show, :update]
 
   # LISTS
   resources :curated_lists, only: [:new, :create, :show, :destroy] do
