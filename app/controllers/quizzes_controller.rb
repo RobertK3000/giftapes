@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
 
   def create
     @quiz = Quiz.new(quiz_params)

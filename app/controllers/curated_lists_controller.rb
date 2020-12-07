@@ -1,4 +1,5 @@
 class CuratedListsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
 
   def new
     @curated_list = CuratedList.new

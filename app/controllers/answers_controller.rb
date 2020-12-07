@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
 
 def create
     @question = Question.find(params[:question_id])
