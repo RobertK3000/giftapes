@@ -11,26 +11,28 @@
   <% @giftapes.each do |giftape| %>
     <div class="dash-card">
       <% unless giftape.giftable.nil? %>
-        <img src="#">
-        <div class="dash-card-content">
-          <div class="dash-card-words">
-            <h4><%= link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %></h4>
-            <p><%= giftape.giftable.class %></p>
-            <p><strong>Last Edited:</strong> <%= giftape.giftable.updated_at.strftime("%b %-d, %Y at %R") %></p>
+        <a href="<%= polymorphic_path(giftape.giftable) %>">
+          <img src="https://lh3.googleusercontent.com/proxy/oOJgFkMkUCbQ58t1bL7VRMFvyuscyMGUPlzmP_2imyvuIfzXOLWJM8EEXmx1ZYkShS9wW7nF0xt_uQe71IAcEu9qCiGs0eonBCO4QDlDpNFnZ2NqlKtL-lJUF9gqHdy3yzwC3fg_A-1GXPATIWBNo4MjjuH4vCmePrdlTTfjlRrHOUCH7A">
+          <div class="dash-card-content">
+            <div class="dash-card-words">
+              <h4><%=giftape.giftable.name%></h4>
+              <p><%= giftape.giftable.class %></p>
+              <p><strong>Last Edited:</strong> <%= giftape.giftable.updated_at.strftime("%b %-d, %Y at %R") %></p>
+            </div>
+            <div class="dash-card-links">
+            <%= link_to polymorphic_path(giftape.giftable) do %>
+              <i class="fas fa-gift"></i>
+            <% end %>
+            <%= link_to polymorphic_path(giftape.giftable),
+                      method: :delete,
+                      data: { confirm: "Are you really really sure?!" },
+                      id:"delete-btn" do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+            </div>
           </div>
-          <div class="dash-card-links">
-          <%= link_to polymorphic_path(giftape.giftable) do %>
-            <i class="fas fa-gift"></i>
-          <% end %>
-          <%= link_to polymorphic_path(giftape.giftable),
-                    method: :delete,
-                    data: { confirm: "Are you really really sure?!" },
-                    id:"delete-btn" do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
+      </a>
     </div>
   <% end %>
 </div>
