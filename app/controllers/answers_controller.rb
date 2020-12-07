@@ -18,6 +18,12 @@ def create
 
 end
 
+  def show
+    @quiz = Quiz.find(params[:quiz_id])
+    @questions = Question.all.count
+
+  end
+
   def new
     @answer = Answer.new
   end

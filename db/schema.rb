@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_020333) do
+ActiveRecord::Schema.define(version: 2020_12_07_042649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2020_12_04_020333) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "answerings", force: :cascade do |t|
+    t.bigint "quiz_session_id", null: false
+    t.bigint "answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "question_id", null: false
+    t.index ["answer_id"], name: "index_answerings_on_answer_id"
+    t.index ["question_id"], name: "index_answerings_on_question_id"
+    t.index ["quiz_session_id"], name: "index_answerings_on_quiz_session_id"
   end
 
   create_table "answers", force: :cascade do |t|
@@ -102,6 +113,13 @@ ActiveRecord::Schema.define(version: 2020_12_04_020333) do
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
 
+  create_table "quiz_sessions", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_quiz_sessions_on_quiz_id"
+  end
+
   create_table "quizzes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -132,10 +150,14 @@ ActiveRecord::Schema.define(version: 2020_12_04_020333) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answerings", "answers"
+  add_foreign_key "answerings", "questions"
+  add_foreign_key "answerings", "quiz_sessions"
   add_foreign_key "answers", "questions"
   add_foreign_key "collage_items", "collages"
   add_foreign_key "curated_list_items", "curated_lists"
   add_foreign_key "giftapes", "users"
   add_foreign_key "questions", "quizzes"
+  add_foreign_key "quiz_sessions", "quizzes"
   add_foreign_key "tracks", "mixtapes"
 end

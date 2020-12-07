@@ -1,0 +1,7 @@
+<%= simple_form_for [quiz, quiz_session] do |f| %>
+  <%= f.simple_fields_for :answerings do |fa| %>
+    <%= fa.object.question.content %>
+    <%= fa.association :answer, collection: fa.object.question.answers %>
+  <% end %>
+<% end %>
+
