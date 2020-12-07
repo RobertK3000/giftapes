@@ -19,12 +19,13 @@ Rails.application.routes.draw do
 
   # QUIZZES
   resources :quizzes, only: [:new, :create, :show, :destroy] do
+    resources :quiz_sessions, only: [:create]
     resources :questions, only: [:create, :destroy]
-    end
-    resources :questions, only: [:show] do
-      resources :answers, only: [:create]
-    end
-    resources :answers, only: [:show]
+  end
+  resources :questions, only: [:show] do
+    resources :answers, only: [:create]
+  end
+  resources :answers, only: [:show]
 
   # MIXTAPES
   resources :mixtapes, only: [:show, :new, :create, :edit, :update, :destroy]
