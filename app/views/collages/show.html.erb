@@ -1,9 +1,9 @@
-<%= link_to "Back to Dashboard", my_giftapes_path %>
-<h2>Collages#show</h2>
-
+<%= link_to "Back to Dashboard", my_giftapes_path, class:"butt butt-ltpurple" %>
 <% if @collage.giftape.user == current_user %>
-  <%= link_to "Edit Page", edit_collage_path(@collage) %>
+  <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt butt-dkgreen" }%>
 <% end %>
+
+<h2> <%= @collage.name %> </h2>
 
 <% @collage.collage_items.each do |item| %>
   <a href=<%= collage_item_path(item)%>>
