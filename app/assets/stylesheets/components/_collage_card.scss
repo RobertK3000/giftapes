@@ -1,0 +1,25 @@
+.collage-card-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.collage-card {
+  width: 400px;
+  margin: 8px;
+  a {
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+
+  }
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+  h4 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
