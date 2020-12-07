@@ -1,19 +1,23 @@
-<%= link_to "Back to Dashboard", my_giftapes_path %>
-<h2>Collages#show</h2>
-
+<%= link_to "Back to Dashboard", my_giftapes_path, class:"butt butt-ltpurple" %>
 <% if @collage.giftape.user == current_user %>
-  <%= link_to "Edit Page", edit_collage_path(@collage) %>
+  <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt butt-dkgreen" }%>
 <% end %>
 
-<% @collage.collage_items.each do |item| %>
-  <a href=<%= collage_item_path(item)%>>
-    <h4><%= item.prompt %></h4>
-    <%= cl_image_tag(item.photo.key, transformation: [
-        # Adds text on the image hahaha
-        { width: 400, height: 450, crop:'fill' },
-        { overlay: { font_family: "Cookie", font_size: 40, font_weight: "bold", text: "Love"},
-          effect: "colorize",
-          color: "#f08" },
-        { angle: 20, flags: "layer_apply", x: -45, y: 44 }]) %>
-  </a>
-<% end %>
+<h2> <%= @collage.name %> </h2>
+
+<div class="collage-card-container">
+  <% @collage.collage_items.each do |item| %>
+    <div class="collage-card">
+      <a href=<%= collage_item_path(item)%>>
+        <%= cl_image_tag(item.photo.key, transformation: [
+            # Adds text on the image hahaha
+            { width: 400, height: 450, crop:'fill' },
+            { overlay: { font_family: "Cookie", font_size: 40, font_weight: "bold", text: "Love"},
+              effect: "colorize",
+              color: "#f08" },
+            { angle: 20, flags: "layer_apply", x: -45, y: 44 }]) %>
+        <h4><%= item.prompt %></h4>
+      </a>
+    </div>
+  <% end %>
+</div>

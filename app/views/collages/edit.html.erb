@@ -1,21 +1,22 @@
-<%= link_to "Back to Dashboard", my_giftapes_path %>
-<h2>Collages#Edit</h2>
-
-<p><%= link_to "Delete Collage",
+<%= link_to "Back to Dashboard", my_giftapes_path, class: "butt butt-ltpurple" %>
+<%= link_to "Delete Collage",
     collage_path(@collage),
     method: :delete,
-    data: { confirm: "Are you really really sure?!" } %></p>
-<%# DISPLAYING EACH COLLAGE CARD %>
-<ul>
+    class: "butt butt-dkgreen",
+    data: { confirm: "Are you really really sure?!" } %>
+<h2> <%= @collage.name %> <i class="fas fa-pencil-alt fa-md"></i> </h2>
+
+<div class="collage-card-container">
   <% @collage.collage_items.each do |item| %>
-    <li id="collage-item-<%= item.id %>">
-    <%= item.prompt %>
-    <%= link_to "Delete",
-        collage_collage_item_path(@collage, item),
-        method: :delete %>
-    <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
-  <% end %></li>
-</ul>
+    <div class="collage-card" id="collage-item-<%= item.id %>">
+      <%= link_to collage_collage_item_path(@collage, item), method: :delete do %>
+        <i class="far fa-trash-alt fa-lg"></i>
+      <% end %>
+      <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
+      <h4><%= item.prompt %></h4>
+    </div>
+  <% end %>
+</div>
 
 <%# EXTRA FORM TO ADD MORE CARDS %>
 <%= simple_form_for @collage, remote: true do |c| %>

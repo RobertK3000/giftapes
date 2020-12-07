@@ -18,7 +18,7 @@ jurek = User.create(email: "jurek@email.com", password: "123456")
 susan = User.create(email: "susan@email.com", password: "123456")
 puts "Created #{User.count} users..."
 
-# CREATING LISTS FOR ROB
+# CREATING LISTS
 puts "Creating lists..."
 list = CuratedList.create( name: "Our favourite things" )
 list.curated_list_items = [
@@ -83,34 +83,34 @@ Giftape.create(giftable: list4, user: ondine)
 
 puts "Created #{CuratedList.count} lists..."
 
-# CREATING MIXTAPE FOR ROB
+# CREATING MIXTAPES
 puts "Creating mixtape..."
 tape = Mixtape.new(
   name: "Our Mixtape",
   theme_type: "lonely",
-  tracks: [ Track.create(youtube_url: "www.google.com"),
-    Track.create(youtube_url: "www.yt.com") ]
+  tracks: [ Track.create(youtube_url: "https://youtu.be/MreUtmdNqpc"),
+    Track.create(youtube_url: "https://youtu.be/EnpdvIXCnoQ") ]
 )
 tape.save!
 tape2 = Mixtape.new(
   name: "Our Mixtape #2",
   theme_type: "vibes",
-  tracks: [ Track.create(youtube_url: "www.google.com"),
-      Track.create(youtube_url: "www.yt.com") ]
+  tracks: [ Track.create(youtube_url: "https://youtu.be/MreUtmdNqpc"),
+      Track.create(youtube_url: "https://youtu.be/EnpdvIXCnoQ") ]
 )
 tape2.save!
 tape3 = Mixtape.new(
   name: "Our Mixtape",
   theme_type: "lonely",
-  tracks: [ Track.create(youtube_url: "www.google.com"),
-    Track.create(youtube_url: "www.yt.com") ]
+  tracks: [ Track.create(youtube_url: "https://youtu.be/MreUtmdNqpc"),
+    Track.create(youtube_url: "https://youtu.be/EnpdvIXCnoQ") ]
 )
 tape3.save!
 tape4 = Mixtape.new(
   name: "Our Mixtape #2",
   theme_type: "vibes",
-  tracks: [ Track.create(youtube_url: "www.google.com"),
-      Track.create(youtube_url: "www.yt.com") ]
+  tracks: [ Track.create(youtube_url: "https://youtu.be/MreUtmdNqpc"),
+      Track.create(youtube_url: "https://youtu.be/EnpdvIXCnoQ") ]
 )
 tape4.save!
 Giftape.create(giftable: tape, user: rob)
@@ -120,7 +120,7 @@ Giftape.create(giftable: tape4, user: ondine)
 
 puts "Created #{Mixtape.count} mixtapes..."
 
-# CREATING QUIZ FOR ROB
+# CREATING QUIZZES
 puts "Creating quizzes..."
 quiz = Quiz.new(
   name: ":/",
