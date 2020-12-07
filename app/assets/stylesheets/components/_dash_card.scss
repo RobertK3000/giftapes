@@ -1,0 +1,50 @@
+.dash-card-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dash-card {
+  height: 200px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: $card-orange;
+  margin-bottom: 16px;
+  box-shadow: 2px 2px 3px rgba(0,0,0, 0.1);
+  img {
+    height: 60%;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+}
+.dash-card-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-family: $gt-font;
+  h4 {
+    font-size: 13px;
+    margin: 4px 0px;
+  }
+  p {
+    font-size: 12px;
+    margin: 0;
+  }
+  a {
+    font-family: $gt-font;
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+    color: wheat;
+  }
+  #delete-btn {
+    display: inline;
+  }
+}
+.dash-card-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
