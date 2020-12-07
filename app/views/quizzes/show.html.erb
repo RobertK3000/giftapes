@@ -14,11 +14,12 @@
         <ul>
           <% question.answers.each do |answer| %>
             <li>
-              <% if answer.is_correct == true %>
-              <%= answer.letter %> ) <%= answer.content %> (correct answer)
-              <% else %>
-              <%= answer.letter %> ) <%= answer.content %>
-              <% end %>
+              <input type="radio" name=`<%= question.content %>`><%= answer.letter %> ) <%= answer.content %>
+              <%# if answer.is_correct == true %>
+              <!-- <%#= answer.letter %> )<%#= answer.content %> (correct answer) -->
+              <%# else %>
+              <!-- <%#= answer.letter %> ) <%#= answer.content %> -->
+              <%# end %>
             </li>
           <% end %>
           <%= link_to "Delete Question", quiz_question_path(@quiz, question), method: :delete %>
