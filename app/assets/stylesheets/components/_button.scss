@@ -3,9 +3,8 @@
   border-radius: 30px;
   font-family: "Patrick Hand", cursive;
   color: black;
-  position: relative;
   box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.8);
-  display: block;
+  display: inline;
   margin: 10px 0px;
   text-align: center;
 }
@@ -15,6 +14,10 @@
   box-shadow: none;
   top: 4px;
   left: 4px;
+}
+
+.butt-block {
+  display: block;
 }
 
 .butt-orange {
