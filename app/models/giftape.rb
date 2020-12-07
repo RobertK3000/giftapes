@@ -5,6 +5,10 @@ class Giftape < ApplicationRecord
   belongs_to :giftable, polymorphic: true
   belongs_to :user
 
+  def to_param
+    custom_url
+  end
+
   def convert
     giftable_type.constantize.find(giftable_id)
   end
