@@ -1,0 +1,22 @@
+<h1><%= @giftape.giftable.name %></h1>
+
+<div class = "container mt-5">
+  <div class = "justify-content-center row">
+    <div class = "col-6">
+      <h1><%= @giftape.giftable.name %></h1>
+      <% @giftape.giftable.curated_list_items.each do |cli| %>
+        <ul>
+          <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+ <!-- if the URL does not have "https://www" at the beginning,
+      insert that string at the start,
+      otherwise/else,
+      keep it the same-->
+
+<!-- if a URL is not added,
+      display an error message -->
