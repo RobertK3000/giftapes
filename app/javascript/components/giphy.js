@@ -1,17 +1,16 @@
 // Only execute script on collage#edit page
 const regexp = /\/collages\/\d*\/edit/;
 if (regexp.test(window.location.pathname)) {
-  // Declare form, results div, API key
+  // Declare API key, limit results, display div
   const apiKey = 'ukEUx9VYjh53bWi5SU4EVbS8vJbbL5qJ';
   const limitResults = 30;
-  const giphyForm = document.querySelector('#giphy-search');
   const resultsDiv = document.querySelector('#giphy-results');
 
   // Variables for eventListener
-  const gifSubmit = document.querySelector('#giphy-submit');
+  const gifForm = document.querySelector('#giphy-form');
   const gifTrending = document.querySelector('#giphy-trending');
   const gifRandom = document.querySelector('#giphy-random');
-  const collageCard = document.querySelector('.nested-fields .collage-card-img');
+  const collageCard = document.querySelector('#collage-card-img');
 
   // FUNCTIONS
   // Preview selected GIF on click
@@ -32,8 +31,8 @@ if (regexp.test(window.location.pathname)) {
         // Build image element from returned data points, then insert into results div on HTML page
         let img = `<img \
           src=${gifResult.images.fixed_height_small.url} \
-          alt=${gifResult.title} \
-        </img>`;
+          alt="${gifResult.title}">`;
+
         resultsDiv.insertAdjacentHTML('beforeend', img);
         // Add event listener to GIF that was just inserted
         const lastGif = document.querySelector('#giphy-results').lastChild;
@@ -44,9 +43,8 @@ if (regexp.test(window.location.pathname)) {
   // GIPHY gif-search function
   const giphySearch = () => {
     // Grab search query from HTML and build URL;
-    const query = document.querySelector('.nested-fields #giphy-query').value;
+    const query = document.querySelector('#giphy-search').value;
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=${limitResults}&lang=en`;
-
     // Clear previous results, parse results
     resultsDiv.innerHTML = '';
     giphyParse(url);
@@ -61,7 +59,7 @@ if (regexp.test(window.location.pathname)) {
   // GIPHY random function
   const giphyRandom = () => {
     const url = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`;
-    //
+    resultsDiv.innerHTML = '';
     fetch(url)
     .then(response => response.json())
     .then(content => {
@@ -71,7 +69,7 @@ if (regexp.test(window.location.pathname)) {
 
   // EVENT LISTENERS
   // Find GIFs with search query
-  gifSubmit.addEventListener('click', (event) => {
+  gifForm.addEventListener('click', (event) => {
     event.preventDefault();
     giphySearch();
   });
