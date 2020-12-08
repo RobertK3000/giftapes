@@ -10,3 +10,30 @@
 <% end %>
 
 <h1> <%= correct_answers.count %> / <%= @quiz_session.answerings.count %></h1>
+<% final_percentage = ((correct_answers.count /  @quiz_session.answerings.count.to_f) * 100).to_i %>
+
+<% if final_percentage == 100 %>
+  <h2>HELL YEAH!</h2>
+  <i class="far fa-laugh-beam"></i>
+  <i class="far fa-laugh-beam"></i>
+  <i class="far fa-laugh-beam"></i>
+  <i class="far fa-laugh-beam"></i>
+  <i class="far fa-laugh-beam"></i>
+<% elsif final_percentage < 90  && final_percentage > 80 %>
+  <h2>DECENT!</h2>
+<% elsif final_percentage < 80 && final_percentage > 60 %>
+  <h2>NOT BAD!</h2>
+<% elsif final_percentage < 60 && final_percentage > 40 %>
+  <h2>BANG ON AVERAGE</h2>
+<% elsif final_percentage < 40 && final_percentage > 10 %>
+  <h2>Meh...</h2>
+<% elsif final_percentage == 0 %>
+  <h2>I have no words...</h2>
+  <i class="far fa-sad-cry"></i>
+  <i class="far fa-sad-cry"></i>
+  <i class="far fa-sad-cry"></i>
+  <i class="far fa-sad-cry"></i>
+  <i class="far fa-sad-cry"></i>
+<% end %>
+
+<h2><%= final_percentage %> %</h2>
