@@ -13,9 +13,13 @@ const initMixtape = () => {
     const videoControlsEl = mixtapeYoutubePlayerEl.querySelector(
       ".js-video-controls"
     );
-    const playPauseBtnEl = videoControlsEl.querySelector(".js-play-pause");
+    const playBtnEl = videoControlsEl.querySelector(".js-play-pause");
 
     const pauseBtnEl = videoControlsEl.querySelector(".js-pause");
+
+    const fastforwardBtnEl = videoControlsEl.querySelector(".js-fast-forward");
+
+    const rewindBtnEl = videoControlsEl.querySelector(".js-rewind");
 
     const videos = JSON.parse(mixtapeYoutubePlayerEl.dataset.playlistVideos);
 
@@ -31,48 +35,49 @@ const initMixtape = () => {
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     };
 
-    let player;
+    const players = []
 
     let currentTrack = 0;
 
     window.onYouTubeIframeAPIReady = function () {
-      player = new window.YT.Player("player", {
-        // height + width = 0 to hide video
-        height: "0",
-        width: "0",
-        videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
-        playerVars: {
-          start: videos[currentTrack].start,
-          end: videos[currentTrack].end
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange
-        }
+      const videoDivHolder = mixtapeYoutubePlayerEl.querySelector("#player");
+      videos.forEach (function(video) {
+        console.log(video)
+        const videoDiv = document.createElement("div");
+        videoDivHolder.appendChild(videoDiv)
+        players.push (new window.YT.Player(videoDiv, {
+          // height + width = 0 to hide video
+          height: "500",
+          width: "400",
+          videoId: getVideoIdFromYoutubeUrl(video.url),
+          playerVars: {
+            start: video.start,
+            end: video.end
+          },
+          events: {
+            // onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+          }
+        }));
       });
+      console.log(players)
     };
 
     let currentVideoState = -1;
 
     // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
-      const youtubePlayer = event.target;
+    // function onPlayerReady(event) {
+    //   const youtubePlayer = event.target;
 
-      playPauseBtnEl.addEventListener("click", function () {
-        if (
-          currentVideoState === YT.PlayerState.PAUSED ||
-          currentVideoState === YT.PlayerState.UNSTARTED
-        ) {
-          youtubePlayer.playVideo();
-        }
+      playBtnEl.addEventListener("click", function () {
+          players[currentTrack].playVideo();
       });
 
       pauseBtnEl.addEventListener("click", function () {
-        if (currentVideoState === YT.PlayerState.PLAYING) {
-          youtubePlayer.pauseVideo();
-        }
+          players[currentTrack].pauseVideo();
       });
-    }
+
+    // }
 
     let preventDuplicateSkip = false;
 
@@ -80,19 +85,15 @@ const initMixtape = () => {
       if (event.data === YT.PlayerState.ENDED && !preventDuplicateSkip) {
         currentTrack++;
         if (videos[currentTrack]) {
-          player.loadVideoById({
-            videoId: getVideoIdFromYoutubeUrl(videos[currentTrack].url),
-            startSeconds: videos[currentTrack].start,
-            endSeconds: videos[currentTrack].end
-          });
-          preventDuplicateSkip = true;
-          setTimeout(function () {
-            preventDuplicateSkip = false;
-          }, 500);
+          players[currentTrack].playVideo();
+          // preventDuplicateSkip = true;
+          // setTimeout(function () {
+          //   preventDuplicateSkip = false;
+          // }, 500);
         }
       } else {
         currentVideoState = event.data;
-        // playPauseBtnEl.innerHTML =
+        // playBtnEl.innerHTML =
         //   event.data === YT.PlayerState.UNSTARTED ||
         //   event.data === YT.PlayerState.PAUSED
         //     ? "Play ▶️"
@@ -106,3 +107,6 @@ const initMixtape = () => {
 
 
 export { initMixtape };
+
+
+
