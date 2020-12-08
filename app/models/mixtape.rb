@@ -6,7 +6,7 @@ class Mixtape < ApplicationRecord
 
   has_many :tracks, dependent: :destroy, inverse_of: :mixtape
 
-  has_one :giftapes, as: :giftable
+  has_one :giftapes, as: :giftable, dependent: :destroy
   accepts_nested_attributes_for :tracks, allow_destroy: true, reject_if: :all_blank
 
 def at_least_one_track_in_mixtape

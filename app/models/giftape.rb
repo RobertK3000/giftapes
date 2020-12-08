@@ -5,7 +5,7 @@ class Giftape < ApplicationRecord
   belongs_to :giftable, polymorphic: true
   belongs_to :user
 
-  validates :custom_url, uniqueness: true
+  validates :custom_url, uniqueness: true, allow_nil: true
 
   def to_param
     custom_url

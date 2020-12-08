@@ -8,6 +8,7 @@
 <div class="dash-card-container">
   <% @giftapes.each do |giftape| %>
     <div class="dash-card">
+
       <a href="<%= polymorphic_path(giftape.giftable) %>">
         <img src="https://lh3.googleusercontent.com/proxy/oOJgFkMkUCbQ58t1bL7VRMFvyuscyMGUPlzmP_2imyvuIfzXOLWJM8EEXmx1ZYkShS9wW7nF0xt_uQe71IAcEu9qCiGs0eonBCO4QDlDpNFnZ2NqlKtL-lJUF9gqHdy3yzwC3fg_A-1GXPATIWBNo4MjjuH4vCmePrdlTTfjlRrHOUCH7A">
         <div class="dash-card-content">
@@ -27,6 +28,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
+
                     <h5 class="modal-title">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -44,6 +46,7 @@
                   <% end %>
                 </div>
               </div>
+
             </div>
             <%# MODAL %>
             <p><strong>Last Edited:</strong> <%= giftape.giftable.updated_at.strftime("%b %-d, %Y at %R") %></p>
@@ -64,3 +67,4 @@
     </div>
   <% end %>
 </div>
+
