@@ -13,10 +13,17 @@ $yellow: #f5e82f;
 
 .cassette-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   min-height: 100vh; // height of the browser viewport
   align-items: center;
+  flex-wrap: wrap;
 }
+
+.cassette-animation-container {
+  height: 200px;
+  width: 200px
+}
+
 
 .cassette-animation * {
   margin: 0;
@@ -690,13 +697,42 @@ $depth: 1.4vw;
       width: 3vw;
       height: 1vw;
 
-      &.is--animating {
+      &.play-forward{
         animation-name: spin;
-        animation-duration: 5s;
+        animation-duration: 4s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
       }
 
+      &.pause{
+        animation-name: spin;
+        animation-duration: 0s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      &.fast-forward{
+        animation-name: spin;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      &.reverse{
+        animation-name: reverse-spin;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+    // .cyl-2 {
+    //   opacity: 1;
+    //   width: 3vw;
+    //   height: 1vw;
+    //   animation-name: spin;
+    //   animation-duration: 4s;
+    //   animation-iteration-count: infinite;
+    //   animation-timing-function: linear;
 
 // increase the to > transform: rotatey degrees to increase rotor speed
       @keyframes spin {
@@ -706,6 +742,16 @@ $depth: 1.4vw;
 
         to {
           transform: rotatey(360deg);
+        }
+      }
+
+      @keyframes reverse-spin {
+        from {
+          transform: rotatey(0deg);
+        }
+
+        to {
+          transform: rotatey(-360deg);
         }
       }
 
