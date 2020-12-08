@@ -11,10 +11,9 @@ def create
         Answer.create(content: content_params[letter], is_correct: false, letter: letter, question_id: @question.id)
       end
     end
-
     redirect_to quiz_url(@question.quiz)
    rescue
-    render :new
+    render 'questions/show'
 
 end
 
