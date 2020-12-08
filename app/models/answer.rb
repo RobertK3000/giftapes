@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
-  validates :content, presence: :true
+  validates :content, presence: true
+  validates :letter, presence: true
   enum letter: [:a, :b, :c, :d]
   belongs_to :question
   ANSWERS = %w(A B C D)
