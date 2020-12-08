@@ -7,7 +7,6 @@ const initMixtape = () => {
   const mixtapeYoutubePlayerEl = document.querySelector(
     ".js-mixtape-youtube-player"
   );
-  console.log("hello");
 
   if (mixtapeYoutubePlayerEl) {
     const videoControlsEl = mixtapeYoutubePlayerEl.querySelector(
@@ -48,8 +47,8 @@ const initMixtape = () => {
         videoDivHolder.appendChild(videoDiv)
         players.push (new window.YT.Player(videoDiv, {
           // height + width = 0 to hide video
-          height: "500",
-          width: "400",
+          height: "100",
+          width: "80",
           videoId: getVideoIdFromYoutubeUrl(video.url),
           playerVars: {
             start: video.start,
@@ -88,6 +87,12 @@ const initMixtape = () => {
           players[currentTrack].playVideo();
       });
 
+    //   playBtnEl.addEventListener("click", function () {
+    //     for (let i = 0; i < reelScenesEl.length; i++) {
+    //       reelScenesEl[i].style.animation-duration = 4s;
+    //     }
+    // });      
+
       pauseBtnEl.addEventListener("click", function () {
           players[currentTrack].pauseVideo();
       });
@@ -98,8 +103,9 @@ const initMixtape = () => {
       fastforwardBtnEl.addEventListener("mousedown", function () {
           players[currentTrack].pauseVideo();
           currentTime = players[currentTrack].getCurrentTime();
-          fastSeekTimer = setInterval(function() { 
-            currentTime += 1;
+          fastSeekTimer = setInterval(function() {
+            // adjust speed of fast-forward/rewind below 
+            currentTime += 2;
             if (currentTime > endTimes[currentTrack]) {
               currentTrack += 1;
               currentTime = videos[currentTrack].start || 0;
@@ -119,7 +125,8 @@ const initMixtape = () => {
         players[currentTrack].pauseVideo();
         currentTime = players[currentTrack].getCurrentTime();
         fastSeekTimer = setInterval(function() { 
-          currentTime -= 1;
+          // adjust speed of fast-forward/rewind below
+          currentTime -= 2;
           if (currentTime < videos[currentTrack].start || 0) {
             currentTrack -= 1;
             currentTime = videos[currentTrack].end || endTimes[currentTrack];
