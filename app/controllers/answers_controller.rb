@@ -2,18 +2,18 @@ class AnswersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
 def create
-    @question = Question.find(params[:question_id])
-    @answers = content_params.keys
-    @answers.each do |letter|
-      if letter == answer_params["letter"].downcase
-        Answer.create(content: content_params[letter], is_correct: true, letter: letter, question_id: @question.id)
-      else
-        Answer.create(content: content_params[letter], is_correct: false, letter: letter, question_id: @question.id)
-      end
+  @question = Question.find(params[:question_id])
+  @answers = content_params.keys
+  @answers.each do |letter|
+    if letter == answer_params["letter"].downcase
+      Answer.create(content: content_params[letter], is_correct: true, letter: letter, question_id: @question.id)
+    else
+      Answer.create(content: content_params[letter], is_correct: false, letter: letter, question_id: @question.id)
     end
-    redirect_to quiz_url(@question.quiz)
-   rescue
-    render 'questions/show'
+  end
+  redirect_to quiz_url(@question.quiz)
+  # rescue
+  # render 'questions/show'
 
 end
 
