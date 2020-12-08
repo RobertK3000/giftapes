@@ -48,6 +48,7 @@
             <%# MODAL %>
             <p><strong>Last Edited:</strong> <%= giftape.giftable.updated_at.strftime("%b %-d, %Y at %R") %></p>
           </div>
+
           <div class="dash-card-links">
             <%= link_to polymorphic_path(giftape.giftable) do %>
               <i class="fas fa-gift"></i>

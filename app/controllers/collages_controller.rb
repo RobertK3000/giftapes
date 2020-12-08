@@ -11,6 +11,7 @@ class CollagesController < ApplicationController
 
     if @collage.save
       Giftape.create(giftable: @collage, user: current_user)
+      flash[:notice] = "Successfully created new collage!"
       redirect_to edit_collage_path(@collage)
     else
       render :new
@@ -28,9 +29,9 @@ class CollagesController < ApplicationController
   def update
     @collage.update(collage_params)
     if @collage.save
-      redirect_to collage_path(@collage)
-    else
       redirect_to edit_collage_path(@collage)
+    else
+      render :new
     end
   end
 
@@ -46,6 +47,6 @@ class CollagesController < ApplicationController
   end
 
   def collage_params
-    params.require(:collage).permit(:name, collage_items_attributes:[:prompt, :id, :photo, :_destroy])
+    params.require(:collage).permit(:name, collage_items_attributes: [ :prompt, :photo, :_destroy])
   end
 end

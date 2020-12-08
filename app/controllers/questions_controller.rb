@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to question_path(@question)
     else
-      render :new
+      render 'quizzes/show'
     end
   end
 

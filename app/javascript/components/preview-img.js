@@ -1,11 +1,11 @@
 // Only execute script on collages#edit page
 const regexp = /\/collages\/\d*\/edit/;
 if (regexp.test(window.location.pathname)) {
-  const addCard = document.querySelector('.add_fields');
+  const addCard = document.querySelector('#collage-modal-btn');
   addCard.addEventListener('click', () => {
     // Select image uploader and image preview div
-    const imgPreview = document.querySelector('.nested-fields .collage-card-img');
-    const imgUploader = document.querySelector('#image-upload');
+    const imgPreview = document.querySelector('#collage-card-img');
+    const imgUploader = document.querySelector('#collage_item_photo');
 
     // Event triggered when the file is changed
     imgUploader.addEventListener('change', (event) => {
@@ -22,6 +22,3 @@ if (regexp.test(window.location.pathname)) {
     });
   });
 };
-// Resources:
-// https://www.javascripture.com/FileReader#readAsDataURL
-// https://developer.mozilla.org/en-US/docs/Web/API/FileReader

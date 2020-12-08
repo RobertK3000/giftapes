@@ -4,10 +4,10 @@
     <div class = "col-6">
        <%= simple_form_for [@question, @answer] do |q| %>
        <%= simple_fields_for :other do |o| %> 
-       <%= o.input :a, label: "A"%>
-       <%= o.input :b, label: "B"%>
-       <%= o.input :c, label: "C"%>
-       <%= o.input :d, label: "D"%>
+       <%= o.input :a, label: "A", input_html: { required: true }%>
+       <%= o.input :b, label: "B", input_html: { required: true }%>
+       <%= o.input :c, label: "C", input_html: { required: true }%>
+       <%= o.input :d, label: "D", input_html: { required: true }%>
        <% end %>
        <%= q.input :letter, collection: Answer::ANSWERS %>
        <%= q.submit "Save the question!"%>
