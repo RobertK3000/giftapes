@@ -30,7 +30,7 @@
 </div>
 
 <!-- Button to trigger modal -->
-<button type="button" class="butt butt-ltpurple" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
+<button type="button" id="collage-modal-btn" class="butt butt-ltpurple" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
 <!-- Modal Popup // Add new collage item-->
 <div class="modal fade" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -42,22 +42,30 @@
         </button>
       </div>
       <div class="modal-body">
+        <%# DIV FOR IMAGE PREVIEW  %>
+        <div id="collage-card-img"></div>
+
         <%# FORM FOR ADDING NEW COLLAGE ITEM %>
-        <%= render 'new_item' %>
+        <%= simple_form_for [@collage, @collage_item] do |c| %>
+          <div class="collage-card-prompt">
+            <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
+            <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+          </div>
+          <%= c.input :photo, as: :file, value: 'Upload Image' %>
+          <%= c.submit "Save this bad boy" %>
+        <% end %>
 
         <%# SEARCH FORM FOR GIPHY  %>
-        <form id="giphy-search">
+        <form id="giphy-form">
           <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
           <input type="submit" id="giphy-submit" value="Search">
           <button id="giphy-trending">Trending</button>
           <button id="giphy-random">Random GIF</button>
         </form>
 
-        <div id="giphy-results">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <%# <%= c.submit "Save" %> %>
+        <%# GIPHY SERACH RESULTS %>
+        <div id="giphy-results"></div>
+
       </div>
     </div>
   </div>

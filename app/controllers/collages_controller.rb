@@ -11,6 +11,7 @@ class CollagesController < ApplicationController
 
     if @collage.save
       Giftape.create(giftable: @collage, user: current_user)
+      flash[:notice] = "Successfully created new collage!"
       redirect_to edit_collage_path(@collage)
     else
       render :new
