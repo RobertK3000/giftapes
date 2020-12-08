@@ -7,10 +7,11 @@ class QuizSessionsController < ApplicationController
     @quiz_session = QuizSession.new(quiz_session_params)
     @quiz_session.quiz = @quiz
     @quiz_session.save
-    redirect_to quiz_quiz_session_path(@quiz_session.quiz)
+    redirect_to quiz_quiz_session_path(@quiz, @quiz_session)
   end
 
   def show
+    @quiz = Quiz.find(params[:quiz_id])
     @quiz_session = QuizSession.find(params[:id])
   end
 
