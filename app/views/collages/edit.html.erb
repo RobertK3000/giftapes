@@ -1,15 +1,18 @@
 <%= link_to "Back to Dashboard", my_giftapes_path, class: "butt butt-ltpurple" %>
 <%= link_to "Delete Collage",
-    collage_path(@collage),
-    method: :delete,
-    class: "butt butt-dkgreen",
-    data: { confirm: "Are you really really sure?!" } %>
+  collage_path(@collage),
+  method: :delete,
+  class: "butt butt-dkgreen",
+  data: { confirm: "Are you really really sure?!" }
+%>
 
-
+<!-- Form to update Collage name -->
 <%= simple_form_for @collage do |f| %>
-  <h2><%= f.input :name %></h2><i class="fas fa-pencil-alt fa-md"></i>
+  <h2><%= f.input :name %></h2><i class="fas fa-pencil-alt fa-md"></i></h2>
+      <%= f.submit "Save" %>
 <% end %>
 
+<!-- Display current images -->
 <div class="collage-card-container">
   <% @collage.collage_items.each do |item| %>
     <div class="collage-card" id="collage-item-<%= item.id %>">
@@ -22,46 +25,37 @@
   <% end %>
 </div>
 
-  <div class="collage_items">
-    <div class='links'>
-      <!-- Button trigger modal -->
-      <button type="button" class="butt butt-ltpurple" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
-      <%# MODAL %>
-      <div class="modal fade" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="collage-card-modal-title">Brand spanking new image</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="collage-card-prompt">
-                <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
-              </div>
-              <%= render 'new_item' %>
-              <%# <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %> %>
-              <%# <%= c.input :photo, as: :file, id: 'image-upload', value: 'Upload Image' %> %>
+<!-- Button to trigger modal -->
+<button type="button" class="butt butt-ltpurple" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
+<!-- Modal Popup // Add new collage item-->
+<div class="modal fade" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="collage-card-modal-title">Brand spanking new image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%# FORM FOR ADDING NEW COLLAGE ITEM %>
+        <%= render 'new_item' %>
 
-              <form id="giphy-search">
-                <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
-                <input type="submit" id="giphy-submit" value="Search">
-                <button id="giphy-trending">Trending</button>
-                <button id="giphy-random">Random GIF</button>
-              </form>
+        <%# SEARCH FORM FOR GIPHY  %>
+        <form id="giphy-search">
+          <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
+          <input type="submit" id="giphy-submit" value="Search">
+          <button id="giphy-trending">Trending</button>
+          <button id="giphy-random">Random GIF</button>
+        </form>
 
-              <div id="giphy-results">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <%# <%= c.submit "Save" %> %>
-            </div>
-          </div>
+        <div id="giphy-results">
         </div>
       </div>
-      <%# MODAL %>
+      <div class="modal-footer">
+        <%# <%= c.submit "Save" %> %>
+      </div>
     </div>
   </div>
-  <%# <%= c.submit 'Save' %> %>
-<%# <% end %> %>
+</div>
+<!-- Modal Popup -->

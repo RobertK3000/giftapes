@@ -1,5 +1,8 @@
 <%= simple_form_for [@collage, @collage_item] do |c| %>
-  <%= c.input :prompt %>
-  <%= c.input :photo, as: :file %>
-  <%= c.submit "New item" %>
+  <div class="collage-card-prompt">
+    <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
+    <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+  </div>
+  <%= c.input :photo, as: :file, id: 'image-upload', value: 'Upload Image' %>
+  <%= c.submit "Save this bad boy" %>
 <% end %>

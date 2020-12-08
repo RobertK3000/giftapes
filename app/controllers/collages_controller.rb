@@ -26,7 +26,6 @@ class CollagesController < ApplicationController
   end
 
   def update
-    @collage.collage_items.build
     @collage.update(collage_params)
     # if @collage.save
       redirect_to edit_collage_path(@collage)
