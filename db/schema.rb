@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 2020_12_07_042649) do
   end
 
   create_table "collages", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "curated_list_items", force: :cascade do |t|

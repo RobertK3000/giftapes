@@ -3,10 +3,14 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
-    @quiz.save
-    Giftape.create(giftable: @quiz, user: current_user)
-    redirect_to quiz_path(@quiz)
+    if @quiz.save
+      Giftape.create(giftable: @quiz, user: current_user)
+      redirect_to quiz_path(@quiz)
+    else
+      render :new
+    end
   end
+
 
   def new
     @quiz = Quiz.new
