@@ -1,1 +1,12 @@
-<h1>SCORE</h1>
+
+<h1> SCORE </h1>
+
+<% correct_answers = [] %>
+<% @quiz_session.answerings.each do |answering| %>
+  <% user_answer = answering.answer.is_correct %>
+  <% if user_answer == true %>
+  <% correct_answers << user_answer %>
+  <% end %>
+<% end %>
+
+<h1> <%= correct_answers.count %> / <%= @quiz_session.answerings.count %></h1>
