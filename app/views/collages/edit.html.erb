@@ -4,9 +4,12 @@
     method: :delete,
     class: "butt butt-dkgreen",
     data: { confirm: "Are you really really sure?!" } %>
+
+
 <%= simple_form_for @collage do |f| %>
   <h2><%= f.input :name %></h2><i class="fas fa-pencil-alt fa-md"></i>
 <% end %>
+
 <div class="collage-card-container">
   <% @collage.collage_items.each do |item| %>
     <div class="collage-card" id="collage-item-<%= item.id %>">
@@ -19,15 +22,18 @@
   <% end %>
 </div>
 
-<%= simple_form_for @collage do |c| %>
+<%= simple_form_for [@collage, @collage_item] do |c| %>
   <div class="collage_items">
     <div class='links'>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#collage-card-modal">
-        <%= link_to_add_association 'add card', c, :collage_items %>
+        <%# <div class='nested-fields'> %>
+            <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+            <%= c.input :photo, as: :file, id: 'image-upload', value: 'Upload Image' %>
+        <%# </div> %>
+        <%# <%= link_to_add_association 'Add Card', c, :collage_items %> %>
       </button>
     </div>
   </div>
   <%= c.submit 'Save' %>
 <% end %>
-

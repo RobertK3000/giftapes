@@ -1,4 +1,4 @@
-<!-- Modal -->
+<%# <!-- Modal -->
 <div class="modal fade" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -8,18 +8,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body"> %>
         <div class='nested-fields'>
             <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
             <%= c.input :photo, as: :file, id: 'image-upload', value: 'Upload Image' %>
-          <div class="collage-card-prompt">
+          <%# <div class="collage-card-prompt">
             <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
           </div>
           <div class="collage-card-img">
-          </div>
+          </div> %>
             <%= link_to_remove_association "Remove this card", c %>
 
-          <form id="giphy-search">
+          <%# <form id="giphy-search">
             <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
             <input type="submit" id="giphy-submit" value="Search">
             <button id="giphy-trending">Trending</button>
@@ -30,9 +30,9 @@
           </div>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer"> %>
         <%= c.submit "Save" %>
       </div>
-    </div>
-  </div>
-</div>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
