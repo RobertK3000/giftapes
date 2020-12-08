@@ -12,6 +12,10 @@
       <%= f.submit "Save" %>
 <% end %>
 
+<% @collage.errors.full_messages.each do |msg| %>
+  <%= msg %>
+<% end %>
+
 <!-- Display current images -->
 <div class="collage-card-container">
   <% @collage.collage_items.each do |item| %>

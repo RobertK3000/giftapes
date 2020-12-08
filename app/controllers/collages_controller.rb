@@ -13,7 +13,7 @@ class CollagesController < ApplicationController
       Giftape.create(giftable: @collage, user: current_user)
       redirect_to edit_collage_path(@collage)
     else
-      redirect_to my_giftapes_path
+      render :new
     end
   end
 
@@ -27,11 +27,11 @@ class CollagesController < ApplicationController
 
   def update
     @collage.update(collage_params)
-    # if @collage.save
+    if @collage.save
       redirect_to edit_collage_path(@collage)
-    # else
-      # redirect_to collage_path(@collage)
-    # end
+    else
+      render :new
+    end
   end
 
   def destroy
