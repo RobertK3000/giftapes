@@ -3,7 +3,7 @@ class CollagesController < ApplicationController
 
   def new
     @collage = Collage.new
-    @collage.collage_items.build
+    # @collage.collage_items.build
   end
 
   def create
@@ -13,7 +13,7 @@ class CollagesController < ApplicationController
       Giftape.create(giftable: @collage, user: current_user)
       redirect_to edit_collage_path(@collage)
     else
-      render :new
+      redirect_to my_giftapes_path
     end
   end
 

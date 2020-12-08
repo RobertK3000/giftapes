@@ -10,10 +10,10 @@ class CollageItemsController < ApplicationController
     @collage_item = CollageItem.new(collage_item_params)
     @collage_item.collage = @collage
 
-    if @collage_item.save
-      redirect_to collage_path(@collage)
+    if @collage_item.save!
+      redirect_to edit_collage_path(@collage)
     else
-      render :new
+      redirect_to my_giftapes_path
     end
   end
 
