@@ -689,10 +689,13 @@ $depth: 1.4vw;
       opacity: 1;
       width: 3vw;
       height: 1vw;
-      animation-name: spin;
-      animation-duration: 5s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
+
+      &.is--animating {
+        animation-name: spin;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
 
 
 // increase the to > transform: rotatey degrees to increase rotor speed

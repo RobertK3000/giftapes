@@ -35,13 +35,14 @@ const initMixtape = () => {
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     };
 
-    const players = []
+    const players = [];
+    const endTimes = [];
 
     let currentTrack = 0;
 
     window.onYouTubeIframeAPIReady = function () {
       const videoDivHolder = mixtapeYoutubePlayerEl.querySelector("#player");
-      videos.forEach (function(video) {
+      videos.forEach (function(video, index) {
         console.log(video)
         const videoDiv = document.createElement("div");
         videoDivHolder.appendChild(videoDiv)
@@ -55,7 +56,21 @@ const initMixtape = () => {
             end: video.end
           },
           events: {
-            // onReady: onPlayerReady,
+            onReady: function(event) {
+              // If video start and end exist, use the difference between them for the duration otherwise ask Youtube how long the video is.
+              // let thisVideosDuration = event.target.getDuration();
+              // if (video.end && !video.start) {
+              //   thisVideosDuration = video.end ;
+              // }
+              // else if (video.start && video.end) {
+              //   thisVideosDuration = video.end - video.start;
+              // }
+              // else if (video.start && !video.end) {
+              //   thisVideosDuration = event.target.getDuration() - video.start;
+              // }
+        
+              endTimes[index] = video.end || event.target.getDuration();
+            },
             onStateChange: onPlayerStateChange
           }
         }));
@@ -75,6 +90,49 @@ const initMixtape = () => {
 
       pauseBtnEl.addEventListener("click", function () {
           players[currentTrack].pauseVideo();
+      });
+
+      let fastSeekTimer = null
+      let currentTime = 0
+
+      fastforwardBtnEl.addEventListener("mousedown", function () {
+          players[currentTrack].pauseVideo();
+          currentTime = players[currentTrack].getCurrentTime();
+          fastSeekTimer = setInterval(function() { 
+            currentTime += 1;
+            if (currentTime > endTimes[currentTrack]) {
+              currentTrack += 1;
+              currentTime = videos[currentTrack].start || 0;
+            }
+            console.log(currentTime, 'currentTime');
+            console.log(currentTrack, 'currentTrack');
+          }, 250);
+      });
+
+      fastforwardBtnEl.addEventListener("mouseup", function () {
+        clearTimeout(fastSeekTimer)
+        players[currentTrack].seekTo(currentTime, true)
+        players[currentTrack].playVideo();
+      });
+
+      rewindBtnEl.addEventListener("mousedown", function () {
+        players[currentTrack].pauseVideo();
+        currentTime = players[currentTrack].getCurrentTime();
+        fastSeekTimer = setInterval(function() { 
+          currentTime -= 1;
+          if (currentTime < videos[currentTrack].start || 0) {
+            currentTrack -= 1;
+            currentTime = videos[currentTrack].end || endTimes[currentTrack];
+          }
+          console.log(currentTime, 'currentTime');
+          console.log(currentTrack, 'currentTrack');
+        }, 250);
+      });
+
+      rewindBtnEl.addEventListener("mouseup", function () {
+        clearTimeout(fastSeekTimer)
+        players[currentTrack].seekTo(currentTime, true)
+        players[currentTrack].playVideo();
       });
 
     // }
