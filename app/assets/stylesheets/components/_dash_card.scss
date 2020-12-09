@@ -8,15 +8,13 @@ $dash-card-border: solid 3px black;
   flex-wrap: wrap;
 }
 .dash-card {
-  height: 200px;
-  width: 160px;
   border-radius: 10px;
   margin-bottom: 16px;
   box-shadow: 2px 2px 3px rgba(0,0,0, 0.1);
   border: $dash-card-border;
   position: relative;
   padding: 0;
-  display: block;
+  display: inline-table;
   h4 {
     font-size: 14px;
     margin: 0px;
@@ -39,13 +37,15 @@ $dash-card-border: solid 3px black;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70%;
+  height: 160px;
+  width: 160px;
+  margin: 24px;
+  border-radius: 50%;
+  background-color: white;
   img {
     height: 100px;
     width: 100px;
     object-fit: contain;
-    background-color: white;
-    border-radius: 50%;
   }
 }
 #delete-btn {
