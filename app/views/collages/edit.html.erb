@@ -28,7 +28,7 @@
       <%= link_to collage_collage_item_path(@collage, item), method: :delete do %>
         <i class="far fa-trash-alt fa-lg"></i>
       <% end %>
-      <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
+      <%= cl_image_tag(item.photo.key) %>
       <h4><%= item.prompt %></h4>
     </div>
   <% end %>
@@ -45,19 +45,24 @@
         </button>
       </div>
       <div class="modal-body">
-        <%# DIV FOR IMAGE PREVIEW  %>
-        <div id="collage-card-img"></div>
-
-        <%# FORM FOR ADDING NEW COLLAGE ITEM %>
-        <%= simple_form_for [@collage, @collage_item] do |c| %>
-          <div class="collage-card-prompt">
-            <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
-            <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+        <!-- Card div for image preview -->
+        <div class="modal-left">
+          <div class="collage-card">
+            <div id="collage-card-img">
+            <h4></h4>
+            </div>
           </div>
-          <%= c.input :photo %>
-          <%= c.submit "Save this bad boy" %>
-        <% end %>
 
+          <!-- FORM FOR ADDING NEW COLLAGE ITEM -->
+          <%= simple_form_for [@collage, @collage_item] do |c| %>
+            <div class="collage-card-prompt">
+              <button class="butt-col-carousel" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
+              <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+            </div>
+            <%= c.input :photo %>
+            <%= c.submit "Save this bad boy" %>
+          <% end %>
+        </div>
         <%# SEARCH FORM FOR GIPHY  %>
         <form id="giphy-form">
           <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
