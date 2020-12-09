@@ -8,10 +8,20 @@ const initMixtape = () => {
     ".js-mixtape-youtube-player"
   );
 
+  const reelScenes = document.querySelectorAll(".cyl-2 ")
+  console.log(reelScenes)
+
   if (mixtapeYoutubePlayerEl) {
     const videoControlsEl = mixtapeYoutubePlayerEl.querySelector(
       ".js-video-controls"
     );
+
+    const playerStates = { "-1": false, "0": false, "1": true, "2": false, "3": true, "4": false, "5": false }
+
+    const isPlaying = () => {
+      return playerStates[players[currentTrack].getPlayerState()]
+    }
+
     const playBtnEl = videoControlsEl.querySelector(".js-play-pause");
 
     const pauseBtnEl = videoControlsEl.querySelector(".js-pause");
@@ -87,6 +97,13 @@ const initMixtape = () => {
           players[currentTrack].playVideo();
       });
 
+      playBtnEl.addEventListener("click", function () {
+          reelScenes[0].classList.remove("pause")
+          reelScenes[1].classList.remove("pause")
+          reelScenes[0].classList.add("play-forward")
+          reelScenes[1].classList.add("play-forward")
+    });
+
     //   playBtnEl.addEventListener("click", function () {
     //     for (let i = 0; i < reelScenesEl.length; i++) {
     //       reelScenesEl[i].style.animation-duration = 4s;
@@ -97,15 +114,25 @@ const initMixtape = () => {
           players[currentTrack].pauseVideo();
       });
 
+      pauseBtnEl.addEventListener("click", function () {
+          reelScenes[0].classList.remove("play-forward")
+          reelScenes[1].classList.remove("play-forward")
+          reelScenes[0].classList.add("pause")
+          reelScenes[1].classList.add("pause")
+    });
+
+
       let fastSeekTimer = null
       let currentTime = 0
+      let isPlayingBeforeSeek = false
 
       fastforwardBtnEl.addEventListener("mousedown", function () {
+          isPlayingBeforeSeek = isPlaying();
           players[currentTrack].pauseVideo();
           currentTime = players[currentTrack].getCurrentTime();
           fastSeekTimer = setInterval(function() {
             // adjust speed of fast-forward/rewind below 
-            currentTime += 2;
+            currentTime += 3;
             if (currentTime > endTimes[currentTrack]) {
               currentTrack += 1;
               currentTime = videos[currentTrack].start || 0;
@@ -115,18 +142,37 @@ const initMixtape = () => {
           }, 250);
       });
 
+// const playerStates = { "-1": false, "0": false, "1": true, "2": false, "3": true, "4": false, "5": false }
+
       fastforwardBtnEl.addEventListener("mouseup", function () {
         clearTimeout(fastSeekTimer)
         players[currentTrack].seekTo(currentTime, true)
-        players[currentTrack].playVideo();
+        console.log(isPlayingBeforeSeek)
+        console.log(players[currentTrack].getPlayerState())
+        if (isPlayingBeforeSeek) {
+          players[currentTrack].playVideo();
+        } else {
+          players[currentTrack].pauseVideo();
+        }
       });
 
+      fastforwardBtnEl.addEventListener("mousedown", function () {
+          reelScenes[0].classList.add("fast-forward")
+          reelScenes[1].classList.add("fast-forward")
+      });
+
+      fastforwardBtnEl.addEventListener("mouseup", function () {
+          reelScenes[0].classList.remove("fast-forward")
+          reelScenes[1].classList.remove("fast-forward")
+    });
+
       rewindBtnEl.addEventListener("mousedown", function () {
+        isPlayingBeforeSeek = isPlaying();
         players[currentTrack].pauseVideo();
         currentTime = players[currentTrack].getCurrentTime();
         fastSeekTimer = setInterval(function() { 
           // adjust speed of fast-forward/rewind below
-          currentTime -= 2;
+          currentTime -= 3;
           if (currentTime < videos[currentTrack].start || 0) {
             currentTrack -= 1;
             currentTime = videos[currentTrack].end || endTimes[currentTrack];
@@ -139,8 +185,24 @@ const initMixtape = () => {
       rewindBtnEl.addEventListener("mouseup", function () {
         clearTimeout(fastSeekTimer)
         players[currentTrack].seekTo(currentTime, true)
-        players[currentTrack].playVideo();
+        console.log(isPlayingBeforeSeek)
+        console.log(players[currentTrack].getPlayerState())
+        if (isPlayingBeforeSeek) {
+          players[currentTrack].playVideo();
+        } else {
+          players[currentTrack].pauseVideo();
+        }
       });
+
+      rewindBtnEl.addEventListener("mousedown", function () {
+        reelScenes[0].classList.add("reverse")
+        reelScenes[1].classList.add("reverse")
+    });
+
+      rewindBtnEl.addEventListener("mouseup", function () {
+        reelScenes[0].classList.remove("reverse")
+        reelScenes[1].classList.remove("reverse")
+  });
 
     // }
 

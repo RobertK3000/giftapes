@@ -11,19 +11,28 @@ $blue: #4cb8f5;
 $green: #a6e630;
 $yellow: #f5e82f;
 
-.cassette-container {
-  display: flex;
-  justify-content: space-evenly;
+.mixtape-container {
   min-height: 100vh; // height of the browser viewport
-  align-items: center;
-  flex-wrap: wrap;
+  margin: auto;
+  text-align: center
 }
 
 .cassette-animation-container {
-  height: 200px;
-  width: 200px
+  height: 500px;
+  width: 500px;
+  margin: auto;
+  padding: 100px
 }
 
+.cassette-controls-container {
+  height: 500px;
+  width: 500px;
+  margin: auto
+}
+
+.js-video-controls {
+  margin: auto
+}
 
 .cassette-animation * {
   margin: 0;
@@ -713,14 +722,14 @@ $depth: 1.4vw;
 
       &.fast-forward{
         animation-name: spin;
-        animation-duration: .5s;
+        animation-duration: .3s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
       }
 
       &.reverse{
         animation-name: reverse-spin;
-        animation-duration: .5s;
+        animation-duration: .3s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
       }
