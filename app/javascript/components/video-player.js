@@ -57,8 +57,8 @@ const initMixtape = () => {
         videoDivHolder.appendChild(videoDiv)
         players.push (new window.YT.Player(videoDiv, {
           // height + width = 0 to hide video
-          height: "200",
-          width: "150",
+          height: "100",
+          width: "80",
           videoId: getVideoIdFromYoutubeUrl(video.url),
           playerVars: {
             start: video.start,
@@ -132,7 +132,7 @@ const initMixtape = () => {
           currentTime = players[currentTrack].getCurrentTime();
           fastSeekTimer = setInterval(function() {
             // adjust speed of fast-forward/rewind below 
-            currentTime += 2;
+            currentTime += 3;
             if (currentTime > endTimes[currentTrack]) {
               currentTrack += 1;
               currentTime = videos[currentTrack].start || 0;
@@ -172,7 +172,7 @@ const initMixtape = () => {
         currentTime = players[currentTrack].getCurrentTime();
         fastSeekTimer = setInterval(function() { 
           // adjust speed of fast-forward/rewind below
-          currentTime -= 2;
+          currentTime -= 3;
           if (currentTime < videos[currentTrack].start || 0) {
             currentTrack -= 1;
             currentTime = videos[currentTrack].end || endTimes[currentTrack];
