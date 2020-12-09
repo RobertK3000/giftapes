@@ -1,67 +1,55 @@
 <div class="giftape-create-links">
-  <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt butt-ltpurple butt-block" %>
-  <%= link_to "+ QUIZ", new_quiz_path, class:"butt butt-dkgreen butt-block" %>
-  <%= link_to "+ LIST", new_curated_list_path, class:"butt butt-pink butt-block" %>
-  <%= link_to "+ COLLAGE", new_collage_path, class:"butt butt-dkpurple butt-block" %>
+  <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt mixtape butt-block" %>
+  <%= link_to "+ QUIZ", new_quiz_path, class:"butt quiz butt-block" %>
+  <%= link_to "+ LIST", new_curated_list_path, class:"butt curatedlist butt-block" %>
+  <%= link_to "+ COLLAGE", new_collage_path, class:"butt collage butt-block" %>
 </div>
 <h2>My Giftapes</h2>
 <div class="dash-card-container">
   <% @giftapes.each do |giftape| %>
-    <div class="dash-card">
-      <a href="<%= polymorphic_path(giftape.giftable) %>">
-        <img src="https://lh3.googleusercontent.com/proxy/oOJgFkMkUCbQ58t1bL7VRMFvyuscyMGUPlzmP_2imyvuIfzXOLWJM8EEXmx1ZYkShS9wW7nF0xt_uQe71IAcEu9qCiGs0eonBCO4QDlDpNFnZ2NqlKtL-lJUF9gqHdy3yzwC3fg_A-1GXPATIWBNo4MjjuH4vCmePrdlTTfjlRrHOUCH7A">
-        <div class="dash-card-content">
-          <div class="dash-card-words">
-            <h4><%=giftape.giftable.name%></h4>
-            <p><%= giftape.giftable.class %></p>
-            <% unless giftape.custom_url.blank? %>
-              <p>
-                Hey you got a custom URL:
-                <%= link_to giftape_path(giftape.custom_url),
-                giftape_path(giftape.custom_url) %>
-              </p>
-            <% end %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Send with custom url!</button>
-            <%# MODAL %>
-            <div class="modal" tabindex="-1" role="dialog" id="custom_url_modal_<%= giftape.id %>">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <%= form_for :giftape, :method => :patch, :url => giftape_path(giftape.id) do |f| %>
-                    <div class="modal-body">
-                      Custom URL bro?
-                      <%= f.text_field :custom_url %>
-                    </div>
-                    <div class="modal-footer">
-                      <%= f.button "Save changes", :class => "btn btn-primary"  %>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
+    <div class="dash-card <%= giftape.giftable_type.downcase%>">
+      <div class="dash-card-img">
+        <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/<%=giftape.giftable_type.downcase%>.png">
+        <%= link_to polymorphic_path(giftape.giftable),
+            method: :delete,
+            data: { confirm: "Are you really really sure?!" },
+            id:"delete-btn" do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <h4><%=link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %></h4>
+      <button type="button" class="butt-custom" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Send with custom url!</button>
+      <% unless giftape.custom_url.blank? %>
+        <p>
+          Hey you got a custom URL:
+          <%= link_to giftape_path(giftape.custom_url),
+          giftape_path(giftape.custom_url) %>
+        </p>
+      <% end %>
+      <!-- MODAL -->
+      <div class="modal" tabindex="-1" role="dialog" id="custom_url_modal_<%= giftape.id %>">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <%# MODAL %>
-            <p><strong>Last Edited:</strong> <%= giftape.giftable.updated_at.strftime("%b %-d, %Y at %R") %></p>
-          </div>
-
-          <div class="dash-card-links">
-            <%= link_to polymorphic_path(giftape.giftable) do %>
-              <i class="fas fa-gift"></i>
-            <% end %>
-            <%= link_to polymorphic_path(giftape.giftable),
-                      method: :delete,
-                      data: { confirm: "Are you really really sure?!" },
-                      id:"delete-btn" do %>
-              <i class="far fa-trash-alt"></i>
+            <%= form_for :giftape, :method => :patch, :url => giftape_path(giftape.id) do |f| %>
+              <div class="modal-body">
+                Custom URL bro?
+                <%= f.text_field :custom_url %>
+              </div>
+              <div class="modal-footer">
+                <%= f.button "Save changes", :class => "btn btn-primary"  %>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             <% end %>
           </div>
         </div>
-      </a>
+      </div>
+      <!-- MODAL -->
     </div>
   <% end %>
 </div>

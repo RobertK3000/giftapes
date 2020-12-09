@@ -51,7 +51,7 @@
             <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
             <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
           </div>
-          <%= c.input :photo, as: :file, value: 'Upload Image' %>
+          <%= c.input :photo %>
           <%= c.submit "Save this bad boy" %>
         <% end %>
 
@@ -71,3 +71,12 @@
   </div>
 </div>
 <!-- Modal Popup -->
+
+<!-- SAVE GIF AS URL -->
+<!--
+- Accepts image url
+- Enables photo OR image URL
+- In collages#create: if URL, attach with activestorate/cloudinary syntax
+                          else if photo, upload as photo
+- For giphy serach, take gif url and insert into 'image_url' value in form
+-->
