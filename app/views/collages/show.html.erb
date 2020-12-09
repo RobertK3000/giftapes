@@ -1,6 +1,6 @@
-<%= link_to "Back to Dashboard", my_giftapes_path, class:"butt butt-ltpurple" %>
+<%= link_to "Back to Dashboard", my_giftapes_path, class:"butt curatedlist" %>
 <% if @collage.giftape.user == current_user %>
-  <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt butt-dkgreen" }%>
+  <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt mixtape" }%>
 <% end %>
 
 <h2> <%= @collage.name %> </h2>

@@ -7,13 +7,13 @@
   display: inline;
   margin: 10px 0px;
   text-align: center;
-}
-.butt:hover {
-  text-decoration: none;
-  color: white;
-  box-shadow: none;
-  top: 4px;
-  left: 4px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    box-shadow: none;
+    top: 4px;
+    left: 4px;
+  }
 }
 
 .butt-block {
@@ -52,6 +52,9 @@
   padding: 8px 2px;
   i {
     color: black;
+  }
+  i:hover {
+    color: rgb(255, 248, 184);
   }
   &:hover {
     border-color: rgb(255, 248, 184);

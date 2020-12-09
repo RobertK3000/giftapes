@@ -1,15 +1,20 @@
-<%= link_to "Back to Dashboard", my_giftapes_path, class: "butt butt-ltpurple" %>
-<%= link_to "Delete Collage",
-  collage_path(@collage),
-  method: :delete,
-  class: "butt butt-dkgreen",
-  data: { confirm: "Are you really really sure?!" }
-%>
+<div>
+  <%= link_to "Back to Dashboard", my_giftapes_path, class: "butt list" %>
+  <%= link_to "Delete Collage",
+    collage_path(@collage),
+    method: :delete,
+    class: "butt mixtape",
+    data: { confirm: "Are you really really sure?!" }
+  %>
+  <!-- Button to trigger modal -->
+  <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
+</div>
 
 <!-- Form to update Collage name -->
 <%= simple_form_for @collage do |f| %>
-  <h2><%= f.input :name %></h2><i class="fas fa-pencil-alt fa-md"></i></h2>
-      <%= f.submit "Save" %>
+  <i class="fas fa-pencil-alt fa-md"></i>
+  <%= f.input :name %>
+  <%= f.submit "Save" %>
 <% end %>
 
 <% @collage.errors.full_messages.each do |msg| %>
@@ -29,8 +34,6 @@
   <% end %>
 </div>
 
-<!-- Button to trigger modal -->
-<button type="button" id="collage-modal-btn" class="butt butt-ltpurple" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
 <!-- Modal Popup // Add new collage item-->
 <div class="modal fade" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
