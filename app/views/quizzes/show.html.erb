@@ -1,43 +1,54 @@
-<div class = "container mt-5 justify-content-center">
-  <div>
-     <%= link_to "Return to Giftape home/my giftapes", my_giftapes_path,
-          class:"btn btn-info", id:"home-btn center" %>
-  </div>
-  <h1>Quiz Show Page</h1>
-    <%= @quiz.name %>
-    <% if user_signed_in? %>
-      <%= link_to "Delete Quiz :(", quiz_path(@quiz),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-      <% @quiz.questions.each do |question| %>
-        <p><%= question.content %></p>
-        <ul>
+<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
+  <div class = "container mt-5 justify-content-center quiz">
+    <div class="quiz-name-icons">
+    <h1><%= @quiz.name %></h1>
+      <% if user_signed_in? %>
+      <div class= "user-icons">
+          <%= link_to quiz_path(@quiz), method: :delete do %>
+            <i class="far fa-trash-alt fa-lg"></i>
+      <% end %>
+      <%= link_to my_giftapes_path do %>
+        <i class="fas fa-save"></i>
+      <% end %>
+    </div>
+      </div>
+        <div class="question-card-container">
+        <% @quiz.questions.each do |question| %>
+        <div class="question-card" style="transform: rotate(<%=rand(-1.2..1.2)%>deg)">
+          <p><strong><%= question.content %></strong></p>
+          <ul>
           <% question.answers.each do |answer| %>
-            <li>
+              <li>
               <!-- <input type="radio" name=`<%= question.content %>`><%= answer.letter %> ) <%= answer.content %> -->
-              <% if answer.is_correct == true %>
-              <%= answer.letter %> )<%= answer.content %> (correct answer)
-              <% else %>
-              <%= answer.letter %> ) <%= answer.content %>
-              <% end %>
-            </li>
-          <% end %>
-          <%= link_to "Delete Question", quiz_question_path(@quiz, question), method: :delete %>
-        </ul>
-      <% end%>
-      <div class = "justify-content-center row">
-        <div class = "col-6">
-          <%= simple_form_for [@quiz, @question] do |q| %>
-            <%= q.input :content, label: "Add a Question"%>
-
-            <%= q.submit "Now let's add some answers"%>
+                <% if answer.is_correct == true %>
+                <%= answer.letter.capitalize %> ) <%= answer.content %> <i class="fas fa-check" style="color: green"></i>
+                <% else %>
+                <%= answer.letter.capitalize %> ) <%= answer.content %> <i class="fas fa-times" style="color: red"></i>
+                <% end %>
+              </li>
+            <% end %>
+            <div class="delete-question-icon">
+            <%= link_to quiz_question_path(@quiz, question), method: :delete do %>
+            <i class="far fa-trash-alt fa-lg"></i>
           <% end %>
         </div>
-      </div>
-    <% else %>
-      <%= render "quiz_sessions/form", quiz: @quiz, quiz_session: @quiz_session%>
+          </ul>
+        </div>
+        <% end%>
+        </div>
+        <div class = "justify-content-center row question-form">
+          <div class = "col-6">
+            <%= simple_form_for [@quiz, @question] do |q| %>
+              <%= q.input :content, label: "Type your Question"%>
+
+              <%= q.submit "Now let's add some answers"%>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <%= render "quiz_sessions/form", quiz: @quiz, quiz_session: @quiz_session%>
 
         <!-- link to 'see my results page' (answers show page) -->
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
