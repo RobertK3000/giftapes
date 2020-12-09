@@ -13,12 +13,18 @@
 <% final_percentage = ((correct_answers.count /  @quiz_session.answerings.count.to_f) * 100).to_i %>
 
 <% if final_percentage == 100 %>
+  <div class="pyro">
+    <div class="before"></div>
+      <div class="after"></div>
   <h2>HELL YEAH!</h2>
   <i class="far fa-laugh-beam"></i>
   <i class="far fa-laugh-beam"></i>
   <i class="far fa-laugh-beam"></i>
   <i class="far fa-laugh-beam"></i>
   <i class="far fa-laugh-beam"></i>
+</div>
+</div>
+</div>
 <% elsif final_percentage < 90  && final_percentage > 80 %>
   <h2>DECENT!</h2>
 <% elsif final_percentage < 80 && final_percentage > 60 %>
