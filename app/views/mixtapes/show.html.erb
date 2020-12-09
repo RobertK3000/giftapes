@@ -1,4 +1,6 @@
 
+
+<div class="mixtape-container grid-wrap">
 <%= link_to "Edit tracks", edit_mixtape_path, class:"butt butt-dkgreen" %>
 
 <%= link_to "Back to giftapes", my_giftapes_path, class:"butt butt-dkpurple" %>
@@ -9,11 +11,7 @@
             data: { confirm: "Are you really really sure?!" },
             class:"butt butt-pink", id:"delete-btn" %>
 
-<br>
-
-<div class="mixtape-container">
-
-  <div class="cassette-animation-container">
+  <div class="cassette-animation-container grid grid-anim">
     <div class="cassette-animation">
       
         <div class="shadow-scene">
@@ -26,7 +24,7 @@
             <div class="case-scene">
               <div class="ft face">
                 <div class="full-mask">
-                  <span><%= @mixtape.name %> Mixtape</span>
+                  <span><%= @mixtape.name %></span>
                 </div>
               </div>
               <div class="bk face"></div>
@@ -242,18 +240,18 @@
   <div class="cassette-controls-container">
     <div class="js-mixtape-youtube-player" data-playlist-videos= <%= @tracks_json %>>
       <div class="js-video-controls">
-        <button class="js-play-pause" type="button">
+        <button class="js-play-pause cassette-control-button" type="button">
           <i class="fas fa-play"></i>
         </button>
-        <button class="js-pause" type="button">
+        <button class="js-pause cassette-control-button" type="button">
           <i class="fas fa-pause"></i>
         </button>
 
-        <button class="js-rewind" type="button">
+        <button class="js-rewind cassette-control-button" type="button">
           <i class="fas fa-backward"></i>
         </button>
 
-        <button class="js-fast-forward" type="button">
+        <button class="js-fast-forward cassette-control-button" type="button">
           <i class="fas fa-forward"></i>
         </button>
       </div>
