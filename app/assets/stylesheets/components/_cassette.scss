@@ -12,22 +12,26 @@ $green: #a6e630;
 $yellow: #f5e82f;
 
 .mixtape-container {
-  min-height: 100vh; // height of the browser viewport
-  margin: auto;
-  text-align: center
+  width: 100%;
+  background-color: $gt-mixtape
 }
 
 .cassette-animation-container {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 300px;
   margin: auto;
-  padding: 100px
+  display: flex;
+  justify-content: center;
+  padding-right: 450px;
+  margin-top: 400px;
 }
 
 .cassette-controls-container {
-  height: 500px;
-  width: 500px;
-  margin: auto
+  height: 100px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .js-video-controls {
