@@ -1,9 +1,9 @@
 <div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
   <div class = "container mt-5 justify-content-center quiz">
     <div class="quiz-name-icons">
-    <h1><%= @quiz.name %></h1>
+      <h1><%= @quiz.name %></h1>
       <% if user_signed_in? %>
-      <div class= "user-icons">
+        <div class= "user-icons">
           <%= link_to quiz_path(@quiz), method: :delete do %>
             <i class="far fa-trash-alt fa-lg"></i>
       <% end %>
