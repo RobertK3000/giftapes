@@ -8,13 +8,20 @@ $dash-card-border: solid 3px black;
   flex-wrap: wrap;
 }
 .dash-card {
+  width: 200px;
   border-radius: 10px;
-  margin-bottom: 16px;
+  margin: 0px 24px 16px 24px;
   box-shadow: 2px 2px 3px rgba(0,0,0, 0.1);
   border: $dash-card-border;
   position: relative;
   padding: 0;
   display: inline-table;
+  overflow: hidden;
+  &:hover {
+    transform: rotate(0) scale(1.1) !important;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
   h4 {
     font-size: 14px;
     margin: 0px;
@@ -23,6 +30,14 @@ $dash-card-border: solid 3px black;
     border-top: $dash-card-border;
     border-bottom: $dash-card-border;
     background-color: white;
+  }
+  p {
+    width: 208px;
+    font-size: 10px;
+    background-color: white;
+    padding: 8px 0px;
+    border-bottom: $dash-card-border;
+    margin-bottom: 0;
   }
   a {
     font-family: $gt-font;
