@@ -1,15 +1,15 @@
 <div class="giftape-create-links">
-  <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt butt-mixtape butt-block" %>
-  <%= link_to "+ QUIZ", new_quiz_path, class:"butt butt-quiz butt-block" %>
-  <%= link_to "+ LIST", new_curated_list_path, class:"butt butt-list butt-block" %>
-  <%= link_to "+ COLLAGE", new_collage_path, class:"butt butt-collage butt-block" %>
+  <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt mixtape butt-block" %>
+  <%= link_to "+ QUIZ", new_quiz_path, class:"butt quiz butt-block" %>
+  <%= link_to "+ LIST", new_curated_list_path, class:"butt curatedlist butt-block" %>
+  <%= link_to "+ COLLAGE", new_collage_path, class:"butt collage butt-block" %>
 </div>
 <h2>My Giftapes</h2>
 <div class="dash-card-container">
   <% @giftapes.each do |giftape| %>
-    <div class="dash-card">
+    <div class="dash-card <%= giftape.giftable_type.downcase%>">
       <div class="dash-card-img">
-        <img src="https://lh3.googleusercontent.com/proxy/oOJgFkMkUCbQ58t1bL7VRMFvyuscyMGUPlzmP_2imyvuIfzXOLWJM8EEXmx1ZYkShS9wW7nF0xt_uQe71IAcEu9qCiGs0eonBCO4QDlDpNFnZ2NqlKtL-lJUF9gqHdy3yzwC3fg_A-1GXPATIWBNo4MjjuH4vCmePrdlTTfjlRrHOUCH7A">
+        <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/<%=giftape.giftable_type.downcase%>.png">
         <%= link_to polymorphic_path(giftape.giftable),
             method: :delete,
             data: { confirm: "Are you really really sure?!" },
@@ -26,7 +26,7 @@
           giftape_path(giftape.custom_url) %>
         </p>
       <% end %>
-      <%# MODAL %>
+      <!-- MODAL -->
       <div class="modal" tabindex="-1" role="dialog" id="custom_url_modal_<%= giftape.id %>">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <%# MODAL %>
+      <!-- MODAL -->
     </div>
   <% end %>
 </div>

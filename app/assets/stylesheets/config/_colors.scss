@@ -1,12 +1,26 @@
 // Define variables for your color scheme
 $gt-mixtape: #50D0B9;
-$gt-list: #B7D050;
+$gt-curatedlist: #B7D050;
 $gt-collage: #E280E4;
 $gt-quiz: #E1A853;
 
 $gt-bkg: #6072CE;
 $gt-header: #DFA614;
 $gt-navbar: #86E8CD;
+
+// Classes for diff mixtapes
+.quiz {
+  background-color: $gt-quiz;
+}
+.mixtape {
+  background-color: $gt-mixtape;
+}
+.curatedlist {
+  background-color: $gt-curatedlist;
+}
+.collage {
+  background-color: $gt-collage;
+}
 
 // For example:
 $red: #FD1015;
