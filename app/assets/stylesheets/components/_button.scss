@@ -35,10 +35,25 @@
   border-bottom-right-radius: 8px;
   font-size: 12px;
   &:hover {
-    color: white;
+    color: rgb(255, 255, 255);
   }
 }
 
 .delete-list-btn {
   padding-right: 300px;
+}
+
+.butt-col-carousel {
+  background-color: $lt-yellow;
+  border: solid 2px black;
+  border-radius: 50%;
+  height: 43px;
+  width: 50px;
+  padding: 8px 2px;
+  i {
+    color: black;
+  }
+  &:hover {
+    border-color: rgb(255, 248, 184);
+  }
 }
