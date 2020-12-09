@@ -57,8 +57,8 @@ const initMixtape = () => {
         videoDivHolder.appendChild(videoDiv)
         players.push (new window.YT.Player(videoDiv, {
           // height + width = 0 to hide video
-          height: "100",
-          width: "80",
+          height: "0",
+          width: "0",
           videoId: getVideoIdFromYoutubeUrl(video.url),
           playerVars: {
             start: video.start,
