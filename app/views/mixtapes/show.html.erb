@@ -1,19 +1,19 @@
 
-<%= link_to "Edit tracks", edit_mixtape_path, class:"butt butt-dkgreen" %>
 
-<%= link_to "Back to giftapes", my_giftapes_path, class:"butt butt-dkpurple" %>
+<div class="mixtape-container grid-wrap">
+  <div class="mixtape-navigation-container">
+    <%= link_to "Edit tracks", edit_mixtape_path, class:"butt butt-dkgreen" %>
 
-<%= link_to 'delete this mixtape? :(',
-            mixtape_path(@mixtape),
-            method: :delete,
-            data: { confirm: "Are you really really sure?!" },
-            class:"butt butt-pink", id:"delete-btn" %>
+    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt butt-dkpurple" %>
 
-<br>
+    <%= link_to 'delete this mixtape? :(',
+                mixtape_path(@mixtape),
+                method: :delete,
+                data: { confirm: "Are you really really sure?!" },
+                class:"butt butt-pink", id:"delete-btn" %>
+  </div>
 
-<div class="mixtape-container">
-
-  <div class="cassette-animation-container">
+  <div class="cassette-animation-container grid grid-anim">
     <div class="cassette-animation">
       
         <div class="shadow-scene">
@@ -26,7 +26,7 @@
             <div class="case-scene">
               <div class="ft face">
                 <div class="full-mask">
-                  <span><%= @mixtape.name %> Mixtape</span>
+                  <span><%= @mixtape.name %></span>
                 </div>
               </div>
               <div class="bk face"></div>
@@ -242,24 +242,30 @@
   <div class="cassette-controls-container">
     <div class="js-mixtape-youtube-player" data-playlist-videos= <%= @tracks_json %>>
       <div class="js-video-controls">
-        <button class="js-play-pause" type="button">
+        <button class="js-play-pause cassette-control-button" type="button" onclick="play()">
           <i class="fas fa-play"></i>
         </button>
-        <button class="js-pause" type="button">
+        <button class="js-pause cassette-control-button" type="button">
           <i class="fas fa-pause"></i>
         </button>
 
-        <button class="js-rewind" type="button">
+        <button class="js-rewind cassette-control-button" type="button">
           <i class="fas fa-backward"></i>
         </button>
 
-        <button class="js-fast-forward" type="button">
+        <button class="js-fast-forward cassette-control-button" type="button">
           <i class="fas fa-forward"></i>
         </button>
       </div>
     
       <div id="player"></div>
     </div>
+  </div>
+
+  <div class="cassette-sound-fx-container">
+    <%# <audio class="play-sound-fx" controls>
+      <source src="https://res.cloudinary.com/susanjsp/video/upload/v1607491915/play.mp3" type="audio/mpeg">
+    </audio>  %>
   </div>
 </div>
 

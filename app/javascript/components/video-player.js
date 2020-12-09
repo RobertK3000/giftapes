@@ -8,6 +8,12 @@ const initMixtape = () => {
     ".js-mixtape-youtube-player"
   );
 
+  var playSoundEffect = new Audio("https://res.cloudinary.com/susanjsp/video/upload/v1607491915/play.mp3");
+
+  var pauseSoundEffect = new Audio("https://res.cloudinary.com/susanjsp/video/upload/v1607491915/pause.mp3");
+
+  var fastForwardRewindSoundEffect = new Audio("https://res.cloudinary.com/susanjsp/video/upload/v1607491924/fast_forward_rewind.mp3");
+
   const reelScenes = document.querySelectorAll(".cyl-2 ")
   console.log(reelScenes)
 
@@ -57,8 +63,8 @@ const initMixtape = () => {
         videoDivHolder.appendChild(videoDiv)
         players.push (new window.YT.Player(videoDiv, {
           // height + width = 0 to hide video
-          height: "100",
-          width: "80",
+          height: "0",
+          width: "0",
           videoId: getVideoIdFromYoutubeUrl(video.url),
           playerVars: {
             start: video.start,
@@ -98,21 +104,25 @@ const initMixtape = () => {
       });
 
       playBtnEl.addEventListener("click", function () {
+        playSoundEffect.play();
+      });
+
+
+      playBtnEl.addEventListener("click", function () {
           reelScenes[0].classList.remove("pause")
           reelScenes[1].classList.remove("pause")
           reelScenes[0].classList.add("play-forward")
           reelScenes[1].classList.add("play-forward")
     });
 
-    //   playBtnEl.addEventListener("click", function () {
-    //     for (let i = 0; i < reelScenesEl.length; i++) {
-    //       reelScenesEl[i].style.animation-duration = 4s;
-    //     }
-    // });      
-
       pauseBtnEl.addEventListener("click", function () {
           players[currentTrack].pauseVideo();
       });
+
+      pauseBtnEl.addEventListener("click", function () {
+        pauseSoundEffect.play();
+      });
+
 
       pauseBtnEl.addEventListener("click", function () {
           reelScenes[0].classList.remove("play-forward")
@@ -161,10 +171,19 @@ const initMixtape = () => {
           reelScenes[1].classList.add("fast-forward")
       });
 
+      fastforwardBtnEl.addEventListener("mousedown", function () {
+          fastForwardRewindSoundEffect.currentTime = 0;
+          fastForwardRewindSoundEffect.play();
+      });
+
       fastforwardBtnEl.addEventListener("mouseup", function () {
           reelScenes[0].classList.remove("fast-forward")
           reelScenes[1].classList.remove("fast-forward")
-    });
+      });
+
+      fastforwardBtnEl.addEventListener("mouseup", function () {
+          fastForwardRewindSoundEffect.pause();
+      });
 
       rewindBtnEl.addEventListener("mousedown", function () {
         isPlayingBeforeSeek = isPlaying();
@@ -199,10 +218,19 @@ const initMixtape = () => {
         reelScenes[1].classList.add("reverse")
     });
 
+      rewindBtnEl.addEventListener("mousedown", function () {
+        fastForwardRewindSoundEffect.currentTime = 0;
+        fastForwardRewindSoundEffect.play();
+    });
+
       rewindBtnEl.addEventListener("mouseup", function () {
         reelScenes[0].classList.remove("reverse")
         reelScenes[1].classList.remove("reverse")
-  });
+    });
+
+      rewindBtnEl.addEventListener("mouseup", function () {
+        fastForwardRewindSoundEffect.pause();
+    });
 
     // }
 
