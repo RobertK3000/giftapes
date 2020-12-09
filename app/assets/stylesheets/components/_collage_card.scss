@@ -1,12 +1,12 @@
 .collage-card-container {
   width: 100%;
   height: 90vh;
-  // display: flex;
-  // justify-content: space-evenly;
-  // flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   position: relative;
 }
-#collage-carousel {
+#carouselExampleIndicators {
   display: flex;
   align-items: center;
 }
@@ -18,10 +18,6 @@
   background-color: $lt-yellow;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
   padding: 24px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-style: preserve-3D;
   a {
     color: black;
   }
@@ -47,7 +43,13 @@
   }
 }
 
-.collage-card::before {
+.stacked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3D;
+}
+.stacked::before {
   content: "";
   position: absolute;
   top: 20px;
@@ -59,7 +61,7 @@
   background-color: rgb(218, 211, 153);
   transform: translateZ(-1px);
 }
-.collage-card::after {
+.stacked::after {
   content: "";
   position: absolute;
   top: 40px;

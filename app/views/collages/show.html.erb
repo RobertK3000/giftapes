@@ -6,13 +6,16 @@
 <h2> <%= @collage.name %> </h2>
 
 <!-- COLLAGE CAROUSEL -->
-<div id="collage-carousel" class="carousel carousel-fade" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  <a class="butt-col-carousel" href="#demo" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+  <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"><i class="fas fa-chevron-left"></i></span>
+  </a>
   <div class="carousel-inner">
     <div class="collage-card-container">
       <% @collage.collage_items.each do |item| %>
@@ -21,12 +24,15 @@
         <% else %>
           <div class="collage-card stacked carousel-item">
         <% end %>
-          <h4><%= item.prompt %></h4>
           <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
+          <h4><%= item.prompt %></h4>
         </div>
       <% end %>
     </div>
   </div>
-  <a class="butt-col-carousel" href="#demo" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+  <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"><i class="fas fa-chevron-right"></i></span>
+  </a>
 </div>
 <!-- COLLAGE CAROUSELL -->
