@@ -1,11 +1,11 @@
-.collage-card-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
 .collage-card {
-  width: 400px;
-  margin: 8px;
+  width: 350px;
+  height: 450px;
+  margin: 8px 12px 0px 24px;
+  border: solid 2px black;
+  background-color: $lt-yellow;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+  padding: 24px;
   position: relative;
   a {
     color: black;
@@ -15,17 +15,98 @@
   }
   img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    max-height: 300px;
+    object-fit: cover;
+    border: solid 2px black;
   }
   h4 {
+    font-family: $collage-font;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    width: calc(inherit - 20px);
+    overflow: auto;
   }
   i {
     position: absolute;
-    top: 12px;
+    bottom: 12px;
     right: 10px;
+  }
+}
+
+// CAROUSEL STYLING
+.collage-card-container {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: visible;
+}
+.carousel-inner {
+  overflow: visible;
+}
+.stacked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3D;
+  transform: rotate(-10deg) translate(-90px, -55px) !important;
+  transition: all 1s !important;
+  opacity: 1 !important;
+  &.active {
+    z-index: 1;
+    opacity: 1 !important;
+    transform: rotate(0) translate(0, 0) !important;
+    transition: all 0.075s !important;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: -20px;
+    left: 20px;
+    right: -20px;
+    z-index: -2;
+    border: solid black 2px;
+    background-color: rgb(218, 211, 153);
+    transform: translateZ(-1px);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    bottom: -40px;
+    left: 40px;
+    right: -40px;
+    z-index: -3;
+    border: solid black 2px;
+    background-color: rgb(218, 211, 153);
+    transform: translateZ(-1px);
+  }
+}
+#card-indicators {
+  width: 5px;
+  height: 5px;
+  border: solid black 2px;
+  color: $gt-collage;
+}
+#carouselExampleIndicators {
+  display: flex;
+  align-items: center;
+}
+
+// COLLAGE EDIT STYLING
+.edit-collage-card {
+  height: 320px;
+  width: 250px;
+  padding: 16px;
+  margin-bottom: 16px;
+  img {
+    max-height: 275px;
+  }
+  h4 {
+    font-size: 1.3rem;
   }
 }

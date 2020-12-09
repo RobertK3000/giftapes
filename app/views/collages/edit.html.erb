@@ -1,15 +1,20 @@
-<%= link_to "Back to Dashboard", my_giftapes_path, class: "butt butt-ltpurple" %>
-<%= link_to "Delete Collage",
-  collage_path(@collage),
-  method: :delete,
-  class: "butt butt-dkgreen",
-  data: { confirm: "Are you really really sure?!" }
-%>
+<div>
+  <%= link_to "Back to Dashboard", my_giftapes_path, class: "butt list" %>
+  <%= link_to "Delete Collage",
+    collage_path(@collage),
+    method: :delete,
+    class: "butt mixtape",
+    data: { confirm: "Are you really really sure?!" }
+  %>
+  <!-- Button to trigger modal -->
+  <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
+</div>
 
 <!-- Form to update Collage name -->
 <%= simple_form_for @collage do |f| %>
-  <h2><%= f.input :name %></h2><i class="fas fa-pencil-alt fa-md"></i></h2>
-      <%= f.submit "Save" %>
+  <i class="fas fa-pencil-alt fa-md"></i>
+  <%= f.input :name %>
+  <%= f.submit "Save" %>
 <% end %>
 
 <% @collage.errors.full_messages.each do |msg| %>
@@ -19,18 +24,16 @@
 <!-- Display current images -->
 <div class="collage-card-container">
   <% @collage.collage_items.each do |item| %>
-    <div class="collage-card" id="collage-item-<%= item.id %>">
+    <div class="collage-card edit-collage-card" id="collage-item-<%= item.id %>">
       <%= link_to collage_collage_item_path(@collage, item), method: :delete do %>
         <i class="far fa-trash-alt fa-lg"></i>
       <% end %>
-      <%= cl_image_tag(item.photo.key, width: 400, height: 450, crop:'fill' ) %>
+      <%= cl_image_tag(item.photo.key) %>
       <h4><%= item.prompt %></h4>
     </div>
   <% end %>
 </div>
 
-<!-- Button to trigger modal -->
-<button type="button" id="collage-modal-btn" class="butt butt-ltpurple" data-toggle="modal" data-target="#collage-card-modal">+ Image</button>
 <!-- Modal Popup // Add new collage item-->
 <div class="modal fade" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -42,19 +45,24 @@
         </button>
       </div>
       <div class="modal-body">
-        <%# DIV FOR IMAGE PREVIEW  %>
-        <div id="collage-card-img"></div>
-
-        <%# FORM FOR ADDING NEW COLLAGE ITEM %>
-        <%= simple_form_for [@collage, @collage_item] do |c| %>
-          <div class="collage-card-prompt">
-            <button class="btn-random" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
-            <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+        <!-- Card div for image preview -->
+        <div class="modal-left">
+          <div class="collage-card">
+            <div id="collage-card-img">
+            <h4></h4>
+            </div>
           </div>
-          <%= c.input :photo %>
-          <%= c.submit "Save this bad boy" %>
-        <% end %>
 
+          <!-- FORM FOR ADDING NEW COLLAGE ITEM -->
+          <%= simple_form_for [@collage, @collage_item] do |c| %>
+            <div class="collage-card-prompt">
+              <button class="butt-col-carousel" id="collage-prompt-random"><i class="fas fa-sync"></i></button>
+              <%= c.input :prompt, id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+            </div>
+            <%= c.input :photo %>
+            <%= c.submit "Save this bad boy" %>
+          <% end %>
+        </div>
         <%# SEARCH FORM FOR GIPHY  %>
         <form id="giphy-form">
           <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
