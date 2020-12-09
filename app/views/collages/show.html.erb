@@ -6,19 +6,20 @@
 <h2> <%= @collage.name %> </h2>
 
 <!-- COLLAGE CAROUSELL -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="collage-carousel" class="carousel carousel-fade" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
+  <a class="btn btn-primary" href="#demo" data-slide="prev">Prev</a>
   <div class="carousel-inner">
     <div class="collage-card-container">
       <% @collage.collage_items.each do |item| %>
         <% if @collage.collage_items.first == item %>
-          <div class="collage-card carousel-item active">
+          <div class="collage-card stacked carousel-item active">
         <% else %>
-          <div class="collage-card carousel-item">
+          <div class="collage-card stacked carousel-item">
         <% end %>
           <h4><%= item.prompt %></h4>
           <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
@@ -26,13 +27,6 @@
       <% end %>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <a class="btn btn-primary" href="#demo" data-slide="next">Next</a>
 </div>
 <!-- COLLAGE CAROUSELL -->
