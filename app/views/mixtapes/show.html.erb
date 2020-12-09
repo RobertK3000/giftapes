@@ -1,15 +1,17 @@
 
 
 <div class="mixtape-container grid-wrap">
-<%= link_to "Edit tracks", edit_mixtape_path, class:"butt butt-dkgreen" %>
+  <div class="mixtape-navigation-container">
+    <%= link_to "Edit tracks", edit_mixtape_path, class:"butt butt-dkgreen" %>
 
-<%= link_to "Back to giftapes", my_giftapes_path, class:"butt butt-dkpurple" %>
+    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt butt-dkpurple" %>
 
-<%= link_to 'delete this mixtape? :(',
-            mixtape_path(@mixtape),
-            method: :delete,
-            data: { confirm: "Are you really really sure?!" },
-            class:"butt butt-pink", id:"delete-btn" %>
+    <%= link_to 'delete this mixtape? :(',
+                mixtape_path(@mixtape),
+                method: :delete,
+                data: { confirm: "Are you really really sure?!" },
+                class:"butt butt-pink", id:"delete-btn" %>
+  </div>
 
   <div class="cassette-animation-container grid grid-anim">
     <div class="cassette-animation">
@@ -240,7 +242,7 @@
   <div class="cassette-controls-container">
     <div class="js-mixtape-youtube-player" data-playlist-videos= <%= @tracks_json %>>
       <div class="js-video-controls">
-        <button class="js-play-pause cassette-control-button" type="button">
+        <button class="js-play-pause cassette-control-button" type="button" onclick="play()">
           <i class="fas fa-play"></i>
         </button>
         <button class="js-pause cassette-control-button" type="button">
@@ -258,6 +260,12 @@
     
       <div id="player"></div>
     </div>
+  </div>
+
+  <div class="cassette-sound-fx-container">
+    <%# <audio class="play-sound-fx" controls>
+      <source src="https://res.cloudinary.com/susanjsp/video/upload/v1607491915/play.mp3" type="audio/mpeg">
+    </audio>  %>
   </div>
 </div>
 
