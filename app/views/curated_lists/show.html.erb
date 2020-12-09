@@ -13,13 +13,9 @@
                 <% if user_signed_in? %>
 
                   <% @curated_list.curated_list_items.each do |cli| %>
-                    <ul>
+                    <ul style="list-style: none;">
                       <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %> </a></li>
                     </ul>
-
-                    <br>
-                    <br>
-                    <br>
                     <%= link_to "delete this list item",
                         curated_list_curated_list_item_path(@curated_list, cli), method: :delete %>
                   <% end %>
