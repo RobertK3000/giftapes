@@ -18,38 +18,37 @@
         <% end %>
       </div>
       <h4><%=link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %></h4>
-      <button type="button" class="butt-custom" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Send with custom url!</button>
       <% unless giftape.custom_url.blank? %>
         <p>
-          Hey you got a custom URL:
           <%= link_to giftape_path(giftape.custom_url),
           giftape_path(giftape.custom_url) %>
         </p>
       <% end %>
-      <!-- MODAL -->
-      <!-- MODAL -->
+      <button type="button" class="butt-custom" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Choose custom url!</button>
     </div>
-      <div class="modal" tabindex="-1" role="dialog" id="custom_url_modal_<%= giftape.id %>">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <%= form_for :giftape, :method => :patch, :url => giftape_path(giftape.id) do |f| %>
-              <div class="modal-body">
-                Custom URL bro?
-                <%= f.text_field :custom_url %>
-              </div>
-              <div class="modal-footer">
-                <%= f.button "Save changes", :class => "btn btn-primary"  %>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            <% end %>
+    <!-- MODAL -->
+    <div class="modal" tabindex="-1" role="dialog" id="custom_url_modal_<%= giftape.id %>">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <%= form_for :giftape, :method => :patch, :url => giftape_path(giftape.id) do |f| %>
+            <div class="modal-body">
+              Custom URL bro?
+              <%= f.text_field :custom_url %>
+            </div>
+            <div class="modal-footer">
+              <%= f.button "Save changes", :class => "btn btn-primary"  %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          <% end %>
         </div>
       </div>
+    </div>
+    <!-- MODAL -->
   <% end %>
 </div>
