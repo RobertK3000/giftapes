@@ -42,7 +42,6 @@
 }
 
 .quiz-name-icons a {
-  padding-left: 350px;
   color: black;
 }
 
@@ -52,6 +51,7 @@
 }
 
 .question-card-form {
+  max-width: 300px;
   list-style: none;
   text-align: left;
   padding-left: 15px;
@@ -83,4 +83,11 @@
 
 .quiz-results h2 {
   color: black;
+  font-family: $headers-font
 }
+
+.user-icons {
+  padding-left: 570px;
+
+}
+
