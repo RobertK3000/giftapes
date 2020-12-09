@@ -5,6 +5,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   position: relative;
+  overflow: visible;
 }
 #carouselExampleIndicators {
   display: flex;
@@ -48,6 +49,15 @@
   top: 0;
   left: 0;
   transform-style: preserve-3D;
+  transform: rotate(-10deg) translate(-90px, -55px) !important;
+  transition: all 1s !important;
+  opacity: 1 !important;
+  &.active {
+    z-index: 1;
+    opacity: 1 !important;
+    transform: rotate(0) translate(0, 0) !important;
+    transition: all 0.075s !important;
+  }
 }
 .stacked::before {
   content: "";

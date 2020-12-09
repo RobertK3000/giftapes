@@ -8,9 +8,11 @@
 <!-- COLLAGE CAROUSEL -->
 <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
   <ol class="carousel-indicators">
+    <!-- Create enough indicators for the amount of collage items only (+ set first to active) -->
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <% @collage.collage_items[0...-1].count.times do %>
+      <li data-target="#carouselExampleIndicators"></li>
+    <% end %>
   </ol>
   <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
