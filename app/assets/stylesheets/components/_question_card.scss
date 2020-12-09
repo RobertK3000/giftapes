@@ -4,6 +4,11 @@
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: rotate(0) scale(1.1) !important;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .question-card ul {
@@ -44,4 +49,38 @@
 
 .question-form {
   padding-top:100px;
+}
+
+.question-card-form {
+  list-style: none;
+  text-align: left;
+  padding-left: 15px;
+  font-family: $headers-font;
+  border: 3px solid #000000;
+  background-color: #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: rotate(0) scale(1.1) !important;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.question-card-form h3 {
+  text-align: center;
+}
+
+
+.quiz-results {
+  background-color: $gt-quiz;
+  height: 1000px;
+  border-radius: 5px;
+  padding-top: 50px;
+}
+
+
+.quiz-results h2 {
+  color: black;
 }

@@ -1,8 +1,16 @@
-<%= simple_form_for [quiz, quiz_session] do |f| %>
-  <%= f.simple_fields_for :answerings do |fa| %>
-    <h3><%= fa.object.question.content %></h3>
-    <%= fa.association :answer, collection: fa.object.question.answers, as: :radio_buttons %>
-    <%= fa.input :question_id, value: fa.object.question.id, as: :hidden %>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
+  <div class = "container mt-5 justify-content-center quiz">
+  <%= simple_form_for [quiz, quiz_session] do |f| %>
+    <div class="question-card-container">
+      <%= f.simple_fields_for :answerings do |fa| %>
+        <div class="question-card-form" style="transform: rotate(<%=rand(-1.2..1.2)%>deg)">
+          <h3><%= fa.object.question.content %></h3>
+          <%= fa.association :answer, collection: fa.object.question.answers, as: :radio_buttons %>
+          <%= fa.input :question_id, value: fa.object.question.id, as: :hidden %>
+        </div>
+        <% end %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
