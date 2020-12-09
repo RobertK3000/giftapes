@@ -1,0 +1,47 @@
+.question-card {
+  border: 3px solid #000000;
+  background-color: #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-card ul {
+  list-style: none;
+  text-align: left;
+  padding-left: 15px;
+  font-family: $headers-font
+
+}
+
+.question-card p {
+  font-family: $headers-font
+}
+
+.question-card-container {
+  display: inline-grid;
+  grid-gap: 50px 100px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.delete-question-icon {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.quiz-name-icons {
+  padding-top: 50px;
+  margin-bottom: 80px;
+  margin-top: 40px;
+
+}
+
+.quiz-name-icons a {
+  padding-left: 350px;
+  color: black;
+}
+
+
+.question-form {
+  padding-top:100px;
+}
