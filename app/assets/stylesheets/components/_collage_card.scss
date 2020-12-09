@@ -7,9 +7,8 @@
   position: relative;
   overflow: visible;
 }
-#carouselExampleIndicators {
-  display: flex;
-  align-items: center;
+.carousel-inner {
+  overflow: visible;
 }
 .collage-card {
   width: 350px;
@@ -58,28 +57,39 @@
     transform: rotate(0) translate(0, 0) !important;
     transition: all 0.075s !important;
   }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: -20px;
+    left: 20px;
+    right: -20px;
+    z-index: -2;
+    border: solid black 2px;
+    background-color: rgb(218, 211, 153);
+    transform: translateZ(-1px);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    bottom: -40px;
+    left: 40px;
+    right: -40px;
+    z-index: -3;
+    border: solid black 2px;
+    background-color: rgb(218, 211, 153);
+    transform: translateZ(-1px);
+  }
 }
-.stacked::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  bottom: -20px;
-  left: 20px;
-  right: -20px;
-  z-index: -2;
-  border: solid black 2px;
-  background-color: rgb(218, 211, 153);
-  transform: translateZ(-1px);
+
+#carouselExampleIndicators {
+  display: flex;
+  align-items: center;
 }
-.stacked::after {
-  content: "";
-  position: absolute;
-  top: 40px;
-  bottom: -40px;
-  left: 40px;
-  right: -40px;
-  z-index: -3;
+#card-indicators {
+  width: 5px;
+  height: 5px;
   border: solid black 2px;
-  background-color: rgb(218, 211, 153);
-  transform: translateZ(-1px);
+  color: $gt-collage;
 }
