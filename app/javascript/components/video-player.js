@@ -100,7 +100,7 @@ const initMixtape = () => {
     //   const youtubePlayer = event.target;
 
       playBtnEl.addEventListener("click", function () {
-          players[currentTrack].playVideo();
+        players[currentTrack].playVideo();
       });
 
       playBtnEl.addEventListener("click", function () {
@@ -142,13 +142,16 @@ const initMixtape = () => {
           currentTime = players[currentTrack].getCurrentTime();
           fastSeekTimer = setInterval(function() {
             // adjust speed of fast-forward/rewind below 
-            currentTime += 3;
+            currentTime += 4;
             if (currentTime > endTimes[currentTrack]) {
               currentTrack += 1;
               currentTime = videos[currentTrack].start || 0;
             }
             console.log(currentTime, 'currentTime');
+            console.log(endTimes[currentTrack], 'endTimes[currentTrack]');
             console.log(currentTrack, 'currentTrack');
+            console.log(players.length - 1, 'lastTrack');
+            console.log(players.[currentTrack], 'players[CurrentTrack]');
           }, 250);
       });
 
@@ -157,8 +160,8 @@ const initMixtape = () => {
       fastforwardBtnEl.addEventListener("mouseup", function () {
         clearTimeout(fastSeekTimer)
         players[currentTrack].seekTo(currentTime, true)
-        console.log(isPlayingBeforeSeek)
-        console.log(players[currentTrack].getPlayerState())
+        // console.log(isPlayingBeforeSeek)
+        // console.log(players[currentTrack].getPlayerState())
         if (isPlayingBeforeSeek) {
           players[currentTrack].playVideo();
         } else {
@@ -191,13 +194,11 @@ const initMixtape = () => {
         currentTime = players[currentTrack].getCurrentTime();
         fastSeekTimer = setInterval(function() { 
           // adjust speed of fast-forward/rewind below
-          currentTime -= 3;
-          if (currentTime < videos[currentTrack].start || 0) {
+          currentTime -= 4;
+          if ((currentTime < videos[currentTrack].start && currentTrack !== 0) || 0) {
             currentTrack -= 1;
             currentTime = videos[currentTrack].end || endTimes[currentTrack];
           }
-          console.log(currentTime, 'currentTime');
-          console.log(currentTrack, 'currentTrack');
         }, 250);
       });
 

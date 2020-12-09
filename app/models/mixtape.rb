@@ -1,5 +1,5 @@
 class Mixtape < ApplicationRecord
-  validates :name, :theme_type, presence: true
+  validates :name, presence: true
   validates_presence_of :tracks, acceptance: {message: 'must have at least one track'}
   validates_associated :tracks, acceptance: {message: 'must have at least one track'}
   validate :at_least_one_track_in_mixtape
