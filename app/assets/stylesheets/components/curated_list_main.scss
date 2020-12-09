@@ -1,0 +1,48 @@
+.main-container {
+  height: 800px;
+  width: 100%;
+  border-radius: 20px;
+  // border: solid 3px blue;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.main-left {
+  padding-top: 100px;
+  align-items: center;
+  width: 100%;
+  // border: solid 1px red;
+}
+
+.main-right {
+  width: 100%;
+  // border: solid 1px red;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 45px;
+}
+
+.prompt-form {
+  // border: solid 1px red;
+  width: 100%;
+  padding: 20px;
+  background-color: #fafad28f;
+  border-radius: 30px;
+
+}
+
+.notepad-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+
+.page-title {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
