@@ -71,3 +71,16 @@
 .question-card-form h3 {
   text-align: center;
 }
+
+
+.quiz-results {
+  background-color: $gt-quiz;
+  height: 1000px;
+  border-radius: 5px;
+  padding-top: 50px;
+}
+
+
+.quiz-results h2 {
+  color: black;
+}
