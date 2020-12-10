@@ -1,9 +1,9 @@
 <div class="mixtape-navigation-container">
   <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
 
-<% if @collage.giftape.user == current_user %>
-  <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt edit-function" }%>
-<% end %>
+  <% if @collage.giftape.user == current_user %>
+    <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt edit-function" }%>
+  <% end %>
 </div>
 
 <h2> <%= @collage.name %> </h2>
@@ -17,7 +17,7 @@
       <li id="card-indicators" data-target="#carouselExampleIndicators"></li>
     <% end %>
   </ol>
-  <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+  <a class="butt butt-col-carousel collage" href="#carouselExampleIndicators" role="button" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
   <div class="carousel-inner">
     <div class="collage-card-container">
       <% @collage.collage_items.each do |item| %>
@@ -32,6 +32,6 @@
       <% end %>
     </div>
   </div>
-  <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+  <a class="butt butt-col-carousel collage" href="#carouselExampleIndicators" role="button" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 </div>
 <!-- COLLAGE CAROUSELL -->
