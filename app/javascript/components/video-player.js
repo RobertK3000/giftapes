@@ -17,6 +17,8 @@ const initMixtape = () => {
   const reelScenes = document.querySelectorAll(".cyl-2 ")
   console.log(reelScenes)
 
+  const musicalNotes = document.querySelectorAll(".musicalnotes")
+
   if (mixtapeYoutubePlayerEl) {
     const videoControlsEl = mixtapeYoutubePlayerEl.querySelector(
       ".js-video-controls"
@@ -107,6 +109,13 @@ const initMixtape = () => {
         playSoundEffect.play();
       });
 
+      playBtnEl.addEventListener("click", function () {
+        musicalNotes[0].innerHTML="&#9835;";
+        musicalNotes[1].innerHTML="&#9833;";
+        musicalNotes[2].innerHTML="&#9839;";
+        musicalNotes[3].innerHTML="&#9834;";
+      });
+
 
       playBtnEl.addEventListener("click", function () {
           reelScenes[0].classList.remove("pause")
@@ -118,6 +127,14 @@ const initMixtape = () => {
       pauseBtnEl.addEventListener("click", function () {
           players[currentTrack].pauseVideo();
       });
+
+      pauseBtnEl.addEventListener("click", function () {
+        musicalNotes[0].innerHTML="";
+        musicalNotes[1].innerHTML="";
+        musicalNotes[2].innerHTML="";
+        musicalNotes[3].innerHTML="";
+      });
+
 
       pauseBtnEl.addEventListener("click", function () {
         pauseSoundEffect.play();
