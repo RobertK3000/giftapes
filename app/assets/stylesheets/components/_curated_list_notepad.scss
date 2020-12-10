@@ -65,3 +65,25 @@ body {
     bottom: 10%;
   }
 }
+
+.underlined {
+  color: black;
+  flex: 1;
+  // font-size: 2em;
+  line-height: 1.2;
+  text-decoration: none;
+  background-image: linear-gradient(to right, yellow 0, yellow 100%);
+  background-position: 0 1.2em;
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: background .8s;
+  &:hover, {
+    background-size: 100% 100%;
+    text-decoration: none;
+  }
+  &--offset {
+    background-position: 0 0.2em;
+    //didn't find another solution than mask the underline shape by a box shadow with the same color than the bg
+    box-shadow: inset 0 -.5em 0 0 white;
+  }
+}
