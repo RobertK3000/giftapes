@@ -1,16 +1,17 @@
-<h1>curated lists new page</h1>
+  <div class="mixtape-navigation-container">
+    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
+  </div>
+
+<h1>New curated list</h1>
 <div class = "container mt-5">
   <div class = "justify-content-center row">
     <div class = "col-6">
-       <h2>Add a list item</h2>
 <%= simple_form_for @curated_list do |f| %>
   <%= f.input :name, label: "It would be awkward to call me 'it', how about we give me a name?" %>
 <!-- add in form fields here -->
   <%= f.submit "Let's add some memories!" %>
 <% end %>
 
-
-<%= link_to "Return to my giftapes", my_giftapes_path %>
   <!-- NEED TO LINK TO DASHBOARD/HOME path -->
     </div>
   </div>
