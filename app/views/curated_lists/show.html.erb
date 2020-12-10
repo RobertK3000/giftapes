@@ -61,14 +61,16 @@
                     class:"btn btn-info", id:"home-btn" %>
                   <!-- NEED TO LINK TO DASHBOARD/HOME path -->
     </div>
-          <% else %>
-            <% @curated_list.curated_list_items.each do |cli| %>
-                  <ul>
-                    <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
-                  </ul>
-            <% end %>
-          <% end %>
-    </div>
+  </div>
+  <% else %>
+      <% @curated_list.curated_list_items.each do |cli| %>
+            <ul style="list-style: none;">
+              <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
+            </ul>
+      <% end %>
+
+  <% end %>
+
 
 <!-- end div for the add prompt and url form^ -->
 
