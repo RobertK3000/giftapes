@@ -1,16 +1,15 @@
-<div class="mixtape-container grid-wrap">
-
   <div class="mixtape-navigation-container">
-    <%= link_to "Edit tracks", edit_mixtape_path, class:"butt butt-dkgreen" %>
+    <%= link_to "Edit tracks", edit_mixtape_path, class:"butt edit-function" %>
 
-    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt butt-dkpurple" %>
+    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
 
     <%= link_to 'delete this mixtape? :(',
                 mixtape_path(@mixtape),
                 method: :delete,
                 data: { confirm: "Are you really really sure?!" },
-                class:"butt butt-pink", id:"delete-btn" %>
+                class:"butt delete-function", id:"delete-btn" %>
   </div>
+<div class="mixtape-container grid-wrap">
 
   <div class="cassette-animation-container grid grid-anim">
 
