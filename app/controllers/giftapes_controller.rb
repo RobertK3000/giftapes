@@ -1,4 +1,6 @@
 class GiftapesController < ApplicationController
+skip_before_action :authenticate_user!, only: [:show]
+
   def index
     @giftapes = Giftape.where(user: current_user)
   end

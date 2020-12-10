@@ -14,12 +14,16 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
     <%= render "shared/navbar" %>
+    <% end %>
     <% unless current_page?(root_path) %>
-      <!-- <div class="container mt-5"> -->
+      <div class="container mt-5">
     <% else %>
       <div class="">
     <% end %>
+    
+
 
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
