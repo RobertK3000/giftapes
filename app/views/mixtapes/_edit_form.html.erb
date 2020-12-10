@@ -1,19 +1,28 @@
-<%= simple_form_for @mixtape do |f| %>
-  <%= f.input :name, label: "What's this mixtape called?", placeholder: "Give me a name!" %>
+<div class="row justify-content-center">
 
-  <div class='tracks'>
-    <%= f.simple_fields_for :tracks, html: {class: 'form-inline'} do |track| %>
-      <%= render 'track_fields', f: track %>
+  <div class="col-lg-6 col-12">
+    <%= simple_form_for @mixtape do |f| %>
+      <%= f.input :name, label: "What's this mixtape called?", placeholder: "Give me a name!" %>
+
+      <div class='tracks'>
+        <%= f.simple_fields_for :tracks, html: {class: 'form-inline'} do |track| %>
+          <%= render 'track_fields', f: track %>
+        <% end %>
+
+      <% @mixtape.errors.each do |attr, msg|  %>
+      <%= msg %>
+      <% end %>
+
+        <div class="links">
+          <%= link_to_add_association "Add another track", f, :tracks, class:"btn btn-addtrack btn-txt" %>
+        </div>
+
+      </div>
+      <%= f.submit "Re-record", class: "recordmixtape" do %>
+        <i class="fa fa-paper-plane-o" aria-hidden="true">
+      <% end %>
     <% end %>
-
-  <% @mixtape.errors.each do |attr, msg|  %>
-   <%= msg %>
-  <% end %>
-
-    <div class="links">
-      <%= link_to_add_association "Add another track", f, :tracks, class:"btn btn-info btn-txt" %>
-    </div>
-
   </div>
-  <%= f.submit "Re-record it!!!", class: "cassette-control-button" %>
-<% end %>
+
+</div>
+
