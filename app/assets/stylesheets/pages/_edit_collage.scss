@@ -1,3 +1,12 @@
+.collage-bkg-container {
+  background-image: url('https://res.cloudinary.com/susanjsp/image/upload/v1607594466/background-pink_ggwbrh.jpg');
+  background-size: cover;
+  border: dashed 3px black;
+  h2 {
+    color: black;
+    padding-top: 24px;
+  }
+}
 .edit_collage {
   display: inline;
 }
@@ -6,16 +15,77 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.edit-collage-card {
-  margin: 16px auto 16px auto;
-}
+
 // MODAL
 // #col-modal-content {
 //   max-width: 800px;
 //   position: relative;
 // }
+
+// CAROUSEL STYLING
+.carousel-inner {
+  overflow: visible;
+}
+.stacked {
+  .carousel-item {
+    transform-style: preserve-3D;
+    transform: rotate(-10deg) translate(-90px, -55px) !important;
+    opacity: 1 !important;
+    &.active {
+      z-index: 1;
+      opacity: 1 !important;
+      transform: rotate(0) translate(0, 0) !important;
+      transition: all 0.075s !important;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: -18px;
+    left: 61px;
+    right: 24px;
+    z-index: 1;
+    border: solid black 2px;
+    background-color: rgb(218, 211, 153);
+    transform: translateZ(-1px);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    bottom: -37px;
+    left: 79px;
+    right: 4px;
+    z-index: 0;
+    border: solid black 2px;
+    background-color: rgb(218, 211, 153);
+    transform: translateZ(-1px);
+  }
+}
+#card-indicators {
+  width: 5px;
+  height: 5px;
+  border: solid black 2px;
+  color: $gt-collage;
+}
+#carouselExampleIndicators {
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+.z-ind-2 {
+  z-index: 2;
+}
+.left-x-trans {
+  transform: translateX(-12px);
+}
+.right-x-trans {
+  transform: translateX(20px);
+}
+
 #giphy-form {
-  overflow-y: scroll;
+  // overflow-y: scroll;
   width: 100%;
 }
 #giphy-results {
@@ -23,4 +93,19 @@
   img {
     margin: 4px;
   }
+}
+.collage-card-modal {
+  .modal-content {
+    border: solid 4px $gt-mixtape;
+  }
+  .modal-header {
+    background-color: $gt-bkg;
+    border-bottom: solid 4px $gt-mixtape;
+  }
+}
+
+#collage_item_photo {
+  display: inline;
+  width: 50%;
+
 }

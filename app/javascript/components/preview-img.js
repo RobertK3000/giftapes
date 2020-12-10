@@ -1,6 +1,7 @@
 // Only execute script on collages#edit page
 const regexp = /\/collages\/\d*\/edit/;
-if (regexp.test(window.location.pathname)) {
+if (regexp.test(window.location.pathname) === true ) {
+  console.log("hello");
   const addCard = document.querySelector('#collage-modal-btn');
   addCard.addEventListener('click', () => {
     // Select image uploader and image preview div
@@ -9,7 +10,6 @@ if (regexp.test(window.location.pathname)) {
 
     // Event triggered when the file is changed
     imgUploader.addEventListener('change', (event) => {
-      console.log(event.target);
 
       const input = event.target;
       // Create new object 'filereader' (built-in JS) - reads contents of files that are stored on the user's computer
