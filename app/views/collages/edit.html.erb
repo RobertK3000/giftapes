@@ -1,7 +1,5 @@
 <div class="mixtape-navigation-container">
   <div>
-    <!-- Button to trigger modal -->
-    <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal">+ Image</button>
     <%= link_to "Back to giftapes", my_giftapes_path, class: "butt back-to-giftapes" %>
     <%= link_to "delete this collage? :(",
       collage_path(@collage),
@@ -11,24 +9,14 @@
   </div>
 </div>
 
-<!-- Form to update Collage name -->
-
-<div class="row justify-content-center">
-
-  <div class="col-lg-6 col-12">
-    <%= simple_form_for @collage do |f| %>
-      <i class="fas fa-pencil-alt fa-md"></i>
-      <%= f.input :name %>
-      <%= f.submit "Save" %>
-    <% end %>
-  </div>
-
-</div>
-
+<h2> <%= @collage.name %> </h2>
 
 <% @collage.errors.full_messages.each do |msg| %>
   <%= msg %>
 <% end %>
+
+<!-- Button to trigger modal -->
+<button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal">+ New Image</button>
 
 <!-- Display current images -->
 <div class="edit-collage-container">
