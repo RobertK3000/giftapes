@@ -8,19 +8,11 @@
                 class:"butt delete-function", id:"delete-btn" %>
   </div>
 
-<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px; overflow:scroll">
-  <div class = "container mt-5 justify-content-center quiz">
+<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
+  <div class = "container mt-5 justify-content-center">
     <div class="quiz-name-icons">
       <h1><%= @quiz.name %></h1>
       <% if user_signed_in? %>
-        <div class= "user-icons">
-          <%= link_to quiz_path(@quiz), method: :delete do %>
-            <i class="far fa-trash-alt fa-lg"></i>
-      <% end %>
-      <%= link_to my_giftapes_path do %>
-        <i class="fas fa-save" style="font-size: 23px;"></i>
-      <% end %>
-    </div>
       </div>
         <div class="question-card-container">
         <% @quiz.questions.each do |question| %>

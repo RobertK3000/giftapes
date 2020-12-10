@@ -4,12 +4,16 @@
     <div class="question-card-container">
       <%= f.simple_fields_for :answerings do |fa| %>
         <div class="question-card-form" style="transform: rotate(<%=rand(-1.2..1.2)%>deg)">
-          <h3><%= fa.object.question.content %></h3>
+          <p><strong><%= fa.object.question.content %></strong></p>
+          <div class="answers-with-radio">
           <%= fa.association :answer, label: "", collection: fa.object.question.answers, as: :radio_buttons %>
           <%= fa.input :question_id, value: fa.object.question.id, as: :hidden %>
         </div>
+        </div>
         <% end %>
-      <%= f.submit %>
+        </div>
+        <div class="submit-score-btn-container">
+      <%= f.button :submit, 'Check your Score!', class: 'butt-quiz' %>
       <% end %>
     </div>
   </div>
