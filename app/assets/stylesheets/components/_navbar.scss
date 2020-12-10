@@ -10,3 +10,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 120px;
 }
+
+.navbar p {
+  font-family: $headers-font;
+  color: $gt-bkg;
+  padding-right: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.navbar i {
+  font-size: 20px;
+  margin-top: 14px;
+  color: $gt-bkg;
+}
+
+.navbar-giftape-create-links {
+  display: flex;
+}
+
+.navbar-giftape-create-links a {
+  margin-right: 10px;
+  margin-left: 10px;
+}
