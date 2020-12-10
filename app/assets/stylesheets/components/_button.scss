@@ -24,9 +24,6 @@
     background-color: rgb(233, 89, 89);
   }
 }
-
-
-
 .butt-block {
   display: block;
 }
@@ -55,7 +52,6 @@
 }
 
 .butt-col-carousel {
-  background-color: $lt-yellow;
   border: solid 2px black;
   border-radius: 50%;
   height: 43px;
@@ -75,4 +71,10 @@
   height:30px;
   width:30px;
   padding: 0px;
+}
+
+.butt-giphy {
+  font-family: $collage-font;
+  border: 2px solid black;
+  padding: 4px 24px;
 }

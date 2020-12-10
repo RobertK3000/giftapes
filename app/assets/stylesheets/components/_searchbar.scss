@@ -1,0 +1,33 @@
+$sbar-border-radius: 5px;
+$sbar-border-width: 2px;
+
+.sbar {
+  display: inline;
+  padding: 8px 24px;
+  font-family: sans-serif;
+  &[type=text] {
+    border: $sbar-border-width solid black;
+    /* SET SEARCHBAR WIDTH */
+    width: 280px;
+    font-family: $collage-font;
+  }
+  &[type=submit] {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+.sbar-basic {
+  position: relative;
+  &[type=text] {
+    border-radius: $sbar-border-radius 0px 0px $sbar-border-radius;
+    border-right: none;
+    // position: relative;
+  }
+  &[type=submit] {
+    border-radius: 0px $sbar-border-radius $sbar-border-radius 0px;
+    border: solid $sbar-border-width black;
+    background-color: $gt-collage;
+    color: black;
+    display:inline-block;
+  }
+}

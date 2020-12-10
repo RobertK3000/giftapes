@@ -14,7 +14,13 @@
 }
 #giphy-form {
   overflow-y: scroll;
+  width: 100%;
 }
 #giphy-results {
   height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    margin: 4px;
+  }
 }

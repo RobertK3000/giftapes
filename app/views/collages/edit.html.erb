@@ -43,7 +43,7 @@
       <div class="modal-header">
         <%= simple_form_for [@collage, @collage_item] do |c| %>
           <h5 class="modal-title" id="collage-card-modal-title">Brand spanking new image</h5>
-          <%= c.submit "Save this bad boy", id: 'col-edit-save-butt' %>
+          <%= c.submit "Save this bad boy", id: 'col-edit-save-butt', class: 'butt butt-giphy collage my-0' %>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -60,17 +60,16 @@
           <!-- FORM FOR ADDING NEW COLLAGE ITEM -->
           <div class="collage-card-prompt">
             <%= c.input :prompt, label: '', id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
-            <button class="butt-col-carousel butt-small" id="collage-prompt-random"><i class="fas fa-sync fa-xs"></i></button>
+            <button class="butt butt-col-carousel butt-small mixtape" id="collage-prompt-random"><i class="fas fa-sync fa-xs"></i></button>
           </div>
           <%= c.input :photo, label: '' %>
         <% end %>
       </div>
         <%# SEARCH FORM FOR GIPHY  %>
         <form id="giphy-form">
-          <input type="text" id="giphy-search" name="giphy-search" placeholder="Search GIPHY">
-          <input type="submit" id="giphy-submit" value="Search">
-          <button id="giphy-trending">Trending</button>
-          <button id="giphy-random">Surprise me</button>
+          <button id="giphy-trending" class="butt butt-giphy curatedlist">Trending</button>
+          <button id="giphy-random" class="butt butt-giphy quiz">Surprise me</button>
+          <input type="text" id="giphy-search" class="sbar sbar-basic" name="giphy-search" placeholder="Search GIPHY"><button type="submit" id="giphy-submit" class="sbar sbar-basic fas fa-search"></button>
           <%# GIPHY SERACH RESULTS %>
           <div id="giphy-results"></div>
         </form>
