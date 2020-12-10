@@ -1,4 +1,5 @@
 class Answer < ApplicationRecord
+  has_many :answerings, dependent: :destroy
   validates :content, presence: true
   validates :letter, presence: true
   enum letter: [:a, :b, :c, :d]
