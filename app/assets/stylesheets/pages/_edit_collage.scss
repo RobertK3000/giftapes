@@ -1,8 +1,20 @@
 .edit_collage {
   display: inline;
 }
-
 // MODAL
-.modal-body {
+#col-modal-content {
+  max-width: 800px;
+  position: relative;
+}
+#col-modal-body {
   display:flex;
+  width: 100%;
+}
+.relative-pos {
+}
+#giphy-form {
+  overflow-y: scroll;
+}
+#giphy-results {
+  height: auto;
 }
