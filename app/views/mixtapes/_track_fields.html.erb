@@ -1,6 +1,25 @@
-<div class="nested-fields">
-    <%= f.input :youtube_url, label: "Youtube url", placeholder: "Use a share link, e.g., https://youtu.be/s732BigTxZk" %>
-    <%= f.input :start_time, label: "Start time (seconds)"  %>
-    <%= f.input :end_time, label: "End time (seconds)" %>
-    <%= link_to_remove_association "Remove this track", f, class:"btn btn-info btn-txt"%>
-</div>
+<fieldset>
+  <legend></legend>
+  <div class="nested-fields">
+    <div class="row">
+      <div class="col-12">
+        <%= f.input :youtube_url, label: "Youtube url", placeholder: "Use share link, e.g., https://youtu.be/s732BigTxZk" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-12">
+        <%= f.input :start_time, label: "Start time (seconds)"  %> 
+      </div>
+
+      <div class="col-lg-4 col-12">
+        <%= f.input :end_time, label: "End time (seconds)" %>
+      </div>
+
+      <div class="col-lg-4 col-12">
+        <%= link_to_remove_association "Delete this track", f, class:"btn btn-deletetrack btn-txt"%>  
+      </div>
+    </div>
+  </div>
+</fieldset>
+

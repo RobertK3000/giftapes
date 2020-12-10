@@ -1,7 +1,9 @@
-<h1>Edit Mixtape</h1>
-<%= link_to "Back to giftapes", my_giftapes_path, class:"btn btn-info btn-txt" %>
+<div class="mixtape-navigation-container">
+  <%= link_to "Back to mixtape", mixtape_path, class:"butt generic-back-function" %>
+  <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
+</div>
+
+<h1>Let's make some changes!</h1>
 
 <%= render 'edit_form' %>
-
-<%= link_to "Back", mixtape_path, class:"btn btn-info btn-txt" %>
 
