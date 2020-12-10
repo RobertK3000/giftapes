@@ -1,0 +1,32 @@
+<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px; overflow:scroll">
+  <div class = "container mt-5 justify-content-center quiz">
+    <div class="quiz-name-icons">
+      <h1><%= @giftape.convert.name %></h1>
+    </div>
+      </div>
+        <div class="question-card-container">
+        <% @giftape.convert.questions.each do |question| %>
+        <div class="question-card" style="transform: rotate(<%=rand(-1.2..1.2)%>deg)">
+          <p><strong><%= question.content %></strong></p>
+          <ul>
+          <% question.answers.each do |answer| %>
+              <li>
+              <!-- <input type="radio" name=`<%= question.content %>`><%= answer.letter %> ) <%= answer.content %> -->
+                <% if answer.is_correct == true %>
+                <%= answer.letter.capitalize %> ) <%= answer.content %> <i class="fas fa-check" style="color: green"></i>
+                <% else %>
+                <%= answer.letter.capitalize %> ) <%= answer.content %> <i class="fas fa-times" style="color: red"></i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <% end%>
+        </div>
+
+        </div>
+        <%= render "quiz_sessions/form", quiz: @giftape.convert, quiz_session: @quiz_session%>
+
+        <!-- link to 'see my results page' (answers show page) -->
+
+  </div>

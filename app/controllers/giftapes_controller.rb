@@ -6,16 +6,21 @@ class GiftapesController < ApplicationController
   def show
     @giftape = Giftape.find_by(custom_url: params[:id])
     @curated_list_item = CuratedListItem.new
-
     if @giftape.giftable_type == 'Mixtape'
       @tracks_array = []
-
       @giftape.giftable.tracks.each do |track|
         # create key called t: and append t.url, t.url
         @tracks_hash = { url: track.youtube_url, start: track.start_time, end: track.end_time }
         @tracks_array << @tracks_hash
-      end
+       end
       @tracks_json = JSON.generate(@tracks_array)
+
+    elsif @giftape.giftable_type == 'Quiz'
+      @quiz = @giftape.giftable
+      # @question = Question.new
+      raise
+      @quiz_session = QuizSession.new(quiz: @quiz)
+      # @quiz_session.build_answerings
     end
   end
 
