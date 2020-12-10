@@ -17,10 +17,11 @@ class GiftapesController < ApplicationController
 
     elsif @giftape.giftable_type == 'Quiz'
       @quiz = @giftape.giftable
+      @answerings = @quiz.quiz_sessions
+      @answerings.destroy_all
       # @question = Question.new
-      raise
       @quiz_session = QuizSession.new(quiz: @quiz)
-      # @quiz_session.build_answerings
+      @quiz_session.build_answerings
     end
   end
 
