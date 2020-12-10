@@ -29,7 +29,7 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    width: calc(inherit - 20px);
+    max-width: 100%;
     overflow: auto;
   }
   i {
