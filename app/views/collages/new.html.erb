@@ -5,10 +5,10 @@
 <div class="row justify-content-center">
 
   <div class="col-lg-6 col-12">
-    <h2>Create new Collage</h2>
+    <h2>Create a new collage</h2>
     <%= simple_form_for @collage do |c| %>
-      <%= c.input :name %>
-      <%= c.submit %>
+      <%= c.input :name, label: "Let's make it a collection", placeholder: "Enter a name for your new collection" %>
+      <%= c.submit "Add some photos!" %>
     <% end %>
   </div>
 
