@@ -1,3 +1,13 @@
+  <div class="mixtape-navigation-container">
+    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
+
+        <%= link_to 'delete this quiz? :(',
+                quiz_path(@quiz),
+                method: :delete,
+                data: { confirm: "Are you really really sure?!" },
+                class:"butt delete-function", id:"delete-btn" %>
+  </div>
+
 <div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px; overflow:scroll">
   <div class = "container mt-5 justify-content-center quiz">
     <div class="quiz-name-icons">

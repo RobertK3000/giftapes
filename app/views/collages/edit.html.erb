@@ -1,13 +1,15 @@
-<div>
-  <%= link_to "Back to Dashboard", my_giftapes_path, class: "butt list" %>
-  <%= link_to "Delete Collage",
-    collage_path(@collage),
-    method: :delete,
-    class: "butt mixtape",
-    data: { confirm: "Are you really really sure?!" }
-  %>
-  <!-- Button to trigger modal -->
-  <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal-lg" data-dismiss="modal">+ Image</button>
+<div class="mixtape-navigation-container">
+  <div>
+    <%= link_to "Back to giftapes", my_giftapes_path, class: "butt back-to-giftapes" %>
+    <%= link_to "Delete collage",
+      collage_path(@collage),
+      method: :delete,
+      class: "butt delete-function",
+      data: { confirm: "Are you really really sure?!" }
+    %>
+    <!-- Button to trigger modal -->
+    <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal-lg">+ Image</button>
+  </div>
 </div>
 
 <!-- Form to update Collage name -->
@@ -77,6 +79,7 @@
   </div>
 </div>
 <!-- Modal Popup -->
+
 
 <!-- SAVE GIF AS URL -->
 <!--
