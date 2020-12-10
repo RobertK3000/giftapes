@@ -1,17 +1,4 @@
-<h1><%= @giftape.giftable.name %></h1>
 
-<div class = "container mt-5">
-  <div class = "justify-content-center row">
-    <div class = "col-6">
-      <h1><%= @giftape.giftable.name %></h1>
-      <% @giftape.giftable.curated_list_items.each do |cli| %>
-        <ul>
-          <li> <a href="<%= cli.url %>" target="_blank"> <%= cli.prompt %>  </a></li>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-</div>
 
  <!-- if the URL does not have "https://www" at the beginning,
       insert that string at the start,
@@ -20,3 +7,57 @@
 
 <!-- if a URL is not added,
       display an error message -->
+<div class="main-container curatedlist">
+
+  <!-- column far left -->
+  <div class="main-view-left">
+    <div class="pencil-image">
+      <div class="pencil">
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- column center-->
+  <div class="main-center">
+    <div class="page-title-main">
+      <h1>CURATED LIST</h1>
+    </div>
+<!-- code for the notepad body -->
+    <div class="notepad-box">
+      <div class="notepad-body">
+        <div class="paper">
+          <div class="lines">
+            <div class="text">
+               <h1 class="list-title-main"><%= @giftape.giftable.name %></h1>
+                     <% @giftape.giftable.curated_list_items.each do |cli| %>
+                       <ul style="list-style: none;">
+                         <li> <a href="<%= cli.url %>" target="_blank" class="item-links"> <%= cli.prompt %>  </a></li>
+                       </ul>
+                     <% end %>
+
+              <div class="holes hole-top"></div>
+              <div class="holes hole-middle"></div>
+              <div class="holes hole-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- end of notepad box -->
+
+  <!-- column right -->
+  <div class="main-view-right">
+    <div class="main-view-right-box">
+      <%= link_to "return a curated list!", new_curated_list_path,
+          class:"butt delete-function", id:"home-btn" %>
+    </div>
+  </div>
+
+
+</div>

@@ -2,8 +2,14 @@
   <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
 </div>
 
-<h2>Create new Collage</h2>
-<%= simple_form_for @collage do |c| %>
-  <%= c.input :name %>
-  <%= c.submit %>
-<% end %>
+<div class="row justify-content-center">
+
+  <div class="col-lg-6 col-12">
+    <h2>Create new Collage</h2>
+    <%= simple_form_for @collage do |c| %>
+      <%= c.input :name %>
+      <%= c.submit %>
+    <% end %>
+  </div>
+
+</div>

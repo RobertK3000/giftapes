@@ -4,7 +4,7 @@ class Mixtape < ApplicationRecord
   validates_associated :tracks, acceptance: {message: 'must have at least one track'}
   validate :at_least_one_track_in_mixtape
 
-  has_many :tracks, dependent: :destroy, inverse_of: :mixtape
+  has_many :tracks, -> {order(created_at: :asc)}, dependent: :destroy, inverse_of: :mixtape
 
   has_one :giftape, as: :giftable, dependent: :destroy
   accepts_nested_attributes_for :tracks, allow_destroy: true, reject_if: :all_blank

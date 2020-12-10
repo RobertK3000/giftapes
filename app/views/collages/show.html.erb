@@ -1,9 +1,8 @@
 <div class="mixtape-navigation-container">
-  <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
-
   <% if @collage.giftape.user == current_user %>
-    <%= link_to "Edit Page", edit_collage_path(@collage), { class: "butt edit-function" }%>
+    <%= link_to "Edit collage", edit_collage_path(@collage), { class: "butt edit-function" }%>
   <% end %>
+  <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
 </div>
 
 <h2> <%= @collage.name %> </h2>
