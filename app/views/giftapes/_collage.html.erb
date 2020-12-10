@@ -1,30 +1,31 @@
-
 <h2> <%= @giftape.giftable.name %> </h2>
 
-<!-- COLLAGE CAROUSEL -->
-<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
-  <ol class="carousel-indicators">
-    <!-- Create enough indicators for the amount of collage items only (+ set first to active) -->
-    <li id="card-indicators" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <% @giftape.giftable.collage_items[0...-1].count.times do %>
-      <li id="card-indicators" data-target="#carouselExampleIndicators"></li>
-    <% end %>
-  </ol>
-  <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-  <div class="carousel-inner">
-    <div class="collage-card-container">
-      <% @giftape.giftable.collage_items.each do |item| %>
-        <% if @giftape.giftable.collage_items.first == item %>
-          <div class="collage-card stacked carousel-item active">
-        <% else %>
-          <div class="collage-card stacked carousel-item">
-        <% end %>
-          <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
-          <h4><%= item.prompt %></h4>
-        </div>
+<div class="collage-show">
+  <!-- COLLAGE CAROUSEL -->
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade stacked mb-5" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+      <!-- Create enough indicators for the amount of collage items only (+ set first to active) -->
+      <li id="card-indicators" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <% @giftape.giftable.collage_items[0...-1].count.times do %>
+        <li id="card-indicators" data-target="#carouselExampleIndicators"></li>
       <% end %>
+    </ol>
+    <a class="butt butt-col-carousel collage" href="#carouselExampleIndicators" role="button" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+    <div class="carousel-inner">
+      <div class="collage-card-container">
+        <% @giftape.giftable.collage_items.each do |item| %>
+          <% if @giftape.giftable.collage_items.first == item %>
+            <div class="collage-card carousel-item active">
+          <% else %>
+            <div class="collage-card carousel-item">
+          <% end %>
+            <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
+            <h4><%= item.prompt %></h4>
+          </div>
+        <% end %>
+      </div>
     </div>
+    <a class="butt butt-col-carousel collage" href="#carouselExampleIndicators" role="button" data-slide="next"><i class="fas fa-chevron-right"></i></a>
   </div>
-  <a class="butt-col-carousel" href="#carouselExampleIndicators" role="button" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+  <!-- COLLAGE CAROUSELL -->
 </div>
-<!-- COLLAGE CAROUSELL -->
