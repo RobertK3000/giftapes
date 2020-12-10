@@ -3,35 +3,43 @@
     <%= link_to "Edit collage", edit_collage_path(@collage), { class: "butt edit-function" }%>
   <% end %>
   <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
+  <%= link_to 'delete this collage? :(',
+            collage_path(@collage),
+            method: :delete,
+            data: { confirm: "Are you really really sure?!" },
+            class:"butt delete-function", id:"delete-btn" %>
 </div>
-<h2> <%= @collage.name %> </h2>
 
-<div class="collage-show">
-  <!-- COLLAGE CAROUSEL -->
-  <div id="carouselExampleIndicators" class="carousel slide carousel-fade stacked mb-5" data-ride="carousel" data-interval="false">
-    <ol class="carousel-indicators">
-      <!-- Create enough indicators for the amount of collage items only (+ set first to active) -->
-      <li id="card-indicators" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <% @collage.collage_items[0...-1].count.times do %>
-        <li id="card-indicators" data-target="#carouselExampleIndicators"></li>
-      <% end %>
-    </ol>
-    <a class="butt butt-col-carousel collage" href="#carouselExampleIndicators" role="button" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="carousel-inner">
-      <div class="collage-card-container">
-        <% @collage.collage_items.each do |item| %>
-          <% if @collage.collage_items.first == item %>
-            <div class="collage-card carousel-item active">
-          <% else %>
-            <div class="collage-card carousel-item">
-          <% end %>
-            <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
-            <h4><%= item.prompt %></h4>
-          </div>
+<div class="collage-bkg-container">
+
+  <h2> <%= @collage.name %> </h2>
+  <div class="collage-show">
+    <!-- COLLAGE CAROUSEL -->
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade stacked mb-5" data-ride="carousel" data-interval="false">
+      <ol class="carousel-indicators">
+        <!-- Create enough indicators for the amount of collage items only (+ set first to active) -->
+        <li id="card-indicators" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <% @collage.collage_items[0...-1].count.times do %>
+          <li id="card-indicators" data-target="#carouselExampleIndicators"></li>
         <% end %>
+      </ol>
+      <a class="butt butt-col-carousel collage z-ind-2 left-x-trans" href="#carouselExampleIndicators" role="button" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+      <div class="carousel-inner">
+        <div class="collage-card-container">
+          <% @collage.collage_items.each do |item| %>
+            <% if @collage.collage_items.first == item %>
+              <div class="collage-card carousel-item active">
+            <% else %>
+              <div class="collage-card carousel-item">
+            <% end %>
+              <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
+              <h4><%= item.prompt %></h4>
+            </div>
+          <% end %>
+        </div>
       </div>
+      <a class="butt butt-col-carousel collage z-ind-2 right-x-trans" href="#carouselExampleIndicators" role="button" data-slide="next"><i class="fas fa-chevron-right"></i></a>
     </div>
-    <a class="butt butt-col-carousel collage" href="#carouselExampleIndicators" role="button" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+    <!-- COLLAGE CAROUSELL -->
   </div>
-  <!-- COLLAGE CAROUSELL -->
 </div>

@@ -9,26 +9,28 @@
   </div>
 </div>
 
-<h2> <%= @collage.name %> </h2>
+<div class="collage-bkg-container">
+ <h2> <%= @collage.name %> </h2>
 
-<% @collage.errors.full_messages.each do |msg| %>
-  <%= msg %>
-<% end %>
-
-<!-- Button to trigger modal -->
-<button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal">+ New Image</button>
-
-<!-- Display current images -->
-<div class="edit-collage-container">
-  <% @collage.collage_items.each do |item| %>
-    <div class="collage-card edit-collage-card" id="collage-item-<%= item.id %>">
-      <%= link_to collage_collage_item_path(@collage, item), method: :delete do %>
-        <i class="far fa-trash-alt fa-lg"></i>
-      <% end %>
-      <%= cl_image_tag(item.photo.key) %>
-      <h4><%= item.prompt %></h4>
-    </div>
+  <% @collage.errors.full_messages.each do |msg| %>
+    <%= msg %>
   <% end %>
+
+  <!-- Button to trigger modal -->
+  <button type="button" id="collage-modal-btn" class="butt butt-giphy collage" data-toggle="modal" data-target=".collage-card-modal">+ New Image</button>
+
+  <!-- Display current images -->
+  <div class="edit-collage-container">
+    <% @collage.collage_items.each do |item| %>
+      <div class="collage-card edit-collage-card" id="collage-item-<%= item.id %>">
+        <%= link_to collage_collage_item_path(@collage, item), method: :delete do %>
+          <i class="far fa-trash-alt fa-lg"></i>
+        <% end %>
+        <%= cl_image_tag(item.photo.key) %>
+        <h4><%= item.prompt %></h4>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <!-- Modal Popup // Add new collage item-->
@@ -65,7 +67,6 @@
   </div>
 </div>
 <!-- Modal Popup -->
-
 
 <!-- SAVE GIF AS URL -->
 <!--
