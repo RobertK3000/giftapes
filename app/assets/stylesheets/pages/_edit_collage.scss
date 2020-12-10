@@ -1,25 +1,25 @@
 .edit_collage {
   display: inline;
 }
+.edit-collage-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.edit-collage-card {
+  margin: 0px auto 0px auto;
+}
 // MODAL
-#col-modal-content {
-  max-width: 800px;
-  position: relative;
-}
-#col-modal-body {
-  display:flex;
-  width: 100%;
-}
-.relative-pos {
-}
+// #col-modal-content {
+//   max-width: 800px;
+//   position: relative;
+// }
 #giphy-form {
   overflow-y: scroll;
   width: 100%;
 }
 #giphy-results {
   height: auto;
-  display: flex;
-  flex-wrap: wrap;
   img {
     margin: 4px;
   }

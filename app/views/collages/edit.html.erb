@@ -1,7 +1,7 @@
 <div class="mixtape-navigation-container">
   <div>
     <!-- Button to trigger modal -->
-    <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal-lg">+ Image</button>
+    <button type="button" id="collage-modal-btn" class="butt collage" data-toggle="modal" data-target=".collage-card-modal">+ Image</button>
     <%= link_to "Back to giftapes", my_giftapes_path, class: "butt back-to-giftapes" %>
     <%= link_to "delete this collage? :(",
       collage_path(@collage),
@@ -12,7 +12,6 @@
 </div>
 
 <!-- Form to update Collage name -->
-
 
 <div class="row justify-content-center">
 
@@ -32,7 +31,7 @@
 <% end %>
 
 <!-- Display current images -->
-<div class="collage-card-container">
+<div class="edit-collage-container">
   <% @collage.collage_items.each do |item| %>
     <div class="collage-card edit-collage-card" id="collage-item-<%= item.id %>">
       <%= link_to collage_collage_item_path(@collage, item), method: :delete do %>
@@ -45,43 +44,35 @@
 </div>
 
 <!-- Modal Popup // Add new collage item-->
-<div class="modal collage-card-modal-lg" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
-  <div class="modal-dialog-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+<div class="modal collage-card-modal" id="collage-card-modal" tabindex="-1" role="dialog" aria-labelledby="collage-card-modal-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content" id="col-modal-content">
-      <div class="modal-header">
-        <%= simple_form_for [@collage, @collage_item] do |c| %>
+      <%= simple_form_for [@collage, @collage_item] do |c| %>
+        <div class="modal-header py-1">
           <h5 class="modal-title" id="collage-card-modal-title">Brand spanking new image</h5>
-          <%= c.submit "Save this bad boy", id: 'col-edit-save-butt', class: 'butt butt-giphy collage my-0' %>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body" id="col-modal-body">
-        <!-- Card div for image preview -->
-        <div class="modal-left">
-          <div class="collage-card edit-collage-card">
-            <div id="collage-card-img">
-            <h4></h4>
+          <%= c.submit "Save this bad boy", id: 'col-edit-save-butt', class: 'butt butt-giphy collage' %>
+        </div>
+        <div class="modal-body mx-auto">
+          <!-- Card div for image preview -->
+          <div class="modal-top">
+            <div class="collage-card edit-collage-card">
+              <div id="collage-card-img">
+              </div>
+              <%= c.input :prompt, label: '', id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
             </div>
+            <div id="giphy-results"></div>
+            <%= c.input :photo, label: '' %>
+            <%# SEARCH FORM FOR GIPHY  %>
+            <form id="giphy-form">
+              <button id="giphy-trending" class="butt butt-giphy curatedlist">Trending</button>
+              <button id="giphy-random" class="butt butt-giphy quiz">Surprise me</button>
+              <input type="text" id="giphy-search" class="sbar sbar-basic" name="giphy-search" placeholder="Search GIPHY"><button type="submit" id="giphy-submit" class="sbar sbar-basic fas fa-search"></button>
+              <%# GIPHY SERACH RESULTS %>
+            </form>
+            <%# <button class="butt butt-col-carousel butt-small mixtape" id="collage-prompt-random"><i class="fas fa-sync fa-xs"></i></button> %>
           </div>
-
-          <!-- FORM FOR ADDING NEW COLLAGE ITEM -->
-          <div class="collage-card-prompt">
-            <%= c.input :prompt, label: '', id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
-            <button class="butt butt-col-carousel butt-small mixtape" id="collage-prompt-random"><i class="fas fa-sync fa-xs"></i></button>
-          </div>
-          <%= c.input :photo, label: '' %>
-        <% end %>
-      </div>
-        <%# SEARCH FORM FOR GIPHY  %>
-        <form id="giphy-form">
-          <button id="giphy-trending" class="butt butt-giphy curatedlist">Trending</button>
-          <button id="giphy-random" class="butt butt-giphy quiz">Surprise me</button>
-          <input type="text" id="giphy-search" class="sbar sbar-basic" name="giphy-search" placeholder="Search GIPHY"><button type="submit" id="giphy-submit" class="sbar sbar-basic fas fa-search"></button>
-          <%# GIPHY SERACH RESULTS %>
-          <div id="giphy-results"></div>
-        </form>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
