@@ -1,12 +1,4 @@
-<!-- LINKS TO CREATE NEW GIFTAPES -->
-<div class="giftape-create-links">
-  <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt mixtape butt-block" %>
-  <%= link_to "+ QUIZ", new_quiz_path, class:"butt quiz butt-block" %>
-  <%= link_to "+ LIST", new_curated_list_path, class:"butt curatedlist butt-block" %>
-  <%= link_to "+ COLLAGE", new_collage_path, class:"butt collage butt-block" %>
-</div>
-
-<h2>My Giftapes</h2>
+<h2 style="margin-bottom: 60px; font-size: 80px">My Giftapes</h2>
 
 <div class="dash-card-container">
   <% @giftapes.each do |giftape| %>
@@ -25,12 +17,16 @@
       <!-- NAME, CUSTOM URL & CREATE URL BUTTON -->
       <h4><%=link_to giftape.giftable.name, polymorphic_path(giftape.giftable) %></h4>
       <% unless giftape.custom_url.blank? %>
-        <p>
-          <%= link_to giftape_path(giftape.custom_url),
-          giftape_path(giftape.custom_url) %>
-        </p>
+          <p style="font-size: 14px">
+            <%= link_to giftape_path(giftape.custom_url),
+            giftape_path(giftape.custom_url) %>
+          </p>
       <% end %>
-      <button type="button" class="butt-custom" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Choose custom url!</button>
+      <% if giftape.custom_url.blank? %>
+      <button type="button" class="butt-custom" style="font-size: 14px" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Choose a custom url!</button>
+      <% else %>
+      <button type="button" class="butt-custom" style="font-size: 14px" data-toggle="modal" data-target="#custom_url_modal_<%= giftape.id %>">Change custom url?</button>
+      <% end %>
     </div>
 
     <!-- MODAL -->

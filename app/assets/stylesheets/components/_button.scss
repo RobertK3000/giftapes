@@ -30,21 +30,42 @@
 }
 
 .btn-deletetrack {
-    color: #212529;
-    background-color:  rgb(233, 89, 89);
-    border-color: #f84d4d;
-    margin-top: 32px;
-    height: 40px;
-    border-radius: 4px;
+  background-color: #d04242;
+  color: #081d19;
+  border-radius: 4px;
+  margin-top: 36px;
+  font-size: 20px;
+  height: 40px;
+  font-family: $gt-font;
+  box-shadow: 2px 2px #086b59;
+  text-align: center;
+  &:hover  {
+    color:rgb(202, 199, 199);
+  }
 }
 
 .btn-addtrack {
-  color: #212529;
-  background-color:  rgb(89, 187, 233);
+  background-color: #50D0B9;
+  color:#944141;
   border-radius: 4px;
   margin-top: 25px;
+  font-size: 20px;
   height: 40px;
+  font-family: $gt-font;
+  box-shadow: 2px 2px #944141;
+  text-align: center;
+  &:hover  {
+    color:rgb(19, 19, 19) ;
+  }
 }
+
+// .mixtapeformstyling {
+//   color: #50D0B9;
+//   font-size: 20px;
+//   font-family: $gt-font;
+//   text-shadow: 2px 2px #944141;
+// }
+
 
 .butt-block {
   display: block;
