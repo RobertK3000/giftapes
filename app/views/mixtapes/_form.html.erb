@@ -1,9 +1,8 @@
 <%= simple_form_for @mixtape do |f| %>
-  <%= f.input :name %>
-  <%= f.input :theme_type %>
+  <%= f.input :name, label: "What's this mixtape called?", placeholder: "Give me a name!" %>
 
   <div class='tracks'>
-    <%= f.simple_fields_for :tracks do |track| %>
+    <%= f.simple_fields_for :tracks, html: {class: 'form-inline'} do |track| %>
       <%= render 'track_fields', f: track %>
     <% end %>
 
@@ -16,5 +15,7 @@
     </div>
 
   </div>
-  <%= f.submit "Record it!!!"%>
+  <%= f.submit "Record it!!!", class: "cassette-control-button" do %>
+    <i class="fa fa-paper-plane-o" aria-hidden="true">
+  <% end %>
 <% end %>

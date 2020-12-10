@@ -1,4 +1,14 @@
 
+  <div class="mixtape-navigation-container">
+    <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
+
+        <%= link_to 'delete this curated list? :(',
+                curated_list_path(@curated_list),
+                method: :delete,
+                data: { confirm: "Are you really really sure?!" },
+                class:"butt delete-function", id:"delete-btn" %>
+  </div>
+
 <div class="main-container curatedlist">
 
   <div class="main-left">
@@ -28,13 +38,6 @@
         </div>
       </div>
     </div>
-    <div class="delete-list-btn">
-                  <%= link_to 'delete this list? :(',
-                    curated_list_path(@curated_list),
-                    method: :delete,
-                    data: { confirm: "Are you really really sure?!" },
-                    class:"btn btn-info", id:"delete-btn" %>
-    </div>
     <!-- end div for the notepad body -->
   </div>
 
@@ -57,8 +60,6 @@
                 <% end %>
 
                 <br>
-                <%= link_to "Return to my giftapes", my_giftapes_path,
-                    class:"btn btn-info", id:"home-btn" %>
                   <!-- NEED TO LINK TO DASHBOARD/HOME path -->
     </div>
   </div>

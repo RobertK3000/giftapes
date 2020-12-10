@@ -11,9 +11,33 @@ $blue: #4cb8f5;
 $green: #a6e630;
 $yellow: #f5e82f;
 
+.cassette-control-button  {
+  background-color: #d87bc8; /* Green */
+  border: none;
+  color: rgba(0, 0, 0, 0.801);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: auto;
+  border-radius: 4px;
+  height: 50px;
+  width: 50px;
+  box-shadow: 6px -3px 4px #0a0606;
+  cursor: pointer;
+}
+
+.mixtape-navigation-container {
+  margin-bottom: 25px;
+}
+
 .mixtape-container {
+  border: 5px solid black; 
   width: 100%;
-  background-color: $gt-mixtape
+  background-color: $gt-mixtape;
+  background-color: #50d0b9;
+  opacity: 1;
+  background: linear-gradient(135deg, #6072ce55 25%, transparent 25%) -19px 0/ 38px 38px, linear-gradient(225deg, #6072ce 25%, transparent 25%) -19px 0/ 38px 38px, linear-gradient(315deg, #6072ce55 25%, transparent 25%) 0px 0/ 38px 38px, linear-gradient(45deg, #6072ce 25%, #50d0b9 25%) 0px 0/ 38px 38px;
 }
 
 .cassette-animation-container {
@@ -22,7 +46,7 @@ $yellow: #f5e82f;
   margin: auto;
   display: flex;
   justify-content: center;
-  padding-right: 450px;
+  padding-right: 458px;
   margin-top: 400px;
 }
 

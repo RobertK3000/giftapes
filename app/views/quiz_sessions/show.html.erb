@@ -1,5 +1,6 @@
 <div class="quiz-results">
   <h1> SCORE </h1>
+  <%= link_to "Create your own Quiz!", new_quiz_path%>
   <% correct_answers = [] %>
   <% @quiz_session.answerings.each do |answering| %>
     <% user_answer = answering.answer.is_correct %>
@@ -14,9 +15,7 @@
       <h2>HELL YEAH!</h2>
       <div class="before"></div>
         <div class="after"></div>
-          <i class="far fa-laugh-beam"></i>
-        </div>
-      </div>
+          <i class="far fa-laugh-beam" style="font-size: 75px;"></i>
     </div>
   <% elsif final_percentage < 90  && final_percentage > 80 %>
     <h2>DECENT!</h2>
@@ -27,8 +26,9 @@
   <% elsif final_percentage < 40 && final_percentage > 10 %>
     <h2>Meh...</h2>
   <% elsif final_percentage == 0 %>
-    <h2>I have no words...</h2>
+    <h2>Oh my...</h2>
     <i class="far fa-sad-cry"></i>
   <% end %>
+  <div class="final-score">
   <h2><%= final_percentage %> %</h2>
 </div>
