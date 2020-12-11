@@ -69,17 +69,39 @@ $gt-quiz: #E1A853;
   margin-top: 40px;
 }
 
-.giftapes-landing-name h1 {
-  color: #FFA724;
-  font-size: 100px;
-}
 
-
-.giftapes-landing-name h1:hover {
-  text-decoration: none;
+.giftapes-landing-name {
+  &:hover {
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-name: wiggle;
+  }
+  @keyframes wiggle {
+    0% { transform: translate(10px, 0); }
+    10% { transform: translate(-10px, 0); }
+    20% { transform: translate(10px, 0); }
+    30% { transform: translate(-10px, 0); }
+    40% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    60% { transform: translate(10px, 0); }
+    70% { transform: translate(-10px, 0); }
+    80% { transform: translate(10px, 0); }
+    90% { transform: translate(-10px, 0); }
+    100% { transform: translate(0, 0); }
+  }
 }
 
 
 .giftapes-landing-name {
-  margin-top: 200px;
+  margin-top: 150px;
+}
+
+.call-to-action a {
+  color: #FFA724;
+  font-size: 100px;
+  text-shadow: 6px 6px #000000b0;
+  &:hover {
+  text-decoration: none;
+  }
 }
