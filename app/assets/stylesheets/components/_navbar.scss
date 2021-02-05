@@ -1,35 +1,47 @@
-.navbar-lewagon {
+.navbar-giftapes {
   justify-content: space-between;
   background: $gt-navbar;
-}
-
-.navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  .navbar-brand {
+    text-align: left;
+    flex: 1 0 auto;
+  }
+  img { width: 100px; }
+  ul {
+    list-style-type: none;
+    font-family: $headers-font;
+    padding: 0;
+  }
+  li a {
+    &:hover {
+      background: $gt-navbar;
+      color: white;
+    }
+    color: $gt-bkg;
+  }
+  .butt {
+    padding: 8px 15px;
+  }
 }
-
-.navbar-lewagon .navbar-brand img {
-  width: 120px;
-}
-
-.navbar p {
-  font-family: $headers-font;
-  color: $gt-bkg;
-  padding-right: 10px;
-  margin-top: 10px;
-  font-size: 18px;
-}
-
+.navbar-light .navbar-toggler { border: none; }
 .navbar i {
-  font-size: 20px;
-  margin-top: 14px;
+  font-size: 2rem;
   color: $gt-bkg;
 }
-
 .navbar-giftape-create-links {
-  display: flex;
+  a {
+    margin-left: 10px;
+    font-size: 0.8rem;
+  }
 }
-
-.navbar-giftape-create-links a {
-  margin-right: 10px;
-  margin-left: 10px;
+.center {
+  display: grid;
+  place-items: center;
+}
+@media (min-width: 768px) {
+  .navbar-giftape-create-links a {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  .navbar-giftapes img { width: 120px;}
 }
