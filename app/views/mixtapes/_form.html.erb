@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
 
-  <div class="col-lg-6 col-12">
+  <div class="col-lg-6 col-12" style="margin-top:20px">
     <%= simple_form_for @mixtape do |f| %>
-      <%= f.input :name, label: "What's this mixtape called?", placeholder: "Give me a name!" %>
+      <%= f.input :name, label_html: { class: "mixtapeformstyling" }, label: "What's this mixtape called?", placeholder: "Give me a name!" %>
 
       <div class='tracks'>
         <%= f.simple_fields_for :tracks, html: {class: 'form-inline'} do |track| %>
@@ -14,12 +14,11 @@
       <% end %>
 
         <div class="links">
-          <%= link_to_add_association "Add another track", f, :tracks, class:"btn btn-addtrack btn-txt" %>
+          <%= link_to_add_association "Add another track +", f, :tracks, class:"btn btn-addtrack btn-txt" %>
         </div>
 
       </div>
-      <%= f.submit "REC 🔴", class: "recordmixtape" do %>
-        <i class="fa fa-paper-plane-o" aria-hidden="true">
+      <%= f.submit "Record! ⏺️", class: "submitmixtapeformstyling" do %>
       <% end %>
     <% end %>
   </div>

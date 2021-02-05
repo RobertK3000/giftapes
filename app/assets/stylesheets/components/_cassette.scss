@@ -11,6 +11,105 @@ $blue: #4cb8f5;
 $green: #a6e630;
 $yellow: #f5e82f;
 
+
+.note-position-1 {
+  top: 500px;
+  left: 300px;
+}
+
+.note-position-2 {
+  top: 500px;
+  right: 300px;
+}
+
+.note-position-3 {
+  top: 450px;
+  right: 200px;
+}
+
+.note-position-4 {
+  top: 450px;
+  left: 200px;
+}
+
+.animation-delay-1 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2 {
+  animation-delay: 2s;
+}
+
+.note-animation {
+  position: absolute;
+  font-size: 35px;
+  animation-name: notes;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+}
+
+@keyframes notes {
+  0% {
+    font-size: 35px;
+    opacity: 0; 
+  }
+  50% {
+    opacity: 1; 
+  }
+  100% {
+    font-size: 60px;
+    margin-top: -150px;
+    opacity: 0; 
+  }
+}
+
+
+
+
+.mixtapeformheader {
+  color: #50D0B9;
+  text-shadow: 2px 2px #944141;
+}
+.mixtapeformstyling {
+  color: #50D0B9;
+  font-size: 20px;
+  font-family: $gt-font;
+  text-shadow: 2px 2px #944141;
+}
+
+.submitmixtapeformstyling {
+  color: #944141;
+  font-size: 40px;
+  font-family: "Gloria Hallelujah", cursive;
+  text-shadow: 2px 2px #50D0B9;
+  margin-top: 30px;
+  background-color:transparent;
+  box-shadow: none;
+  border:0 none;
+  &:hover {
+    animation-duration: 450ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-name: wiggle;
+  }
+  @keyframes wiggle {
+    0% { transform: translate(10px, 0); }
+    10% { transform: translate(-10px, 0); }
+    20% { transform: translate(10px, 0); }
+    30% { transform: translate(-10px, 0); }
+    40% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    60% { transform: translate(10px, 0); }
+    70% { transform: translate(-10px, 0); }
+    80% { transform: translate(10px, 0); }
+    90% { transform: translate(-10px, 0); }
+    100% { transform: translate(0, 0); }
+  }
+}
+
+
 .cassette-control-button  {
   background-color: #d87bc8; /* Green */
   border: none;
@@ -32,27 +131,27 @@ $yellow: #f5e82f;
 }
 
 .mixtape-container {
-  border: 5px solid black; 
-  width: 100%;
-  background-color: $gt-mixtape;
-  background-color: #50d0b9;
-  opacity: 1;
-  background: linear-gradient(135deg, #6072ce55 25%, transparent 25%) -19px 0/ 38px 38px, linear-gradient(225deg, #6072ce 25%, transparent 25%) -19px 0/ 38px 38px, linear-gradient(315deg, #6072ce55 25%, transparent 25%) 0px 0/ 38px 38px, linear-gradient(45deg, #6072ce 25%, #50d0b9 25%) 0px 0/ 38px 38px;
+  width: 85%;
+  height: 600px;
+  margin: auto;
 }
 
 .cassette-animation-container {
-  height: 400px;
+  height: 270px;
   width: 300px;
   margin: auto;
   display: flex;
   justify-content: center;
-  padding-right: 458px;
-  margin-top: 400px;
+  padding-right: 340px;
+  padding-top: 50px;
+  margin-top: 150px;
+  margin-bottom: 60px;
 }
 
 .cassette-controls-container {
-  height: 100px;
+  height: 50px;
   width: 100%;
+  margin-top: 100px;
   margin: auto;
   display: flex;
   justify-content: center;

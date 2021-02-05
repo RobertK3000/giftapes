@@ -1,5 +1,14 @@
 <div class="mixtape-container grid-wrap">
 
+  <div class="musicalnotes note-position-1 note-animation">
+  </div>
+  <div class="musicalnotes note-position-2 note-animation animation-delay-2">
+  </div>
+  <div class="musicalnotes note-position-3 note-animation animation-delay-1">
+  </div>
+  <div class="musicalnotes note-position-4 note-animation">
+  </div>
+
   <div class="cassette-animation-container grid grid-anim">
 
     <div class="cassette-animation">
@@ -14,7 +23,7 @@
             <div class="case-scene">
               <div class="ft face">
                 <div class="full-mask">
-                  <span><%= @giftape.convert.name %></span>
+                  <span><%= @giftape.giftable.name %></span>
                 </div>
               </div>
               <div class="bk face"></div>
@@ -226,7 +235,6 @@
         </div>
     </div>
   </div>
-
 
   <div class="cassette-controls-container">
     <div class="js-mixtape-youtube-player" data-playlist-videos= <%= @tracks_json %>>

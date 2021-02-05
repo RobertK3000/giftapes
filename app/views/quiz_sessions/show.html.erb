@@ -1,6 +1,5 @@
 <div class="quiz-results" style= "border-radius: 20px;">
   <h1> SCORE </h1>
-  <%= link_to "Create your own Quiz!", new_quiz_path%>
   <% correct_answers = [] %>
   <% @quiz_session.answerings.each do |answering| %>
     <% user_answer = answering.answer.is_correct %>
@@ -17,18 +16,50 @@
         <div class="after"></div>
           <i class="far fa-laugh-beam" style="font-size: 75px;"></i>
     </div>
+    <div class= "final-percentage"><h2><%= final_percentage %> % </h2>
+    </div>
+  <div class="box-canvas">
+    <div class="handle left"></div>
+    <div class="handle right"></div>
+    <div class="stand">
+      <div class="plaque">
+        1
+        <div class="screws top"></div>
+        <div class="screws bottom"></div>
+      </div>
+    </div>
+    <div class="trophy-bottom">
+      <div class="cutout left"></div>
+    </div>
+    <div class="cup">
+      <div class="lip"></div>
+    </div>
+  </div>
   <% elsif final_percentage < 90  && final_percentage > 80 %>
     <h2>DECENT!</h2>
+    <div class="final-score">
+    <h2><%= final_percentage %> % </h2>
+    </div>
   <% elsif final_percentage < 80 && final_percentage > 60 %>
     <h2>NOT BAD!</h2>
+    <div class="final-score">
+    <h2><%= final_percentage %> % </h2>
+    </div>
   <% elsif final_percentage < 60 && final_percentage > 40 %>
     <h2>BANG ON AVERAGE</h2>
+    <div class="final-score">
+    <h2><%= final_percentage %> % </h2>
+    </div>
   <% elsif final_percentage < 40 && final_percentage > 10 %>
     <h2>Meh...</h2>
+    <div class="final-score">
+    <h2><%= final_percentage %> % </h2>
+    </div>
   <% elsif final_percentage == 0 %>
     <h2>Oh my...</h2>
+    <div class="final-score">
+    <h2><%= final_percentage %> % </h2>
+    </div>
     <i class="far fa-sad-cry"></i>
   <% end %>
-  <div class="final-score">
-  <h2><%= final_percentage %> %</h2>
 </div>

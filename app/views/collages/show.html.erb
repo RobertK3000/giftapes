@@ -10,7 +10,7 @@
             class:"butt delete-function", id:"delete-btn" %>
 </div>
 
-<div class="collage-bkg-container">
+<div class="collage-bkg-container mb-2">
 
   <h2> <%= @collage.name %> </h2>
   <div class="collage-show">
@@ -32,7 +32,7 @@
             <% else %>
               <div class="collage-card carousel-item">
             <% end %>
-              <%= cl_image_tag(item.photo.key, class: "d-block w-100") %>
+              <%= cl_image_tag(item.photo.key, class: "d-block mx-auto") %>
               <h4><%= item.prompt %></h4>
             </div>
           <% end %>

@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="collage-bkg-container">
+<div class="collage-bkg-container mb-3">
   <h2> <%= @collage.name %> </h2>
 
   <% @collage.errors.full_messages.each do |msg| %>
@@ -46,10 +46,11 @@
           <!-- Card div for image preview -->
           <div class="collage-card edit-collage-card">
             <div id="collage-card-img">
+              <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607645571/collage_placeholder.png">
             </div>
-            <%= c.input :prompt, label: '', id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
+            <%= c.input :prompt, label:false , id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
           </div>
-          <%= c.input :photo, label: '' %>
+          <%= c.input :photo, label:false  %>
           <%# SEARCH FORM FOR GIPHY  %>
           <form id="giphy-form">
             <button id="giphy-trending" class="butt butt-giphy curatedlist">Trending</button>

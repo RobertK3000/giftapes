@@ -3,12 +3,17 @@ $gt-curatedlist: #B7D050;
 $gt-collage: #E280E4;
 $gt-quiz: #E1A853;
 
+.landing-page-container {
+  display: inline;
+  height: 50%;
+  align-items: center;
+}
 
 .images-container {
   display: inline-grid;
   grid-gap: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 300px;
+  height: 50%;
   z-index: 100;
   display: grid
 }
@@ -19,6 +24,9 @@ $gt-quiz: #E1A853;
 }
 .tape-img {
   background-color: $gt-mixtape;
+  border: 5px solid black;
+  border-left-style: none;
+  border-right-style: none;
 }
 
 .tape-img img {
@@ -27,36 +35,73 @@ $gt-quiz: #E1A853;
 
 .quiz-img {
   background-color: $gt-quiz;
+  border: 5px solid black;
+  border-right-style: none;
 }
 .quiz-img img {
   max-width: 80%;
   max-height: 80%;
-  padding-top: 35px;
+  padding-top: 55px;
   margin-top: 13px;
 }
 
 .list-img {
   background-color: $gt-curatedlist;
+  border: 5px solid black;
+  border-right-style: none;
 }
 
 .list-img img {
   max-width: 90%;
   max-height: 90%;
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .collage-img {
   background-color: $gt-collage;
+  border: 5px solid black;
+  border-right-style: none;
 }
 
 .collage-img img {
   max-width: 90%;
-    max-height: 90%;
-    margin-top: 30px
+  max-height: 90%;
+  margin-top: 40px;
 }
 
-.giftapes-landing-name h1 {
+
+.giftapes-landing-name {
+  &:hover {
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-name: wiggle;
+  }
+  @keyframes wiggle {
+    0% { transform: translate(10px, 0); }
+    10% { transform: translate(-10px, 0); }
+    20% { transform: translate(10px, 0); }
+    30% { transform: translate(-10px, 0); }
+    40% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    60% { transform: translate(10px, 0); }
+    70% { transform: translate(-10px, 0); }
+    80% { transform: translate(10px, 0); }
+    90% { transform: translate(-10px, 0); }
+    100% { transform: translate(0, 0); }
+  }
+}
+
+
+.giftapes-landing-name {
+  margin-top: 150px;
+}
+
+.call-to-action a {
   color: #FFA724;
-  padding-top: 70px;
-  font-size: 150px;
+  font-size: 100px;
+  text-shadow: 6px 6px #000000b0;
+  &:hover {
+  text-decoration: none;
+  }
 }
