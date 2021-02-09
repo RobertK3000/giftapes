@@ -28,6 +28,9 @@
   display: inline-grid;
   grid-gap: 50px 100px;
   grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+  margin: 10px;
+
 }
 
 .delete-question-icon {
@@ -96,5 +99,15 @@
 
 .final_percentage {
   padding-top:10px;
+}
+
+.quiz {
+  box-shadow: 5px 5px 5px black;
+}
+
+@media(max-width: 768px) {
+  .question-card-container {
+    grid-template-rows: 1fr;
+  }
 }
 

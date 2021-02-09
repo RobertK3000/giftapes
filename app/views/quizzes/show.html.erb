@@ -8,15 +8,15 @@
                 class:"butt delete-function", id:"delete-btn" %>
   </div>
 
-<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
+<div class="quiz" style="width: 100%; height: auto; margin-bottom: 20px; padding-bottom: 20px;">
 
   <div class = "container mt-5 justify-content-center">
 
-    <div class="quiz-name-icons">
+
       <h1><%= @quiz.name %></h1>
       <% if user_signed_in? %>
-      </div>
-        <div class="question-card-container">
+
+        <div class="question-card-container ">
         <% @quiz.questions.each do |question| %>
         <div class="question-card" style="transform: rotate(<%=rand(-1.2..1.2)%>deg)">
           <p><strong><%= question.content %></strong></p>
