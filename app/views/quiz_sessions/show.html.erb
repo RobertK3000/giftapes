@@ -1,7 +1,4 @@
-<div class="quiz-results" style="background-color: #e1a853;
-opacity: 0.4;
-background-image: radial-gradient(#ffffff 1px, #e1a853 1px);
-background-size: 20px 20px;">
+<div class="quiz-container results">
   <h1> SCORE </h1>
   <% correct_answers = [] %>
   <% @quiz_session.answerings.each do |answering| %>
@@ -59,10 +56,10 @@ background-size: 20px 20px;">
     <h2><%= final_percentage %> % </h2>
     </div>
   <% elsif final_percentage == 0 %>
+  <i class="far fa-sad-cry" style="font-size: 75px;"></i>
     <h2>Oh my...</h2>
     <div class="final-score">
     <h2><%= final_percentage %> % </h2>
     </div>
-    <i class="far fa-sad-cry"></i>
   <% end %>
 </div>

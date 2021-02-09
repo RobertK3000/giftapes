@@ -41,9 +41,6 @@
 
 .quiz-session-container {
   padding-top: 20px;
-//   margin-bottom: 80px;
-//   margin-top: 40px;
-
 }
 
 .quiz-name-icons a {
@@ -151,10 +148,6 @@
   h1 {
     padding-bottom: 20px;
   }
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // flex-direction: column;
 }
 
 .quiz_name {
@@ -171,3 +164,14 @@
 
 }
 
+.results {
+  background-image: radial-gradient(#ffffff 2px, #e1a853 1px);
+  background-size: 30px 30px;
+  h2 {
+    color: black;
+  }
+}
+
+.final-score h2 {
+  color: black;
+}
