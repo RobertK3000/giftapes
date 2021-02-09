@@ -8,7 +8,7 @@
                 class:"butt delete-function", id:"delete-btn" %>
   </div>
 
-<div class="quiz">
+<div class="quiz-container">
 
   <!-- <div class = "container mt-5 justify-content-center"> -->
 
@@ -45,7 +45,7 @@
             <%= simple_form_for [@quiz, @question] do |q| %>
               <%= q.input :content, label: "Type your Question"%>
 
-              <%= q.submit "Now let's add some answers"%>
+              <%= q.button :submit, "Now let's add some answers!", class: 'butt-quiz' %>
             <% end %>
           </div>
         </div>
