@@ -33,3 +33,13 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+
+.nav-item a {
+  font-family: $headers-font;
+  color: $gt-bkg;
+  font-size: 20px;
+  text-decoration: none;
+  &:hover {
+    color: $gt-collage;
+  }
+}
