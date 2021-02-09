@@ -40,14 +40,14 @@
         </div>
         <% end%>
         </div>
-        <div class = "justify-content-center row question-form">
-          <div class = "col-6">
+        <div class = "question-form">
+         <!--  <div class = "col-6"> -->
             <%= simple_form_for [@quiz, @question] do |q| %>
               <%= q.input :content, label: "Type your Question"%>
 
               <%= q.button :submit, "Now let's add some answers!", class: 'butt-quiz' %>
             <% end %>
-          </div>
+          <!-- </div> -->
         </div>
       <% else %>
         <%= render "quiz_sessions/form", quiz: @quiz, quiz_session: @quiz_session%>
