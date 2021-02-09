@@ -135,4 +135,39 @@
 }
 }
 
+#new-quiz {
+  box-shadow: 5px 5px 5px black;
+  width: 100%;
+  height: auto;
+  padding-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 150px;
+  background-color: $gt-quiz;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    padding-bottom: 20px;
+  }
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+}
+
+.quiz_name {
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  #new-quiz {
+    width: 100%;
+  }
+.quiz_name {
+    width: auto;
+  }
+
+}
 
