@@ -27,11 +27,14 @@
 .navbar i {
   font-size: 2rem;
   color: $gt-bkg;
+  &:hover {
+    animation: pulse 1s ease-in;
+  }
 }
 .navbar-giftape-create-links {
   a {
     margin-left: 10px;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
 .center {
@@ -40,8 +43,13 @@
 }
 @media (min-width: 768px) {
   .navbar-giftape-create-links a {
-    font-size: 1rem;
     margin-right: 10px;
   }
   .navbar-giftapes img { width: 120px;}
+}
+
+@keyframes pulse {
+  10% {transform: scale(0.8);}
+  50% {transform: scale(1.2);}
+  70% {transform: scale(1);}
 }
