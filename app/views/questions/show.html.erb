@@ -1,8 +1,8 @@
-<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
-<h1>Quiz Name: <%= @question.quiz.name %></h1>
-<p>Question: <%=  @question.content%></p>
-<div class = "justify-content-center row">
-    <div class = "col-6">
+<div class="quiz-container">
+<h1><%= @question.quiz.name %></h1>
+<p><%=  @question.content%></p>
+<!-- <div class = "justify-content-center row"> -->
+    <div class = "questions col-6 pb-5">
        <%= simple_form_for [@question, @answer] do |q| %>
        <%= simple_fields_for :other do |o| %> 
        <%= o.input :a, label: "A", input_html: { required: true }%>
@@ -11,9 +11,11 @@
        <%= o.input :d, label: "D", input_html: { required: true }%>
        <% end %>
        <%= q.input :letter, collection: Answer::ANSWERS %>
-       <%= q.submit "Save the question!"%>
+    </div>
+    <div class="pb-5">
+       <%= q.submit "Save the question!", class:'butt-quiz'%>
        <% end %>
     </div>
-    <%= link_to "Go Back", :back %>
-  </div>
+    <%#= link_to "Go Back", :back %>
+ <!--  </div> -->
 </div>

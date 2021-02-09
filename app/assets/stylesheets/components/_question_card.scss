@@ -120,6 +120,9 @@
     font-size: 50px;
   }
 }
+.quiz-container p {
+  font-family: $headers-font;
+}
 
 
 @media (max-width: 768px) {
