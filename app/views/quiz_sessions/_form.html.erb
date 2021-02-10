@@ -1,5 +1,6 @@
+
 <div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
-  <div class = "container mt-5 justify-content-center quiz">
+  <h1><%= @quiz.name %></h1>
   <%= simple_form_for [quiz, quiz_session] do |f| %>
     <div class="question-card-container">
       <%= f.simple_fields_for :answerings do |fa| %>

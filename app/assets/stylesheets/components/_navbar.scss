@@ -53,3 +53,14 @@
   50% {transform: scale(1.2);}
   70% {transform: scale(1);}
 }
+
+.nav-item a {
+  font-family: $headers-font;
+  color: $gt-bkg;
+  font-size: 20px;
+  text-decoration: none;
+  &:hover {
+    color: $gt-collage;
+  }
+}
+

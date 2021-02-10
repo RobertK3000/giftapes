@@ -1,17 +1,18 @@
   <div class="mixtape-navigation-container">
     <%= link_to "Back to giftapes", my_giftapes_path, class:"butt back-to-giftapes" %>
   </div>
-
+  <div id="new-quiz">
 <!-- <div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;"> -->
 <div class = "container mt-5">
   <div class = "justify-content-center row">
-    <div class = "col-6">
+    <div class = "col-lg-6 col-12">
       <h1>Let's create a quiz</h1>
        <%= simple_form_for(@quiz) do |f| %>
        <%= f.input :name, label: "What should we call it?" %>
 
-       <%= f.submit "Now let's add some questions"%>
+       <%= f.submit "Add some questions", class: 'butt-quiz' %>
        <% end %>
     </div>
   </div>
+</div>
 </div>

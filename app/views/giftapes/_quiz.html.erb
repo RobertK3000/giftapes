@@ -1,13 +1,6 @@
-<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
-  <div class = "container mt-5 justify-content-center quiz">
-    <div class="quiz-name-icons">
-      <h1><%= @giftape.convert.name %></h1>
-    </div>
-      </div>
-        <%= render "quiz_sessions/form", quiz: @giftape.convert, quiz_session: @quiz_session%>
+<div class="quiz-container">
+  <%= render "quiz_sessions/form", quiz: @giftape.convert, quiz_session: @quiz_session%>
+</div>
 
-        <!-- link to 'see my results page' (answers show page) -->
-
-  </div>
 
 

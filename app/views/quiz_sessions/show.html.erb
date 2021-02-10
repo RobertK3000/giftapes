@@ -1,4 +1,4 @@
-<div class="quiz-results" style= "border-radius: 20px;">
+<div class="quiz-container results">
   <h1> SCORE </h1>
   <% correct_answers = [] %>
   <% @quiz_session.answerings.each do |answering| %>
@@ -56,10 +56,10 @@
     <h2><%= final_percentage %> % </h2>
     </div>
   <% elsif final_percentage == 0 %>
+  <i class="far fa-sad-cry" style="font-size: 75px;"></i>
     <h2>Oh my...</h2>
     <div class="final-score">
     <h2><%= final_percentage %> % </h2>
     </div>
-    <i class="far fa-sad-cry"></i>
   <% end %>
 </div>
