@@ -1,29 +1,24 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-giftapes">
   <%= link_to my_giftapes_path, class: "navbar-brand" do %>
     <%= image_tag "https://res.cloudinary.com/susanjsp/image/upload/v1607558855/logo-final.png" %>
   <% end %>
-  <div class="navbar-giftape-create-links">
-    <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt mixtape butt-block" %>
-    <%= link_to "+ QUIZ", new_quiz_path, class:"butt quiz butt-block" %>
-    <%= link_to "+ LIST", new_curated_list_path, class:"butt curatedlist butt-block" %>
-    <%= link_to "+ COLLAGE", new_collage_path, class:"butt collage butt-block" %>
-</div>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span><i class="fa fa-hamburger" aria-hidden="true"></i></span>
   </button>
-
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+    <ul class="navbar-nav w-100 justify-content-between">
+      <div class="navbar-giftape-create-links d-flex justify-content-center">
+        <%= link_to "+ MIXTAPE", new_mixtape_path, class:"butt mixtape butt-block" %>
+        <%= link_to "+ QUIZ", new_quiz_path, class:"butt quiz butt-block" %>
+        <%= link_to "+ LIST", new_curated_list_path, class:"butt curatedlist butt-block" %>
+        <%= link_to "+ COLLAGE", new_collage_path, class:"butt collage butt-block" %>
       </div>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="fas fa-arrow-alt-circle-down">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+      <% if user_signed_in? %>
+        <li class="nav-item center">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </li>
       <% else %>
-        <li class="nav-item">
+        <li class="nav-item center">
           <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
