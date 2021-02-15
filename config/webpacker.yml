@@ -90,3 +90,6 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+
+# To disable this check, please change `check_yarn_integrity` to `false` in your webpacker config file (config/webpacker.yml).
+check_yarn_integrity: false
