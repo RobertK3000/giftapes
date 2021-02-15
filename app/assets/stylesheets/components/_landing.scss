@@ -7,93 +7,152 @@ $gt-quiz: #E1A853;
   display: inline;
   height: 50%;
   align-items: center;
-  object-fit: cover;
+  // object-fit: cover;
   width: 100%;
-}
-
-.images-container {
-  width: auto;
-  display: inline-grid;
-  grid-gap: 0;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 50%;
-  z-index: 100;
-  display: grid;
-  object-fit: cover;
-}
-
-.images-container img {
-  max-width: 100%;
-  max-height: 100%;
-}
-.tape-img {
-  background-color: $gt-mixtape;
-  border: 5px solid black;
-  border-left-style: none;
-  border-right-style: none;
-}
-
-.tape-img img {
-  margin-top: 23px;
-}
-
-.quiz-img {
-  background-color: $gt-quiz;
-  border: 5px solid black;
-  border-right-style: none;
-  object-fit: cover;
-  align-items: center;
-}
-.quiz-img img {
-  max-width: 80%;
-  max-height: 80%;
-  padding-top: 55px;
-  margin-top: 13px;
-  object-fit: cover;
-}
-
-
-@media(max-width: 768px) {
-  .quiz-img img {
-  padding-top: 23px;
-}
-}
-
-@media(max-width: 768px) {
- .list-img img {
-  padding-top: 36px;
+  h2 {
+    padding-top: 90px;
+    font-size: 100px;
+    text-shadow: 6px 6px #000000b0;
+    color: #FFA724;
   }
 }
 
-@media(max-width: 768px) {
-  .collage-img img {
-    margin-top: 40px;
+.landing-images-container {
+  justify-content: center;
+}
+
+.tape-icon-container {
+  border: 5px solid $gt-mixtape;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  // margin-left: 50px;
+  object-fit: cover;
+  img {
+    height: 100px;
+    padding-top: 5px;
   }
 }
 
-.list-img {
-  background-color: $gt-curatedlist;
-  border: 5px solid black;
-  border-right-style: none;
+.quiz-icon-container {
+  border: 5px solid $gt-quiz;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin-left: 50px;
+  img {
+    height: 80px;
+    margin-top: 15px;
+  }
 }
 
-.list-img img {
-  max-width: 90%;
-  max-height: 90%;
-  padding-top: 50px;
+.list-icon-container {
+  border: 5px solid $gt-curatedlist;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin-left: 50px;
+  img {
+    height: 80px;
+    margin-top: 15px;
+  }
 }
 
-.collage-img {
-  background-color: $gt-collage;
-  border: 5px solid black;
-  border-right-style: none;
+.collage-icon-container {
+  border: 5px solid $gt-collage;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin-left: 50px;
+  img {
+    height: 80px;
+    margin-top: 15px;
+  }
 }
 
-.collage-img img {
-  max-width: 90%;
-  max-height: 90%;
-  margin-top: 40px;
-}
+// .images-container {
+//   width: auto;
+//   display: inline-grid;
+//   grid-gap: 0;
+//   grid-template-columns: 1fr 1fr 1fr 1fr;
+//   height: 50%;
+//   z-index: 100;
+//   display: grid;
+//   object-fit: cover;
+// }
+
+// .images-container img {
+//   max-width: 100%;
+//   max-height: 100%;
+// }
+// .tape-img {
+//   background-color: $gt-mixtape;
+//   border: 5px solid black;
+//   border-left-style: none;
+//   border-right-style: none;
+// }
+
+// .tape-img img {
+//   margin-top: 23px;
+// }
+
+// .quiz-img {
+//   background-color: $gt-quiz;
+//   border: 5px solid black;
+//   border-right-style: none;
+//   object-fit: cover;
+//   align-items: center;
+// }
+// .quiz-img img {
+//   max-width: 80%;
+//   max-height: 80%;
+//   padding-top: 55px;
+//   margin-top: 13px;
+//   object-fit: cover;
+// }
+
+
+// @media(max-width: 768px) {
+//   .quiz-img img {
+//   padding-top: 23px;
+// }
+// }
+
+// @media(max-width: 768px) {
+//  .list-img img {
+//   padding-top: 36px;
+//   }
+// }
+
+// @media(max-width: 768px) {
+//   .collage-img img {
+//     margin-top: 40px;
+//   }
+// }
+
+// .list-img {
+//   background-color: $gt-curatedlist;
+//   border: 5px solid black;
+//   border-right-style: none;
+// }
+
+// .list-img img {
+//   max-width: 90%;
+//   max-height: 90%;
+//   padding-top: 50px;
+// }
+
+// .collage-img {
+//   background-color: $gt-collage;
+//   border: 5px solid black;
+//   border-right-style: none;
+// }
+
+// .collage-img img {
+//   max-width: 90%;
+//   max-height: 90%;
+//   margin-top: 40px;
+// }
 
 
 .giftapes-landing-name {
@@ -120,7 +179,7 @@ $gt-quiz: #E1A853;
 
 
 .giftapes-landing-name {
-  margin-top: 80px;
+  margin-top: 60px;
   object-fit: cover;
 }
 
@@ -139,7 +198,7 @@ $gt-quiz: #E1A853;
 
 .call-to-action a {
   color: #FFA724;
-  font-size: 100px;
+  font-size: 80px;
   text-shadow: 6px 6px #000000b0;
   &:hover {
   text-decoration: none;
