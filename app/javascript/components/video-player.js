@@ -14,7 +14,7 @@ const initMixtape = () => {
 
   var fastForwardRewindSoundEffect = new Audio("https://res.cloudinary.com/susanjsp/video/upload/v1607491924/fast_forward_rewind.mp3");
 
-  const reelScenes = document.querySelectorAll(".cyl-2 ")
+  const reelScenes = document.querySelectorAll(".reels")
   console.log(reelScenes)
 
   const musicalNotes = document.querySelectorAll(".musicalnotes")
@@ -110,29 +110,14 @@ const initMixtape = () => {
       });
 
       playBtnEl.addEventListener("click", function () {
-        musicalNotes[0].innerHTML="&#9835;";
-        musicalNotes[1].innerHTML="&#9833;";
-        musicalNotes[2].innerHTML="&#9839;";
-        musicalNotes[3].innerHTML="&#9834;";
-      });
-
-
-      playBtnEl.addEventListener("click", function () {
-          reelScenes[0].classList.remove("pause")
-          reelScenes[1].classList.remove("pause")
-          reelScenes[0].classList.add("play-forward")
-          reelScenes[1].classList.add("play-forward")
+          reelScenes[0].classList.remove("spin-pause")
+          reelScenes[1].classList.remove("spin-pause")
+          reelScenes[0].classList.add("spin-normal-speed")
+          reelScenes[1].classList.add("spin-normal-speed")
     });
 
       pauseBtnEl.addEventListener("click", function () {
           players[currentTrack].pauseVideo();
-      });
-
-      pauseBtnEl.addEventListener("click", function () {
-        musicalNotes[0].innerHTML="";
-        musicalNotes[1].innerHTML="";
-        musicalNotes[2].innerHTML="";
-        musicalNotes[3].innerHTML="";
       });
 
 
@@ -142,10 +127,10 @@ const initMixtape = () => {
 
 
       pauseBtnEl.addEventListener("click", function () {
-          reelScenes[0].classList.remove("play-forward")
-          reelScenes[1].classList.remove("play-forward")
-          reelScenes[0].classList.add("pause")
-          reelScenes[1].classList.add("pause")
+          reelScenes[0].classList.remove("spin-normal-speed")
+          reelScenes[1].classList.remove("spin-normal-speed")
+          reelScenes[0].classList.add("spin-pause")
+          reelScenes[1].classList.add("spin-pause")
     });
 
 
@@ -187,8 +172,8 @@ const initMixtape = () => {
       });
 
       fastforwardBtnEl.addEventListener("mousedown", function () {
-          reelScenes[0].classList.add("fast-forward")
-          reelScenes[1].classList.add("fast-forward")
+          reelScenes[0].classList.add("spin-fast-forward")
+          reelScenes[1].classList.add("spin-fast-forward")
       });
 
       fastforwardBtnEl.addEventListener("mousedown", function () {
@@ -197,8 +182,8 @@ const initMixtape = () => {
       });
 
       fastforwardBtnEl.addEventListener("mouseup", function () {
-          reelScenes[0].classList.remove("fast-forward")
-          reelScenes[1].classList.remove("fast-forward")
+          reelScenes[0].classList.remove("spin-fast-forward")
+          reelScenes[1].classList.remove("spin-fast-forward")
       });
 
       fastforwardBtnEl.addEventListener("mouseup", function () {
@@ -232,8 +217,8 @@ const initMixtape = () => {
       });
 
       rewindBtnEl.addEventListener("mousedown", function () {
-        reelScenes[0].classList.add("reverse")
-        reelScenes[1].classList.add("reverse")
+        reelScenes[0].classList.add("spin-reverse-fast-forward")
+        reelScenes[1].classList.add("spin-reverse-fast-forward")
     });
 
       rewindBtnEl.addEventListener("mousedown", function () {
@@ -242,8 +227,8 @@ const initMixtape = () => {
     });
 
       rewindBtnEl.addEventListener("mouseup", function () {
-        reelScenes[0].classList.remove("reverse")
-        reelScenes[1].classList.remove("reverse")
+        reelScenes[0].classList.remove("spin-reverse-fast-forward")
+        reelScenes[1].classList.remove("spin-reverse-fast-forward")
     });
 
       rewindBtnEl.addEventListener("mouseup", function () {
