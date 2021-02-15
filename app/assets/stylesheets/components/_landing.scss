@@ -24,36 +24,36 @@ $gt-quiz: #E1A853;
 .tape-icon-container {
   border: 5px solid $gt-mixtape;
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
+  height: 150px;
+  width: 150px;
   // margin-left: 50px;
   object-fit: cover;
   img {
-    height: 100px;
-    padding-top: 5px;
+    height: 120px;
+    padding-top: 10px;
   }
 }
 
 .quiz-icon-container {
   border: 5px solid $gt-quiz;
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
-  margin-left: 50px;
+  height: 150px;
+  width: 150px;
+  margin-left: 40px;
   img {
-    height: 80px;
-    margin-top: 15px;
+    height: 100px;
+    margin-top: 20px;
   }
 }
 
 .list-icon-container {
   border: 5px solid $gt-curatedlist;
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
-  margin-left: 50px;
+  height: 150px;
+  width: 150px;
+  margin-left: 40px;
   img {
-    height: 80px;
+    height: 100px;
     margin-top: 15px;
   }
 }
@@ -61,11 +61,11 @@ $gt-quiz: #E1A853;
 .collage-icon-container {
   border: 5px solid $gt-collage;
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
-  margin-left: 50px;
+  height: 150px;
+  width: 150px;
+  margin-left: 40px;
   img {
-    height: 80px;
+    height: 100px;
     margin-top: 15px;
   }
 }
