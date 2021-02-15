@@ -7,6 +7,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
+    "@simonwep/pickr": "^1.8.0",
     "bootstrap": "^4.5.3",
     "cocoon": "github:nathanvda/cocoon#c24ba53",
     "jquery": "^3.5.1",
