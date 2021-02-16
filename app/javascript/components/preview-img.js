@@ -1,7 +1,7 @@
 // Only execute script on collages#edit page
 const regexp = /\/collages\/\d*\/edit/;
+
 if (regexp.test(window.location.pathname) === true ) {
-  console.log("hello");
   const addCard = document.querySelector('#collage-modal-btn');
   addCard.addEventListener('click', () => {
     // Select image uploader and image preview div

@@ -34,7 +34,7 @@
 .navbar-giftape-create-links {
   a {
     margin-left: 10px;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 .center {
@@ -43,6 +43,7 @@
 }
 @media (min-width: 768px) {
   .navbar-giftape-create-links a {
+    font-size: 1rem;
     margin-right: 10px;
   }
   .navbar-giftapes img { width: 120px;}

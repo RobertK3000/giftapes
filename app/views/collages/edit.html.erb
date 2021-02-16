@@ -50,7 +50,7 @@
             </div>
             <%= c.input :prompt, label:false , id: 'collage-card-prompt', placeholder: 'Write something embarassing' %>
           </div>
-          <%= c.input :photo, label:false  %>
+          <%= c.input :photo, label:false, presence: false  %>
           <%# SEARCH FORM FOR GIPHY  %>
           <form id="giphy-form">
             <button id="giphy-trending" class="butt butt-giphy curatedlist">Trending</button>
