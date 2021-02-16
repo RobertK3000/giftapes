@@ -5,10 +5,11 @@ $gt-quiz: #E1A853;
 
 .landing-page-container {
   display: inline;
-  height: 50%;
+  // height: 50%;
+  max-width: 500px;
   align-items: center;
-  // object-fit: cover;
-  width: 100%;
+  object-fit: cover;
+  // width: 100%;
   h2 {
     padding-top: 90px;
     font-size: 100px;
@@ -69,6 +70,16 @@ $gt-quiz: #E1A853;
     margin-top: 15px;
   }
 }
+
+// @media(max-width: 350px) {
+//   .collage-icon-container {
+//     height: 100px;
+//     width: 100px;
+//   }
+// }
+
+
+
 
 // .images-container {
 //   width: auto;
