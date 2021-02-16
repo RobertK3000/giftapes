@@ -1,46 +1,23 @@
-<!-- <div class="landing-page-container">
-  <div class="images-container"style="color: white;">
-    <div class="tape-img">
-      <img src ="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/mixtape.png">
-    </div>
-    <div class="quiz-img">
-      <img src ="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/quiz.png">
-    </div>
-    <div class="list-img">
-      <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/curatedlist.png">
-    </div>
-    <div class="collage-img">
-      <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/collage.png">
-    </div>
-  </div>
-  <div class="landing-container">
-    <div class="giftapes-name">
-      <h2>Giftapes</h2>
-    </div>
-    <div class="giftapes-landing-name">
-      <h1 class="call-to-action"><%#= link_to "LET'S CREATE!", my_giftapes_path %></h1>
-    </div>
-  </div>
-</div>
- -->
-
 <div class="landing-page-container container m-5">
-  <h2>GIFTAPES</h2>
-  <div class="landing-images-container d-flex">
-    <div class="tape-icon-container">
-      <img src ="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/mixtape.png">
+  <h2 class="landing-text">GIFTAPES</h2>
+
+  <div class="landing-images-container d-flex justify-content-center">
+    <div class="landing-icon mixtape-color">
+      <img src ="https://res.cloudinary.com/susanjsp/image/upload/v1613514322/giftapes/icons/mixtape-icon.png">
     </div>
-    <div class="quiz-icon-container">
-      <img src ="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/quiz.png">
+    <div class="landing-icon quiz-color">
+      <img src ="https://res.cloudinary.com/susanjsp/image/upload/v1613514322/giftapes/icons/quiz-icon.png">
     </div>
-      <div class="list-icon-container">
-        <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/curatedlist.png">
-      </div>
-      <div class="collage-icon-container">
-        <img src="https://res.cloudinary.com/susanjsp/image/upload/v1607477804/collage.png">
-      </div>
+    <div class="landing-icon curatedlist-color">
+      <img src="https://res.cloudinary.com/susanjsp/image/upload/v1613514322/giftapes/icons/list-icon.png">
+    </div>
+    <div class="landing-icon collage-color">
+      <img src="https://res.cloudinary.com/susanjsp/image/upload/v1613514322/giftapes/icons/collage-icon.png">
+    </div>
   </div>
-  <div class="giftapes-landing-name">
-  <h1 class="call-to-action"><%= link_to "Let's create!", my_giftapes_path %></h1>
+
+  <h1 class="landing-text call-to-action">
+    <%= link_to "Let's create!", my_giftapes_path %>
+  </h1>
 </div>
-</div>
+
