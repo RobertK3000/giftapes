@@ -28,4 +28,3 @@ import '../components/preview-img';
 import { initMixtape } from '../components/video-player';
 
 initMixtape();
-

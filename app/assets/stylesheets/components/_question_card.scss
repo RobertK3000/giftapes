@@ -4,11 +4,12 @@
   background-color: #C4C4C4;
   box-sizing: border-box;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   &:hover {
     transform: rotate(0) scale(1.1) !important;
     z-index: 1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px black;
+
   }
 }
 
@@ -28,6 +29,9 @@
   display: inline-grid;
   grid-gap: 50px 100px;
   grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+  margin: 10px;
+
 }
 
 .delete-question-icon {
@@ -35,11 +39,8 @@
   padding-right: 10px;
 }
 
-.quiz-name-icons {
-  padding-top: 50px;
-  margin-bottom: 80px;
-  margin-top: 40px;
-
+.quiz-session-container {
+  padding-top: 20px;
 }
 
 .quiz-name-icons a {
@@ -49,6 +50,9 @@
 
 .question-form {
   padding-top:100px;
+  width: 300px;
+  justify-content: center;
+  // position: relative;
 }
 
 .question-card-form {
@@ -98,3 +102,79 @@
   padding-top:10px;
 }
 
+.quiz-container {
+  box-shadow: 5px 5px 5px black;
+  width: 100%;
+  height: auto;
+  padding-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  background-color: $gt-quiz;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    padding-bottom: 25px;
+    font-size: 50px;
+  }
+}
+.quiz-container p {
+  font-family: $headers-font;
+}
+
+
+@media (max-width: 768px) {
+.question-card-container {
+    grid-template-columns: 1fr;
+  }
+.butt-quiz {
+  width: 240px;
+
+}
+}
+
+#new-quiz {
+  box-shadow: 5px 5px 5px black;
+  width: 100%;
+  height: auto;
+  padding-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 150px;
+  background-color: $gt-quiz;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    padding-bottom: 20px;
+  }
+}
+
+.quiz_name {
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  #new-quiz {
+    width: 100%;
+  }
+.quiz_name {
+    width: auto;
+  }
+
+}
+
+.results {
+  background-image: radial-gradient(#ffffff 2px, #e1a853 1px);
+  background-size: 30px 30px;
+  h2 {
+    color: black;
+  }
+}
+
+.final-score h2 {
+  color: black;
+}

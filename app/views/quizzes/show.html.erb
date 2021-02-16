@@ -8,15 +8,15 @@
                 class:"butt delete-function", id:"delete-btn" %>
   </div>
 
-<div class="quiz" style="width: 100%; margin: 0 auto; height: 1000px;">
+<div class="quiz-container">
 
-  <div class = "container mt-5 justify-content-center">
+  <!-- <div class = "container mt-5 justify-content-center"> -->
 
-    <div class="quiz-name-icons">
+
       <h1><%= @quiz.name %></h1>
       <% if user_signed_in? %>
-      </div>
-        <div class="question-card-container">
+
+        <div class="question-card-container ">
         <% @quiz.questions.each do |question| %>
         <div class="question-card" style="transform: rotate(<%=rand(-1.2..1.2)%>deg)">
           <p><strong><%= question.content %></strong></p>
@@ -40,14 +40,14 @@
         </div>
         <% end%>
         </div>
-        <div class = "justify-content-center row question-form">
-          <div class = "col-6">
+        <div class = "question-form">
+         <!--  <div class = "col-6"> -->
             <%= simple_form_for [@quiz, @question] do |q| %>
               <%= q.input :content, label: "Type your Question"%>
 
-              <%= q.submit "Now let's add some answers"%>
+              <%= q.button :submit, "Now let's add some answers!", class: 'butt-quiz' %>
             <% end %>
-          </div>
+          <!-- </div> -->
         </div>
       <% else %>
         <%= render "quiz_sessions/form", quiz: @quiz, quiz_session: @quiz_session%>
@@ -55,4 +55,3 @@
         <!-- link to 'see my results page' (answers show page) -->
       <% end %>
     </div>
-  </div>
